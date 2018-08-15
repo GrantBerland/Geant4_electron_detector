@@ -66,6 +66,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   // G4Material* env_mat = nist->FindOrBuildMaterial("G4_");
 
     // Material: Vacuum
+    //TODO: check pressures, environment for Van Allen belt altitudes
   G4Material* env_mat = new G4Material("Vacuum",
               1.0 , 1.01*g/mole, 1.0E-25*g/cm3,
               kStateGas, 2.73*kelvin, 3.0E-18*pascal );
@@ -125,7 +126,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
                     checkOverlaps);          //overlaps checking
 
 
-
+  //TODO: change these to reflect electron detector dimensions initial guess
   G4double detector_dimX = 10/2.*mm;
   G4double detector_dimY = 2.2/2.*mm;
   G4double detector_dimZ = 5./2.*mm;
@@ -140,14 +141,19 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   // ----------------------------------------------------------------
   // G4Material* detector_mat = nist->FindOrBuildMaterial("G4_Si");
 
-  G4Element* Cd = new G4Element("Cadmium","Cd",48., 112.41*g/mole);
-  G4Element* Zn = new G4Element("Zinc","Zn", 30., 65.38*g/mole);
-  G4Element* Te = new G4Element("Tellurium","Te", 52., 127.60*g/mole);
-  G4Material* CZT = new G4Material("CZT", 5.8*g/cm3, 3);
-  CZT->AddElement(Cd, 48*perCent);
-  CZT->AddElement(Zn, 02*perCent);
-  CZT->AddElement(Te, 50*perCent);
+  // (Element name, symbol, atomic number, atomic mass) (as floats)
+  G4Element* Si = new G4Element("Silicon","Si", 14., 28.0855*g/mole);
+  G4Element* S = new G4Element("Sulfer","S", 16., 32.065*g/mole);   // possible doping Material
+  G4Element* B = new G4Element("Boron","B", 5., 10.811*g/mole);   // possible doping Material
+  
 
+  // Material for window
+  G4Element* Be = new G4Element("Beryllium","Be", 4., 9.0122*g/mole);
+
+
+  G4Material* DopedSilicon = new G4Material("DopedSilicon", 5.8*g/cm3, 3);
+  DopedSilicon->AddElement(Si, 98*perCent);
+  DopedSilicon->AddElement(S, 98*perCent);
 
 
   G4ThreeVector detector_pos  = G4ThreeVector(0, 0, 0);
@@ -166,7 +172,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
 
     G4LogicalVolume* detector =
     new G4LogicalVolume(detector_solid,      //its solid
-                        CZT,                 //its material
+                        Si,                 //its material
                         detname.str());      //its name
 
     new G4PVPlacement(0,                     //no rotation
@@ -180,7 +186,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
 
   }
 
-
+  //TODO: change baffle infrastructure to proton deflection window
   // ----------------------------------------------------------------
   // Baffles:
   // ----------------------------------------------------------------
@@ -191,6 +197,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   G4ThreeVector baffle_pos;
   std::ostringstream baffle_name;
 
+  //TODO: change this to beryllium window
   // Generate baffles in between the detectors
   for (int i=-1*(n_detectors_left + 1); i <= n_detectors_right; i++) {
     baffle_name.str("");
