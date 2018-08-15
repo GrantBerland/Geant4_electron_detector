@@ -150,14 +150,14 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   G4Element* As = new G4Element("Arsenic","As", 33., 74.9216*g/mole);
 
   // Gallium Arsenide to be used in doping the silicon detector wafers (is this the right way to do it?)
-  G4Material* GalliumArsenide = new G4Material("GalliumArsenide", 5.32*g/cm3, ncomponents=2);
+  G4Material* GalliumArsenide = new G4Material("GalliumArsenide", 5.32*g/cm3, 2);
   GalliumArsenide->AddElement(Ga, 50*perCent);
   GalliumArsenide->AddElement(As, 50*perCent);
 
   G4Element* Be = new G4Element("Beryllium","Be", 4., 9.0122*g/mole);   // material for window
 
 
-  G4Material* DopedSilicon = new G4Material("DopedSilicon", 5.8*g/cm3, ncomponents=2);
+  G4Material* DopedSilicon = new G4Material("DopedSilicon", 5.8*g/cm3, 2); // last argument is ncomponents?
   DopedSilicon->AddElement(Si, 98*perCent);
   DopedSilicon->AddElement(S, 98*perCent);
 
@@ -178,7 +178,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
 
     G4LogicalVolume* detector =
     new G4LogicalVolume(detector_solid,      //its solid
-                        Si,                 //its material
+                        DopedSilicon,                 //its material
                         detname.str());      //its name
 
     new G4PVPlacement(0,                     //no rotation
