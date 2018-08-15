@@ -142,16 +142,22 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   // G4Material* detector_mat = nist->FindOrBuildMaterial("G4_Si");
 
   // (Element name, symbol, atomic number, atomic mass) (as floats)
-  G4Element* Si = new G4Element("Silicon","Si", 14., 28.0855*g/mole);
-  G4Element* S = new G4Element("Sulfer","S", 16., 32.065*g/mole);   // possible doping Material
-  G4Element* B = new G4Element("Boron","B", 5., 10.811*g/mole);   // possible doping Material
-  
+  G4Element* Si = new G4Element("Silicon","Si", 14., 28.0855*g/mole); // main waifer material for detector
+  G4Element* S = new G4Element("Sulfer","S", 16., 32.065*g/mole);   // possible doping material
+  G4Element* B = new G4Element("Boron","B", 5., 10.811*g/mole);   // possible doping material
 
-  // Material for window
-  G4Element* Be = new G4Element("Beryllium","Be", 4., 9.0122*g/mole);
+  G4Element* Ga = new G4Element("Gallium","Ga", 31., 69.723*g/mole);
+  G4Element* As = new G4Element("Arsenic","As", 33., 74.9216*g/mole);
+
+  // Gallium Arsenide to be used in doping the silicon detector wafers (is this the right way to do it?)
+  G4Material* GalliumArsenide = new G4Material("GalliumArsenide", 5.32*g/cm3, ncomponents=2);
+  GalliumArsenide->AddElement(Ga, 50*perCent);
+  GalliumArsenide->AddElement(As, 50*perCent);
+
+  G4Element* Be = new G4Element("Beryllium","Be", 4., 9.0122*g/mole);   // material for window
 
 
-  G4Material* DopedSilicon = new G4Material("DopedSilicon", 5.8*g/cm3, 3);
+  G4Material* DopedSilicon = new G4Material("DopedSilicon", 5.8*g/cm3, ncomponents=2);
   DopedSilicon->AddElement(Si, 98*perCent);
   DopedSilicon->AddElement(S, 98*perCent);
 
@@ -186,7 +192,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
 
   }
 
-  //TODO: change baffle infrastructure to proton deflection window
+  //TODO: change baffle infrastructure to Be proton deflection window
   // ----------------------------------------------------------------
   // Baffles:
   // ----------------------------------------------------------------
@@ -198,6 +204,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   std::ostringstream baffle_name;
 
   //TODO: change this to beryllium window
+
   // Generate baffles in between the detectors
   for (int i=-1*(n_detectors_left + 1); i <= n_detectors_right; i++) {
     baffle_name.str("");
