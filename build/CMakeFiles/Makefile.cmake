@@ -11,8 +11,6 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.5.1/CMakeCCompiler.cmake"
   "CMakeFiles/3.5.1/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.5.1/CMakeSystem.cmake"
-  "../exampleB1.in"
-  "../exampleB1.out"
   "../init_vis.mac"
   "../run.mac"
   "../vis.mac"
@@ -48,8 +46,6 @@ set(CMAKE_MAKEFILE_OUTPUTS
 
 # Byproducts of CMake generate step:
 set(CMAKE_MAKEFILE_PRODUCTS
-  "exampleB1.in"
-  "exampleB1.out"
   "init_vis.mac"
   "run.mac"
   "vis.mac"

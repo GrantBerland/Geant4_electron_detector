@@ -63,7 +63,6 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   // Envelope parameters
   //
   G4double env_sizeXY = 20*cm, env_sizeZ = 30*cm;
-  // G4Material* env_mat = nist->FindOrBuildMaterial("G4_");
 
     // Material: Vacuum
     //TODO: check pressures, environment for Van Allen belt altitudes
@@ -125,69 +124,87 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
 
   //TODO: change these to reflect electron detector dimensions initial guess
   G4double detector_dimX = 5.*cm;
-  G4double detector_thickness = 5./2*cm;
+  G4double detector_thickness = 1.*cm;
   G4double detector_dimZ = 5.*cm;
 
   G4double window_thickness = 0.5/2.*cm;
   G4double window_height    = 5.*cm;
   G4double window_gap       = 1.*cm;
 
-  G4int n_detectors = 2;
-
-
   // ----------------------------------------------------------------
-  // Detector elements:
+  // Materials for the detectors
   // ----------------------------------------------------------------
-  // G4Material* detector_mat = nist->FindOrBuildMaterial("G4_Si");
 
   // (Element name, symbol, atomic number, atomic mass) (as floats)
-  G4Element* Si = new G4Element("Silicon","Si", 14., 28.0855*g/mole); // main waifer material for detector
+  G4Element* Si = new G4Element("Silicon","Si", 14., 28.0855*g/mole); // main wafer material for detector
   //G4Element* S = new G4Element("Sulfer","S", 16., 32.065*g/mole);   // possible doping material
   //G4Element* B = new G4Element("Boron","B", 5., 10.811*g/mole);   // possible doping material
 
   G4Element* Ga = new G4Element("Gallium","Ga", 31., 69.723*g/mole);
   G4Element* As = new G4Element("Arsenic","As", 33., 74.9216*g/mole);
-
-
   //G4Element* Be = new G4Element("Beryllium","Be", 4., 9.0122*g/mole);   // material for window
 
   // Final doped silicon material to be used in the electron detector
   G4Material* DopedSilicon = new G4Material("DopedSilicon", 5.8*g/cm3, 3); // last argument is number of components in material
   DopedSilicon->AddElement(Si, 98*perCent);
   DopedSilicon->AddElement(Ga, 1*perCent);  // Gallium
-  DopedSilicon->AddElement(As, 1*perCent);  // Arsenic
+  DopedSilicon->AddElement(As, 1*perCent);  // Arsenic (Gallium Arsenide)
 
 
-  G4ThreeVector detector_pos  = G4ThreeVector(0, 0, 0);
+  G4ThreeVector detector1_pos  = G4ThreeVector(0, 0, 0);
+  G4ThreeVector detector2_pos = G4ThreeVector(0, 0, 0);
 
   std::ostringstream detname;
 
   G4VSolid* detector_solid = new G4Box("detector",
                    detector_dimX, detector_thickness, detector_dimZ);
 
-  // Generate the detector elements
-  // TODO: turn this into explicit creation of 2 windows (no loop needed)
-  for (int i=1; i <= n_detectors; i++){
-    detname.str("");
-    detname << "detector" << i;
+  // ----------------------------------------------------------------
+  // Detector 1 (closest to window)
+  // ----------------------------------------------------------------
 
-    detector_pos  = G4ThreeVector(0, 2*i*(detector_thickness), 0);
+  detname.str("");
+  detname << "detector1";
 
-    G4LogicalVolume* detector =
-    new G4LogicalVolume(detector_solid,      //its solid
-                        DopedSilicon,        //its material
-                        detname.str());      //its name
+  detector1_pos  = G4ThreeVector(0, 0, 0);
 
-    new G4PVPlacement(0,                     //no rotation
-                    detector_pos,            //at position
-                    detector,                //its logical volume
-                    detname.str(),           //its name
-                    logicEnv,                //its mother  volume
-                    false,                   //no boolean operation
-                    0,                       //copy number
-                    checkOverlaps);          //overlaps checking
+  G4LogicalVolume* detector1 =
+  new G4LogicalVolume(detector_solid,      //its solid
+                      DopedSilicon,        //its material
+                      detname.str());      //its name
 
-  }
+  new G4PVPlacement(0,                     //no rotation
+                  detector1_pos,            //at position
+                  detector1,                //its logical volume
+                  detname.str(),           //its name
+                  logicEnv,                //its mother  volume
+                  false,                   //no boolean operation
+                  0,                       //copy number
+                  checkOverlaps);          //overlaps checking
+
+  // ----------------------------------------------------------------
+  // Detector 2 (furthest from window)
+  // ----------------------------------------------------------------
+
+  detname.str("");
+  detname << "detector2";
+
+  detector2_pos  = G4ThreeVector(0, detector_thickness + 1.*cm, 0);
+
+  G4LogicalVolume* detector2 =
+  new G4LogicalVolume(detector_solid,      //its solid
+                      DopedSilicon,        //its material
+                      detname.str());      //its name
+
+  new G4PVPlacement(0,                     //no rotation
+                  detector2_pos,            //at position
+                  detector2,                //its logical volume
+                  detname.str(),           //its name
+                  logicEnv,                //its mother  volume
+                  false,                   //no boolean operation
+                  0,                       //copy number
+                  checkOverlaps);          //overlaps checking
+
 
   // ----------------------------------------------------------------
   // Window
@@ -218,30 +235,9 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
                     false,                   //no boolean operation
                     0,                       //copy number
                     checkOverlaps);          //overlaps checking
-/*
-  // Generate baffles in between the detectors
-  for (int i=-1*(n_detectors_left + 1); i <= n_detectors_right; i++) {
-    baffle_name.str("");
-    baffle_name << "baffle" << i;
-    baffle_pos = G4ThreeVector(0, (2*i + 1)*(detector_thickness + baffle_thickness),  baffle_height);
-    G4LogicalVolume* baffle =
-    new G4LogicalVolume(baffle_solid,          //its solid
-                          baffle_material,     //its material
-                          baffle_name.str());  //its name
 
-    new G4PVPlacement(0,                       //no rotation
-                      baffle_pos,              //at position
-                      baffle,                  //its logical volume
-                      baffle_name.str(),       //its name
-                      logicEnv,                //its mother  volume
-                      false,                   //no boolean operation
-                      0,                       //copy number
-                      checkOverlaps);          //overlaps checking
 
-  }
-  // ----------------------------------------------------------------
-*/
-  //always return the physical World
+  // always return the physical World
   return physWorld;
 }
 

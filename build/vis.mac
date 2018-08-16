@@ -21,7 +21,7 @@
 #/vis/viewer/set/viewpointThetaPhi -45. 45.
 
 # Specify zoom value:
-/vis/viewer/zoom 3
+/vis/viewer/zoom 2
 /vis/viewer/panTo -5 5 cm
 
 
@@ -68,9 +68,8 @@
 # "Envelope" is transparent blue to represent water
 /vis/geometry/set/visibility Envelope 0 false
 
-/vis/geometry/set/colour detector0 1 0 0 1 .5
-/vis/geometry/set/colour detector1  0 1 0 1 1
-/vis/geometry/set/colour detector-1  0 1 0 1 1
+/vis/geometry/set/colour detector1 1 0 0 1 .5
+/vis/geometry/set/colour detector2  0 1 0 1 1
 
 
 # Re-establish auto refreshing and verbosity:

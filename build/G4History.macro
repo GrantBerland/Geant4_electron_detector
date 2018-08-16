@@ -60,3 +60,9 @@
 /vis/viewer/set/autoRefresh true
 /vis/viewer/refresh
 /vis/verbose warnings
+/vis/geometry/set/colour detector1 1 0 0 1 1
+/vis/scene/notifyHandlers
+/vis/geometry/set/colour detector1 1 0 0 0 1
+/vis/scene/notifyHandlers
+/vis/geometry/set/colour detector1 1 0 1 0 1
+/vis/scene/notifyHandlers
