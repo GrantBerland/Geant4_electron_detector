@@ -127,8 +127,10 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   G4double detector_dimX = 5.*cm;
   G4double detector_thickness = 5./2*cm;
   G4double detector_dimZ = 5.*cm;
+
   G4double window_thickness = 0.5/2.*cm;
-  G4double window_height    = 10/2.*cm;
+  G4double window_height    = 5.*cm;
+  G4double window_gap       = 1.*cm;
 
   G4int n_detectors = 2;
 
@@ -194,8 +196,8 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   // Window
   // ----------------------------------------------------------------
 
-  G4Material* window_material = nist->FindOrBuildMaterial("G4_Be");
-  G4VSolid*   window_solid = new G4Box("window", detector_dimX, window_thickness,  window_height);
+  G4Material* window_material = nist->FindOrBuildMaterial("G4_Be");   //TODO: check that this is beryllium
+  G4VSolid*   window_solid = new G4Box("window", detector_dimX, window_thickness,  window_height/2);
 
   G4ThreeVector window_pos;
   std::ostringstream window_name;
@@ -204,7 +206,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   window_name.str("");
   window_name << "window" << 1;
 
-  window_pos = G4ThreeVector(0, (detector_thickness + window_thickness),  window_height);
+  window_pos = G4ThreeVector(0, (detector_thickness + window_thickness - window_gap),  window_height);
 
   G4LogicalVolume* window =
   new G4LogicalVolume(window_solid,         // its solid
