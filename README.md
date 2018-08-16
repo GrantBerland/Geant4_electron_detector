@@ -3,10 +3,13 @@
 To build:
 
 mkdir build
+
 cd build
+
 cmake ../
+
 make -j N
 
-To run:
+To run in interactive mode:
 
-build/main run.mac
+build/main
