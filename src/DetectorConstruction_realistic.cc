@@ -142,23 +142,20 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
 
   // (Element name, symbol, atomic number, atomic mass) (as floats)
   G4Element* Si = new G4Element("Silicon","Si", 14., 28.0855*g/mole); // main waifer material for detector
-  G4Element* S = new G4Element("Sulfer","S", 16., 32.065*g/mole);   // possible doping material
+  //G4Element* S = new G4Element("Sulfer","S", 16., 32.065*g/mole);   // possible doping material
   //G4Element* B = new G4Element("Boron","B", 5., 10.811*g/mole);   // possible doping material
 
   G4Element* Ga = new G4Element("Gallium","Ga", 31., 69.723*g/mole);
   G4Element* As = new G4Element("Arsenic","As", 33., 74.9216*g/mole);
 
-  // Gallium Arsenide to be used in doping the silicon detector wafers (is this the right way to do it?)
-  G4Material* GalliumArsenide = new G4Material("GalliumArsenide", 5.32*g/cm3, 2);
-  GalliumArsenide->AddElement(Ga, 50*perCent);
-  GalliumArsenide->AddElement(As, 50*perCent);
 
   //G4Element* Be = new G4Element("Beryllium","Be", 4., 9.0122*g/mole);   // material for window
 
   // Final doped silicon material to be used in the electron detector
-  G4Material* DopedSilicon = new G4Material("DopedSilicon", 5.8*g/cm3, 2); // last argument is ncomponents?
+  G4Material* DopedSilicon = new G4Material("DopedSilicon", 5.8*g/cm3, 3); // last argument is number of components in material
   DopedSilicon->AddElement(Si, 98*perCent);
-  DopedSilicon->AddElement(S, 2*perCent);
+  DopedSilicon->AddElement(Ga, 1*perCent);  // Gallium
+  DopedSilicon->AddElement(As, 1*perCent);  // Arsenic
 
 
   G4ThreeVector detector_pos  = G4ThreeVector(0, 0, 0);
