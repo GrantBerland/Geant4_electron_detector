@@ -127,6 +127,8 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   G4double detector_thickness = 1.*cm;
   G4double detector_dimZ = 5.*cm;
 
+  G4double distance_between_detectors = 2.*cm;
+
   G4double window_thickness = 0.5/2.*cm;
   G4double window_height    = 5.*cm;
   G4double window_gap       = 1.*cm;
@@ -189,7 +191,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   detname.str("");
   detname << "detector2";
 
-  detector2_pos  = G4ThreeVector(0, detector_thickness + 1.*cm, 0);
+  detector2_pos  = G4ThreeVector(0, detector_thickness + distance_between_detectors, 0);
 
   G4LogicalVolume* detector2 =
   new G4LogicalVolume(detector_solid,      //its solid
@@ -211,16 +213,16 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   // ----------------------------------------------------------------
 
   G4Material* window_material = nist->FindOrBuildMaterial("G4_Be");   //TODO: check that this is beryllium
-  G4VSolid*   window_solid = new G4Box("window", detector_dimX, window_thickness,  window_height/2);
+  G4VSolid*   window_solid = new G4Box("window", detector_dimX, window_thickness,  window_height);
 
   G4ThreeVector window_pos;
   std::ostringstream window_name;
 
   // Creation of beryllium window to repel protons
   window_name.str("");
-  window_name << "window" << 1;
+  window_name << "window";
 
-  window_pos = G4ThreeVector(0, (detector_thickness + window_thickness - window_gap),  window_height);
+  window_pos = G4ThreeVector(0, -(detector_thickness + window_gap),  0);
 
   G4LogicalVolume* window =
   new G4LogicalVolume(window_solid,         // its solid
