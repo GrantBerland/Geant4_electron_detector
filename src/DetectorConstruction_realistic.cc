@@ -127,11 +127,11 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
 
 
   //TODO: change these to reflect electron detector dimensions initial guess
-  G4double detector_dimX = 10/2.*mm;
-  G4double detector_dimY = 2.2/2.*mm;
-  G4double detector_dimZ = 5./2.*mm;
-  G4double baffle_thickness = 0.5/2.*mm;
-  G4double baffle_height    = 20/2.*mm;
+  G4double detector_dimX = 10/2.*cm;
+  G4double detector_dimY = 2.2/2.*cm;
+  G4double detector_dimZ = 5./2.*cm;
+  G4double window_thickness = 0.5/2.*cm;
+  G4double window_height    = 20/2.*cm;
 
   G4int n_detectors = 2;
 
@@ -197,7 +197,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   // ----------------------------------------------------------------
 
   G4Material* window_material = nist->FindOrBuildMaterial("G4_Be");
-  G4VSolid*   window_solid = new G4Box("window", detector_dimX, baffle_thickness,  baffle_height + detector_dimZ);
+  G4VSolid*   window_solid = new G4Box("window", detector_dimX, window_thickness,  window_height);
 
   G4ThreeVector window_pos;
   std::ostringstream window_name;
@@ -206,11 +206,11 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   window_name.str("");
   window_name << "window" << 1;
 
-  window_pos = G4ThreeVector(0, (2 + 1)*(detector_dimY + baffle_thickness),  baffle_height);
+  window_pos = G4ThreeVector(0, (2 + 1)*(detector_dimY + window_thickness),  window_height);
 
   G4LogicalVolume* window =
   new G4LogicalVolume(window_solid,         // its solid
-                      window_material,      // its Material
+                      window_material,      // its material
                       window_name.str());    // its name
 
   new G4PVPlacement(0,                       //no rotation
