@@ -1,0 +1,6 @@
+*.macro
+*.swp
+*.o
+
+/build
+/doc
