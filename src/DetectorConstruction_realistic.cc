@@ -133,8 +133,8 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   G4double baffle_thickness = 0.5/2.*mm;
   G4double baffle_height    = 20/2.*mm;
 
-  G4int n_detectors_right = 2;
-  G4int n_detectors_left  = 1;
+  G4int n_detectors = 2;
+
 
   // ----------------------------------------------------------------
   // Detector elements:
@@ -144,7 +144,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   // (Element name, symbol, atomic number, atomic mass) (as floats)
   G4Element* Si = new G4Element("Silicon","Si", 14., 28.0855*g/mole); // main waifer material for detector
   G4Element* S = new G4Element("Sulfer","S", 16., 32.065*g/mole);   // possible doping material
-  G4Element* B = new G4Element("Boron","B", 5., 10.811*g/mole);   // possible doping material
+  //G4Element* B = new G4Element("Boron","B", 5., 10.811*g/mole);   // possible doping material
 
   G4Element* Ga = new G4Element("Gallium","Ga", 31., 69.723*g/mole);
   G4Element* As = new G4Element("Arsenic","As", 33., 74.9216*g/mole);
@@ -154,12 +154,12 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   GalliumArsenide->AddElement(Ga, 50*perCent);
   GalliumArsenide->AddElement(As, 50*perCent);
 
-  G4Element* Be = new G4Element("Beryllium","Be", 4., 9.0122*g/mole);   // material for window
+  //G4Element* Be = new G4Element("Beryllium","Be", 4., 9.0122*g/mole);   // material for window
 
-
+  // Final doped silicon material to be used in the electron detector
   G4Material* DopedSilicon = new G4Material("DopedSilicon", 5.8*g/cm3, 2); // last argument is ncomponents?
   DopedSilicon->AddElement(Si, 98*perCent);
-  DopedSilicon->AddElement(S, 98*perCent);
+  DopedSilicon->AddElement(S, 2*perCent);
 
 
   G4ThreeVector detector_pos  = G4ThreeVector(0, 0, 0);
@@ -170,15 +170,15 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
                    detector_dimX, detector_dimY, detector_dimZ);
 
   // Generate the detector elements
-  for (int i=-n_detectors_left; i<= n_detectors_right; i++){
+  for (int i=1; i <= n_detectors; i++){
     detname.str("");
     detname << "detector" << i;
 
-    detector_pos  = G4ThreeVector(0, 2*i*(detector_dimY + baffle_thickness), 0);
+    detector_pos  = G4ThreeVector(0, 2*i*(detector_dimY), 0);
 
     G4LogicalVolume* detector =
     new G4LogicalVolume(detector_solid,      //its solid
-                        DopedSilicon,                 //its material
+                        DopedSilicon,        //its material
                         detname.str());      //its name
 
     new G4PVPlacement(0,                     //no rotation
@@ -192,19 +192,36 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
 
   }
 
-  //TODO: change baffle infrastructure to Be proton deflection window
   // ----------------------------------------------------------------
-  // Baffles:
+  // Window
   // ----------------------------------------------------------------
 
-  G4Material* baffle_material = nist->FindOrBuildMaterial("G4_W");
-  G4VSolid*   baffle_solid = new G4Box("baffle", detector_dimX, baffle_thickness,  baffle_height + detector_dimZ);
+  G4Material* window_material = nist->FindOrBuildMaterial("G4_Be");
+  G4VSolid*   window_solid = new G4Box("window", detector_dimX, baffle_thickness,  baffle_height + detector_dimZ);
 
-  G4ThreeVector baffle_pos;
-  std::ostringstream baffle_name;
+  G4ThreeVector window_pos;
+  std::ostringstream window_name;
 
-  //TODO: change this to beryllium window
+  // Creation of beryllium window to repel protons
+  window_name.str("");
+  window_name << "window" << 1;
 
+  window_pos = G4ThreeVector(0, (2 + 1)*(detector_dimY + baffle_thickness),  baffle_height);
+
+  G4LogicalVolume* window =
+  new G4LogicalVolume(window_solid,         // its solid
+                      window_material,      // its Material
+                      window_name.str());    // its name
+
+  new G4PVPlacement(0,                       //no rotation
+                    window_pos,              //at position
+                    window,                  //its logical volume
+                    window_name.str(),       //its name
+                    logicEnv,                //its mother  volume
+                    false,                   //no boolean operation
+                    0,                       //copy number
+                    checkOverlaps);          //overlaps checking
+/*
   // Generate baffles in between the detectors
   for (int i=-1*(n_detectors_left + 1); i <= n_detectors_right; i++) {
     baffle_name.str("");
@@ -226,7 +243,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
 
   }
   // ----------------------------------------------------------------
-
+*/
   //always return the physical World
   return physWorld;
 }
