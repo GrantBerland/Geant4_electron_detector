@@ -67,7 +67,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
 
     // Material: Vacuum
     //TODO: check pressures, environment for Van Allen belt altitudes
-  G4Material* env_mat = new G4Material("Vacuum",
+  G4Material* vacuum_material = new G4Material("Vacuum",
               1.0 , 1.01*g/mole, 1.0E-25*g/cm3,
               kStateGas, 2.73*kelvin, 3.0E-18*pascal );
 
@@ -81,9 +81,6 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   G4double world_sizeXY = 1.2*env_sizeXY;
   G4double world_sizeZ  = 1.2*env_sizeZ;
   // G4Material* world_mat = nist->FindOrBuildMaterial("G4_AIR");
-  G4Material* world_mat = new G4Material("Vacuum",
-              1.0 , 1.01*g/mole, 1.0E-25*g/cm3,
-              kStateGas, 2.73*kelvin, 3.0E-18*pascal );
 
   G4Box* solidWorld =
     new G4Box("World",                       //its name
@@ -91,7 +88,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
 
   G4LogicalVolume* logicWorld =
     new G4LogicalVolume(solidWorld,          //its solid
-                        world_mat,           //its material
+                        vacuum_material,           //its material
                         "World");            //its name
 
   G4VPhysicalVolume* physWorld =
@@ -113,7 +110,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
 
   G4LogicalVolume* logicEnv =
     new G4LogicalVolume(solidEnv,            //its solid
-                        env_mat,             //its material
+                        vacuum_material,             //its material
                         "Envelope");         //its name
 
   new G4PVPlacement(0,                       //no rotation
@@ -127,11 +124,11 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
 
 
   //TODO: change these to reflect electron detector dimensions initial guess
-  G4double detector_dimX = 10/2.*cm;
-  G4double detector_dimY = 2.2/2.*cm;
-  G4double detector_dimZ = 5./2.*cm;
+  G4double detector_dimX = 5.*cm;
+  G4double detector_thickness = 5./2*cm;
+  G4double detector_dimZ = 5.*cm;
   G4double window_thickness = 0.5/2.*cm;
-  G4double window_height    = 20/2.*cm;
+  G4double window_height    = 10/2.*cm;
 
   G4int n_detectors = 2;
 
@@ -167,14 +164,15 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   std::ostringstream detname;
 
   G4VSolid* detector_solid = new G4Box("detector",
-                   detector_dimX, detector_dimY, detector_dimZ);
+                   detector_dimX, detector_thickness, detector_dimZ);
 
   // Generate the detector elements
+  // TODO: turn this into explicit creation of 2 windows (no loop needed)
   for (int i=1; i <= n_detectors; i++){
     detname.str("");
     detname << "detector" << i;
 
-    detector_pos  = G4ThreeVector(0, 2*i*(detector_dimY), 0);
+    detector_pos  = G4ThreeVector(0, 2*i*(detector_thickness), 0);
 
     G4LogicalVolume* detector =
     new G4LogicalVolume(detector_solid,      //its solid
@@ -206,7 +204,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   window_name.str("");
   window_name << "window" << 1;
 
-  window_pos = G4ThreeVector(0, (2 + 1)*(detector_dimY + window_thickness),  window_height);
+  window_pos = G4ThreeVector(0, (detector_thickness + window_thickness),  window_height);
 
   G4LogicalVolume* window =
   new G4LogicalVolume(window_solid,         // its solid
@@ -226,7 +224,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   for (int i=-1*(n_detectors_left + 1); i <= n_detectors_right; i++) {
     baffle_name.str("");
     baffle_name << "baffle" << i;
-    baffle_pos = G4ThreeVector(0, (2*i + 1)*(detector_dimY + baffle_thickness),  baffle_height);
+    baffle_pos = G4ThreeVector(0, (2*i + 1)*(detector_thickness + baffle_thickness),  baffle_height);
     G4LogicalVolume* baffle =
     new G4LogicalVolume(baffle_solid,          //its solid
                           baffle_material,     //its material
