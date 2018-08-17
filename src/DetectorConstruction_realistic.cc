@@ -125,12 +125,13 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   // Dimensions for detectors (both use the same dimensions)
   G4double detector_dimX = 5.*cm;
   G4double detector_dimZ = 5.*cm;
-  G4double detector_thickness = 2.*mm;
+  G4double detector_thickness = 1.*mm;
 
   G4double distance_between_detectors = 5.*mm;
 
+  // Window dimensions
   G4double window_thickness = 0.25*cm;
-  G4double window_height    = 5.*cm;
+  G4double window_height    = 5.*cm;  // square window with this side dimension
   G4double window_gap       = 1.*cm;
 
   // ----------------------------------------------------------------
@@ -148,9 +149,9 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
 
   // Final doped silicon material to be used in the electron detector
   G4Material* DopedSilicon = new G4Material("DopedSilicon", 5.8*g/cm3, 3); // last argument is number of components in material
-  DopedSilicon->AddElement(Si, 98*perCent);
-  DopedSilicon->AddElement(Ga, 1*perCent);  // Gallium
-  DopedSilicon->AddElement(As, 1*perCent);  // Arsenic (Gallium Arsenide)
+  DopedSilicon->AddElement(Si, 96*perCent);
+  DopedSilicon->AddElement(Ga, 2*perCent);  // Gallium
+  DopedSilicon->AddElement(As, 2*perCent);  // Arsenic (Gallium Arsenide)
 
 
   G4ThreeVector detector1_pos  = G4ThreeVector(0, 0, 0);

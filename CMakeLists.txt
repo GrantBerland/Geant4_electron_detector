@@ -49,6 +49,7 @@ set(EXAMPLEB1_SCRIPTS
   run_multiple_angles.mac
   run_adjoint_simulation_electron.mac
   vis.mac
+  plotHisto.C
   )
 
 foreach(_script ${EXAMPLEB1_SCRIPTS})

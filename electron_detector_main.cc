@@ -32,6 +32,9 @@
 #include "ActionInitialization.hh"
 #include "RunAction.hh"
 
+// For histogram generation
+#include "HistoManager.hh"
+
 // Multithreading header support
 #ifdef G4MULTITHREADED
 #include "G4MTRunManager.hh"
