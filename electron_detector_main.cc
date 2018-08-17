@@ -77,25 +77,22 @@ int main(int argc,char** argv)
 
   // Construct the default run manager
 #ifdef G4MULTITHREADED
+  G4int nThreads = 4;
   G4MTRunManager* runManager = new G4MTRunManager;
+  runManager->SetNumberOfThreads(nThreads);
 #else
   G4RunManager* runManager = new G4RunManager;
 #endif
 
-  // Set mandatory initialization classes
-  //
-  // Detector construction
-  runManager->SetUserInitialization(new DetectorConstruction());
-
-  // Scoring manager construction
-  // G4ScoringManager* scoringManager = G4ScoringManager::GetScoringManager();
 
   // Physics list
   // G4VModularPhysicsList* physicsList = new FTFP_BERT; //QBBC;
   G4PhysListFactory factory;
   G4VModularPhysicsList* physicsList = factory.GetReferencePhysList("FTFP_BERT_LIV");
   physicsList->SetVerboseLevel(1);
+  runManager->SetUserInitialization(new DetectorConstruction());
   runManager->SetUserInitialization(physicsList);
+  runManager->SetUserInitialization(new ActionInitialization());
 
   G4double lowLimit = 250. * eV;
   G4double highLimit = 100. * GeV;
@@ -112,9 +109,8 @@ int main(int argc,char** argv)
   theAdjointSimManager->SetAdjointRunAction(theRunAction);
   //theAdjointSimManager->SetAdjointEventAction(new SteppingAction());
 
-
   // User action initialization
-  runManager->SetUserInitialization(new ActionInitialization());
+
 
   // Initialize visualization
   //
