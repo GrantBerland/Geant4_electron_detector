@@ -23,7 +23,6 @@
 // * acceptance of all terms of the Geant4 Software license.          *
 // ********************************************************************
 //
-// $Id: exampleB1.cc 86065 2014-11-07 08:51:15Z gcosmo $
 //
 /// \file electron_detector_main.cc
 /// \brief Main program of the electron detector simulation
@@ -31,6 +30,7 @@
 // Base simulation building classes
 #include "DetectorConstruction.hh"
 #include "ActionInitialization.hh"
+#include "RunAction.hh"
 
 // Multithreading header support
 #ifdef G4MULTITHREADED
@@ -44,6 +44,7 @@
 #include "FTFP_BERT.hh"
 #include "G4EmLivermorePhysics.hh"
 #include "G4PhysListFactory.hh"
+#include "G4AdjointPhysicsList.hh"
 
 #ifdef G4VIS_USE
 #include "G4VisExecutive.hh"
@@ -56,9 +57,8 @@
 #include "G4SystemOfUnits.hh"
 #include "Randomize.hh"
 
-// Adjoint (reverse) Monte Carlo headers
+// Adjoint (reverse) Monte Carlo header
 #include "G4AdjointSimManager.hh"
-#include "G4AdjointPhysicsList.hh"
 
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -74,9 +74,8 @@ int main(int argc,char** argv)
 
   // Choose the Random engine
   G4Random::setTheEngine(new CLHEP::RanecuEngine);
-  
+
   // Construct the default run manager
-  //
 #ifdef G4MULTITHREADED
   G4MTRunManager* runManager = new G4MTRunManager;
 #else
@@ -93,20 +92,30 @@ int main(int argc,char** argv)
 
   // Physics list
   // G4VModularPhysicsList* physicsList = new FTFP_BERT; //QBBC;
-  G4PhysListFactory factory; 
+  G4PhysListFactory factory;
   G4VModularPhysicsList* physicsList = factory.GetReferencePhysList("FTFP_BERT_LIV");
   physicsList->SetVerboseLevel(1);
   runManager->SetUserInitialization(physicsList);
-    
+
   G4double lowLimit = 250. * eV;
   G4double highLimit = 100. * GeV;
   G4ProductionCutsTable::GetProductionCutsTable()->SetEnergyRange(lowLimit, highLimit);
 
   // runManager->SetUserInitialization(new PhysicsList);
 
+  RunAction* theRunAction = new RunAction;
+
+  // Adjoint simulation manager for reverse Monte Carlo mode
+  G4AdjointSimManager* theAdjointSimManager = G4AdjointSimManager::GetInstance();
+
+  // Adjoint run actions
+  theAdjointSimManager->SetAdjointRunAction(theRunAction);
+  //theAdjointSimManager->SetAdjointEventAction(new SteppingAction());
+
+
   // User action initialization
   runManager->SetUserInitialization(new ActionInitialization());
-  
+
   // Initialize visualization
   //
   G4VisManager* visManager = new G4VisExecutive;
@@ -119,13 +128,13 @@ int main(int argc,char** argv)
 
   // Process macro or start UI session
   //
-  if ( ! ui ) { 
+  if ( ! ui ) {
     // batch mode
     G4String command = "/control/execute ";
     G4String fileName = argv[1];
     UImanager->ApplyCommand(command+fileName);
   }
-  else { 
+  else {
     // interactive mode
     UImanager->ApplyCommand("/control/execute init_vis.mac");
     ui->SessionStart();
@@ -134,9 +143,9 @@ int main(int argc,char** argv)
 
   // Job termination
   // Free the store: user actions, physics_list and detector_description are
-  // owned and deleted by the run manager, so they should not be deleted 
+  // owned and deleted by the run manager, so they should not be deleted
   // in the main() program !
-  
+
   delete visManager;
   delete runManager;
 }
