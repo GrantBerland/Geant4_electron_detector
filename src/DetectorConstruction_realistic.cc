@@ -127,7 +127,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   G4double detector_dimZ = 5.*cm;
   G4double detector_thickness = 2.*mm;
 
-  G4double distance_between_detectors = 2.*mm;
+  G4double distance_between_detectors = 5.*mm;
 
   G4double window_thickness = 0.25*cm;
   G4double window_height    = 5.*cm;

@@ -51,7 +51,7 @@
 
 # Axes, scale, etc.
 /vis/scene/add/scale   # Simple scale line
-/vis/scene/add/axes 0 0 0 5 cm   # Simple axes: x=red, y=green, z=blue.
+/vis/scene/add/axes 0 0 0 2 cm   # Simple axes: x=red, y=green, z=blue.
 /vis/scene/add/eventID # Drawn at end of event
 /vis/scene/add/date    # Date stamp
 
@@ -69,8 +69,8 @@
 /vis/geometry/set/visibility Envelope 0 false
 
 /vis/geometry/set/colour detector1 1 0 0 1 .5
-/vis/geometry/set/colour detector2  0 1 0 1 .5
-
+/vis/geometry/set/colour detector2  1 0 0 1 .5
+/vis/geometry/set/colour window 1 1 1 1 .25
 
 # Re-establish auto refreshing and verbosity:
 /vis/viewer/set/autoRefresh true
