@@ -15,4 +15,4 @@ To run in interactive mode:
 
 build/main
 
-Idle> /control/execute run.mac
+Idle> /control/execute <run file>.mac
