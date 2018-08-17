@@ -4,10 +4,10 @@
 #
 #Define some geometrical parameters
 ###############################################
-/RMC01/geometry/SetSensitiveVolumeHeight 1. mm
-/RMC01/geometry/SetSensitiveVolumeRadius 1. mm
+/geometry/SetSensitiveVolumeHeight 1. mm
+/geometry/SetSensitiveVolumeRadius 1. mm
 
-/RMC01/geometry/SetShieldingThickness 2. mm
+/geometry/SetShieldingThickness 2. mm
 
 
 #
@@ -54,12 +54,12 @@
 #Definition of the primary spectrum to which 
 #the results of the adjoint/reverse simulation will be normalised
 
-/RMC01/analysis/SetExponentialSpectrumForAdjointSim e- 1. cm-2 1. 1e-3 10. MeV 
+//analysis/SetExponentialSpectrumForAdjointSim e- 1. cm-2 1. 1e-3 10. MeV 
 
 
 #Definition of the precision in % that the computed energy deposited should reach 
 #before aborting the run. 
-/RMC01/analysis/SetExpectedPrecisionOfResults 1.
+/analysis/SetExpectedPrecisionOfResults 1.
 
 
 
