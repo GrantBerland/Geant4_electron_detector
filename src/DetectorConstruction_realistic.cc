@@ -122,16 +122,16 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
                     checkOverlaps);          //overlaps checking
 
 
-  //TODO: change these to reflect electron detector dimensions initial guess
+  // Dimensions for detectors (both use the same dimensions)
   G4double detector_dimX = 5.*cm;
-  G4double detector_thickness = 1.*cm;
   G4double detector_dimZ = 5.*cm;
+  G4double detector_thickness = 0.75*cm;
 
   G4double distance_between_detectors = 2.*cm;
 
-  G4double window_thickness = 0.5/2.*cm;
+  G4double window_thickness = 0.5*cm;
   G4double window_height    = 5.*cm;
-  G4double window_gap       = 1.*cm;
+  G4double window_gap       = 2.*cm;
 
   // ----------------------------------------------------------------
   // Materials for the detectors

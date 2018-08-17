@@ -4,7 +4,7 @@
 # or interactively: Idle> /control/execute run1.mac
 #
 # Change the default number of workers (in multi-threading mode) 
-#/run/numberOfWorkers 1
+#/run/numberOfWorkers 4
 #
 # Initialize kernel
 /run/initialize
@@ -18,9 +18,9 @@
 # General Particle Source:
 
 /gps/particle e-
-/gps/position 0 0 -10 cm
+/gps/position 0 -10 0 cm
 #/gps/pos/type Point
-/gps/direction 0 0 1
+/gps/direction 0 1 0
 /gps/pos/type Beam
 /gps/pos/shape Circle
 /gps/pos/radius 2. mm
