@@ -25,8 +25,8 @@
 //
 // $Id: exampleB1.cc 86065 2014-11-07 08:51:15Z gcosmo $
 //
-/// \file exampleB1.cc
-/// \brief Main program of the B1 example
+/// \file electron_detector_main.cc
+/// \brief Main program of the electron detector simulation
 
 // Base simulation building classes
 #include "DetectorConstruction.hh"
