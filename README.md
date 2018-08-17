@@ -10,6 +10,9 @@ cmake ../
 
 make -j N
 
+
 To run in interactive mode:
 
 build/main
+
+Idle> /control/execute run.mac
