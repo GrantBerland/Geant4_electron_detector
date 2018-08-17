@@ -28,18 +28,19 @@
 /// \file exampleB1.cc
 /// \brief Main program of the B1 example
 
+// Base simulation building classes
 #include "DetectorConstruction.hh"
 #include "ActionInitialization.hh"
 
+// Multithreading header support
 #ifdef G4MULTITHREADED
 #include "G4MTRunManager.hh"
 #else
 #include "G4RunManager.hh"
 #endif
 
+// Physics lists
 #include "G4UImanager.hh"
-// #include "QBBC.hh"
-// #include "QGSP_BIC_HP.hh"
 #include "FTFP_BERT.hh"
 #include "G4EmLivermorePhysics.hh"
 #include "G4PhysListFactory.hh"
@@ -55,7 +56,10 @@
 #include "G4SystemOfUnits.hh"
 #include "Randomize.hh"
 
-// #include "G4ScoringManager.hh"
+// Adjoint (reverse) Monte Carlo headers
+#include "G4AdjointSimManager.hh"
+#include "G4AdjointPhysicsList.hh"
+
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
