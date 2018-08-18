@@ -20,8 +20,8 @@ with open('run_rand_sources.mac', 'w') as f:
     
     for i in range(0, num_sources):
     
-        x_pos = rand.random() * x_range
-        z_pos = rand.random() * z_range
+        x_pos = rand.uniform(-x_range/2, x_range/2)
+        z_pos = rand.uniform(-z_range/2, z_range/2)
         position_string = str(x_pos) + ' ' + str(y_offset) + ' ' + str(z_pos) + ' cm'
         
         x_dir = rand.uniform(-1, 1)
@@ -29,16 +29,15 @@ with open('run_rand_sources.mac', 'w') as f:
         z_dir = rand.uniform(-1, 1)
         direction_string = str(x_dir) + ' ' + str(y_dir) + ' ' + str(z_dir)
 	
-        f.write('\n# Particle source' + str(counter) + '\n')
+        f.write('\n# Particle source ' + str(counter) + '\n')
         f.write('/gps/particle e-\n')
-        f.write('/gps/ene/type Lin \n')
-        f.write('/gps/ene/min 100 keV \n')
-        f.write('/gps/ene/max 10 Mev \n')
+        f.write('/gps/ene/min 100. keV \n')
+        f.write('/gps/ene/max 10. MeV \n')
         f.write('/gps/position ' + position_string + '\n')
         f.write('/gps/direction ' + direction_string + '\n')
         f.write('/gps/pos/type Point \n')
         
-        f.write('\n/run/beamOn 100')
+        f.write('\n/run/beamOn 100 \n')
 
         counter = counter + 1
 
