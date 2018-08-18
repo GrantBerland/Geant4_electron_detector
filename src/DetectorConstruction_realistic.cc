@@ -125,14 +125,14 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   // Dimensions for detectors (both use the same dimensions)
   G4double detector_dimX = 5.*cm;
   G4double detector_dimZ = 5.*cm;
-  G4double detector_thickness = 1.*mm;
+  G4double detector_thickness = 0.5*mm;
 
-  G4double distance_between_detectors = 5.*mm;
+  G4double distance_between_detectors = 2.5*mm;
 
   // Window dimensions
-  G4double window_thickness = 0.25*cm;
+  G4double window_thickness = 1*mm;
   G4double window_height    = 5.*cm;  // square window with this side dimension
-  G4double window_gap       = 1.*cm;
+  G4double window_gap       = 2.*mm;
 
   // ----------------------------------------------------------------
   // Materials for the detectors
@@ -141,17 +141,19 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   // (Element name, symbol, atomic number, atomic mass) (as floats)
   G4Element* Si = new G4Element("Silicon","Si", 14., 28.0855*g/mole); // main wafer material for detector
   //G4Element* S = new G4Element("Sulfer","S", 16., 32.065*g/mole);   // possible doping material
-  //G4Element* B = new G4Element("Boron","B", 5., 10.811*g/mole);   // possible doping material
+  G4Element* B = new G4Element("Boron","B", 5., 10.811*g/mole);   // possible doping material
 
-  G4Element* Ga = new G4Element("Gallium","Ga", 31., 69.723*g/mole);
-  G4Element* As = new G4Element("Arsenic","As", 33., 74.9216*g/mole);
+  //G4Element* Ga = new G4Element("Gallium","Ga", 31., 69.723*g/mole);
+  //G4Element* As = new G4Element("Arsenic","As", 33., 74.9216*g/mole);
   //G4Element* Be = new G4Element("Beryllium","Be", 4., 9.0122*g/mole);   // material for window
 
   // Final doped silicon material to be used in the electron detector
-  G4Material* DopedSilicon = new G4Material("DopedSilicon", 5.8*g/cm3, 3); // last argument is number of components in material
+  G4Material* DopedSilicon = new G4Material("DopedSilicon", 5.8*g/cm3, 2); // last argument is number of components in material
   DopedSilicon->AddElement(Si, 96*perCent);
-  DopedSilicon->AddElement(Ga, 2*perCent);  // Gallium
-  DopedSilicon->AddElement(As, 2*perCent);  // Arsenic (Gallium Arsenide)
+  DopedSilicon->AddElement(B, 4*perCent);
+
+  //DopedSilicon->AddElement(Ga, 2*perCent);  // Gallium
+  //DopedSilicon->AddElement(As, 2*perCent);  // Arsenic (Gallium Arsenide)
 
 
   G4ThreeVector detector1_pos  = G4ThreeVector(0, 0, 0);

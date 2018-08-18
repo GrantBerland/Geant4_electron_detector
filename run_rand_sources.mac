@@ -1,0 +1,706 @@
+/run/initialize 
+/control/verbose 0 
+/run/verbose 0 
+/event/verbose 0 
+/tracking/verbose 0 
+
+# Particle source1
+/gps/particle e-
+/gps/position 4.515567879355815 -5 1.2177518267901015 cm
+/gps/direction 0.6658650131858657 1 -0.25018517450504385
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source2
+/gps/particle e-
+/gps/position 1.517448158501356 -5 2.9013303351160507 cm
+/gps/direction -0.12445852888267539 1 0.6883374542701031
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source3
+/gps/particle e-
+/gps/position 2.5030017576806407 -5 2.4221520724976164 cm
+/gps/direction 0.6035681292860984 1 0.9896981042237782
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source4
+/gps/particle e-
+/gps/position 4.221004378510606 -5 1.358890595371796 cm
+/gps/direction -0.05934117450407905 1 -0.13968467434810372
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source5
+/gps/particle e-
+/gps/position 4.693425589098556 -5 1.1855716663845945 cm
+/gps/direction 0.6985034974916517 1 0.07421949410076922
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source6
+/gps/particle e-
+/gps/position 4.862402366448783 -5 4.941265149901206 cm
+/gps/direction 0.20868033735893965 1 -0.055687343475251616
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source7
+/gps/particle e-
+/gps/position 4.73586023093458 -5 2.504668310896438 cm
+/gps/direction 0.5623575507813592 1 -0.3290211334337274
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source8
+/gps/particle e-
+/gps/position 3.7353378907098413 -5 1.2820959137180044 cm
+/gps/direction 0.8160958627268788 1 -0.3411114953770982
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source9
+/gps/particle e-
+/gps/position 2.475664347075595 -5 1.3821901658069917 cm
+/gps/direction 0.014904206799029707 1 -0.9872750762013278
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source10
+/gps/particle e-
+/gps/position 4.178190243967321 -5 2.4540710097041343 cm
+/gps/direction 0.8660874620237486 1 0.4850130946844262
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source11
+/gps/particle e-
+/gps/position 0.131170524148716 -5 4.7344541026829425 cm
+/gps/direction -0.5002138285332685 1 -0.754559390534767
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source12
+/gps/particle e-
+/gps/position 1.4304590315996428 -5 1.4177742050495885 cm
+/gps/direction 0.36560213919977125 1 -0.31548890519153105
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source13
+/gps/particle e-
+/gps/position 1.1965665686866855 -5 2.0109209500605156 cm
+/gps/direction 0.20419300403634377 1 0.3570081379232697
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source14
+/gps/particle e-
+/gps/position 1.0396158416518246 -5 1.1360885957110078 cm
+/gps/direction -0.28870456323360116 1 -0.25539509663632765
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source15
+/gps/particle e-
+/gps/position 3.7284569147721545 -5 3.5779301470560188 cm
+/gps/direction -0.4676959036695789 1 0.015321297179744064
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source16
+/gps/particle e-
+/gps/position 1.5883059559953256 -5 1.126523287964396 cm
+/gps/direction -0.5203867801357416 1 0.039164320107733186
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source17
+/gps/particle e-
+/gps/position 4.989547572218097 -5 2.2550626778332843 cm
+/gps/direction 0.25623481837517814 1 0.6943273733977804
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source18
+/gps/particle e-
+/gps/position 4.776962400784698 -5 0.44250618373050166 cm
+/gps/direction 0.4951942613601592 1 0.3113158250966499
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source19
+/gps/particle e-
+/gps/position 0.500073796552663 -5 2.142328478214523 cm
+/gps/direction -0.03543681901849327 1 0.5778722521068058
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source20
+/gps/particle e-
+/gps/position 2.8251655046552537 -5 2.8715388826176804 cm
+/gps/direction -0.968358883931097 1 -0.12645925926957102
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source21
+/gps/particle e-
+/gps/position 4.095338963356658 -5 4.397315818704193 cm
+/gps/direction 0.21800892972574548 1 -0.7327255829235289
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source22
+/gps/particle e-
+/gps/position 4.467003095006475 -5 4.775894763896538 cm
+/gps/direction 0.3808349500563426 1 0.07240728588932455
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source23
+/gps/particle e-
+/gps/position 1.8413170589964334 -5 0.6288150180762636 cm
+/gps/direction -0.6486288879869395 1 -0.10467174459041706
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source24
+/gps/particle e-
+/gps/position 2.41609337745533 -5 2.352309688903077 cm
+/gps/direction -0.24168237065516207 1 -0.1606174780880958
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source25
+/gps/particle e-
+/gps/position 3.4018519904721756 -5 2.9100032548097476 cm
+/gps/direction 0.37232811033264124 1 0.06804762853796431
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source26
+/gps/particle e-
+/gps/position 0.13156041869441915 -5 2.636747999585598 cm
+/gps/direction 0.08963307746812488 1 -0.15586424604674898
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source27
+/gps/particle e-
+/gps/position 1.2540484252070057 -5 2.5816886584164394 cm
+/gps/direction -0.4172846949761193 1 -0.7632381871924943
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source28
+/gps/particle e-
+/gps/position 2.107971910066638 -5 0.5283443038087621 cm
+/gps/direction -0.25883567627385107 1 0.05987241800460419
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source29
+/gps/particle e-
+/gps/position 4.588642596272509 -5 0.38990880121427596 cm
+/gps/direction -0.31127137208627076 1 0.2577472351933896
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source30
+/gps/particle e-
+/gps/position 4.401845894121306 -5 4.438679602435503 cm
+/gps/direction 0.4067035317451113 1 0.3418731123882055
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source31
+/gps/particle e-
+/gps/position 0.09398799572099437 -5 0.3808646381374464 cm
+/gps/direction -0.5580493756570364 1 0.34572248682712114
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source32
+/gps/particle e-
+/gps/position 1.402200576583701 -5 4.438682147833268 cm
+/gps/direction 0.9372769854379535 1 0.6489868206834559
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source33
+/gps/particle e-
+/gps/position 3.540225665080139 -5 1.4405666388867922 cm
+/gps/direction 0.9597257991528332 1 0.5445414056082973
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source34
+/gps/particle e-
+/gps/position 1.8051437906072225 -5 3.8171671566380256 cm
+/gps/direction 0.35228942532545604 1 0.7392077444832712
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source35
+/gps/particle e-
+/gps/position 2.7625165639393274 -5 2.5404943864562943 cm
+/gps/direction 0.12727265440097568 1 -0.07986310937354246
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source36
+/gps/particle e-
+/gps/position 2.1310949346256836 -5 3.01007487002072 cm
+/gps/direction 0.15478676123513746 1 0.9908137986323848
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source37
+/gps/particle e-
+/gps/position 3.80375607273082 -5 2.758251423564277 cm
+/gps/direction -0.9383375182153653 1 -0.5871216476648211
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source38
+/gps/particle e-
+/gps/position 2.703863631364944 -5 0.8039185471475901 cm
+/gps/direction 0.22370570096142495 1 0.4669829544363959
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source39
+/gps/particle e-
+/gps/position 4.433968784413013 -5 3.7830018134521697 cm
+/gps/direction 0.8419491412451681 1 -0.17494728933611836
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source40
+/gps/particle e-
+/gps/position 1.2478825286925836 -5 3.451203153616414 cm
+/gps/direction 0.22317659310014903 1 0.38874398704764834
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source41
+/gps/particle e-
+/gps/position 1.8006593284979577 -5 1.2826111951128398 cm
+/gps/direction -0.04682876171216366 1 -0.3057806794606488
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source42
+/gps/particle e-
+/gps/position 3.3668894242247207 -5 1.7849281515827176 cm
+/gps/direction 0.2830828077037395 1 0.26189526031562993
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source43
+/gps/particle e-
+/gps/position 1.0283066266975376 -5 1.6571858514094717 cm
+/gps/direction -0.9454812641215873 1 0.4219918981260766
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source44
+/gps/particle e-
+/gps/position 1.8185133915822205 -5 3.0332212225138004 cm
+/gps/direction 0.29133377171768227 1 -0.2584776933829762
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source45
+/gps/particle e-
+/gps/position 0.8747706517756254 -5 2.4597826273870926 cm
+/gps/direction -0.5728235074349453 1 -0.10911741693417842
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source46
+/gps/particle e-
+/gps/position 1.776902585668802 -5 3.7162569992900414 cm
+/gps/direction -0.809574112129458 1 0.07207332517948606
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source47
+/gps/particle e-
+/gps/position 1.6175005812987213 -5 4.152816867028919 cm
+/gps/direction -0.8287927429126398 1 -0.7432345944181831
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source48
+/gps/particle e-
+/gps/position 0.5172530181920498 -5 0.644649911041813 cm
+/gps/direction -0.7099058399929798 1 0.7132088197708037
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source49
+/gps/particle e-
+/gps/position 0.48859766640395985 -5 0.33754265693860863 cm
+/gps/direction 0.7500960045405671 1 -0.27554987801755937
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source50
+/gps/particle e-
+/gps/position 2.702338710025563 -5 1.7367717697082852 cm
+/gps/direction -0.3527918987732168 1 -0.06960311181297274
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source51
+/gps/particle e-
+/gps/position 4.318647734704887 -5 4.891227309088299 cm
+/gps/direction 0.2921538830587602 1 -0.3449627856220301
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source52
+/gps/particle e-
+/gps/position 2.668689119950647 -5 3.6899405065146746 cm
+/gps/direction -0.6318650937830108 1 0.159042395190089
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source53
+/gps/particle e-
+/gps/position 2.0097110047303297 -5 3.635850326444416 cm
+/gps/direction 0.34866625504443727 1 -0.9514856218318828
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source54
+/gps/particle e-
+/gps/position 4.568854032419831 -5 3.2017124222277777 cm
+/gps/direction -0.268472424187411 1 0.17915908007036818
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source55
+/gps/particle e-
+/gps/position 1.1223742254366753 -5 0.8372483283775206 cm
+/gps/direction 0.8530803609164408 1 -0.3262781669297361
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source56
+/gps/particle e-
+/gps/position 4.214269140651563 -5 2.971501322893191 cm
+/gps/direction -0.21515080590526448 1 -0.8847016592176724
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source57
+/gps/particle e-
+/gps/position 0.5443355790742943 -5 2.162932572087607 cm
+/gps/direction -0.3433385126731494 1 -0.5230635764629323
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source58
+/gps/particle e-
+/gps/position 4.481667712237075 -5 4.732751300012122 cm
+/gps/direction 0.5076031485720507 1 -0.873428446648993
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source59
+/gps/particle e-
+/gps/position 2.724253733936941 -5 3.591755801530531 cm
+/gps/direction 0.1816551181636894 1 -0.06573307277814577
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source60
+/gps/particle e-
+/gps/position 4.088980447075469 -5 2.6634084008217966 cm
+/gps/direction -0.2707103184942712 1 -0.13655728315589788
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source61
+/gps/particle e-
+/gps/position 1.736129326267804 -5 4.2198444881067845 cm
+/gps/direction -0.16349868075275897 1 -0.4182916947733408
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source62
+/gps/particle e-
+/gps/position 4.129239793632228 -5 0.1207383743247703 cm
+/gps/direction -0.8114676019957416 1 0.011744867373160828
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source63
+/gps/particle e-
+/gps/position 2.6394432217855472 -5 2.199792722258107 cm
+/gps/direction -0.28936523993664576 1 -0.13716865337736683
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source64
+/gps/particle e-
+/gps/position 1.3489812473077682 -5 0.13437439457809952 cm
+/gps/direction 0.47295879900255877 1 -0.8301489328598786
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source65
+/gps/particle e-
+/gps/position 1.196608257183478 -5 4.322921765492786 cm
+/gps/direction 0.27478085620659587 1 0.6452614325054795
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source66
+/gps/particle e-
+/gps/position 1.7828744713330096 -5 3.715043173364448 cm
+/gps/direction 0.5329918833827312 1 -0.438888673974307
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source67
+/gps/particle e-
+/gps/position 3.166663560318301 -5 3.3099596324984573 cm
+/gps/direction 0.6331535314001255 1 0.23329177898313636
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source68
+/gps/particle e-
+/gps/position 1.5520232302003483 -5 2.6158700552251233 cm
+/gps/direction -0.3971635293882667 1 0.41472995378033306
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source69
+/gps/particle e-
+/gps/position 4.785181877386951 -5 4.967369475158545 cm
+/gps/direction 0.20662488210012553 1 0.5023118477017663
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source70
+/gps/particle e-
+/gps/position 0.7092072097146618 -5 0.7509601362761587 cm
+/gps/direction -0.2936592301085461 1 -0.584331256804711
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source71
+/gps/particle e-
+/gps/position 2.242848670743689 -5 2.6379939777318775 cm
+/gps/direction -0.40358634541909577 1 -0.44123461324182767
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source72
+/gps/particle e-
+/gps/position 1.2348449908468706 -5 3.976247466886893 cm
+/gps/direction 0.031772773427825474 1 -0.9720682920494725
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source73
+/gps/particle e-
+/gps/position 3.980782677371402 -5 4.980271089157976 cm
+/gps/direction -0.39243630957653 1 -0.9075258807659612
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source74
+/gps/particle e-
+/gps/position 4.236295772346995 -5 0.01697632353873435 cm
+/gps/direction 0.398083863680303 1 0.25372320404278237
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source75
+/gps/particle e-
+/gps/position 4.820896075796389 -5 4.301204993095245 cm
+/gps/direction -0.42178653185475445 1 0.45326911220222077
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source76
+/gps/particle e-
+/gps/position 3.9166542582419037 -5 0.8166313731010394 cm
+/gps/direction 0.5220037019264694 1 -0.23688834676426485
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source77
+/gps/particle e-
+/gps/position 2.7465523605546824 -5 4.260505062391818 cm
+/gps/direction 0.7972279530767246 1 0.061058502018954686
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source78
+/gps/particle e-
+/gps/position 1.6698512677922772 -5 0.34903092559215865 cm
+/gps/direction 0.8375247820114349 1 -0.8477993459806537
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source79
+/gps/particle e-
+/gps/position 4.965901105394037 -5 2.260602256447238 cm
+/gps/direction -0.3851003132356814 1 0.6813938531088346
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source80
+/gps/particle e-
+/gps/position 2.543759150139928 -5 4.399297274796946 cm
+/gps/direction 0.5392668861720606 1 0.6572210186156273
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source81
+/gps/particle e-
+/gps/position 3.8557904286138616 -5 1.9488653526275512 cm
+/gps/direction -0.16872593836022665 1 -0.7015284079047377
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source82
+/gps/particle e-
+/gps/position 0.050492103928979626 -5 1.9727886850069494 cm
+/gps/direction 0.4061428001979064 1 -0.10343538864287671
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source83
+/gps/particle e-
+/gps/position 0.877911313077589 -5 2.1847980650208347 cm
+/gps/direction -0.4999226308225424 1 0.7349258445398654
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source84
+/gps/particle e-
+/gps/position 1.2022483278826146 -5 0.844098545423882 cm
+/gps/direction -0.6215676840837743 1 -0.5770000591994999
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source85
+/gps/particle e-
+/gps/position 3.5274839299923775 -5 0.07687431062140981 cm
+/gps/direction 0.7680351641958667 1 -0.34777040913085755
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source86
+/gps/particle e-
+/gps/position 1.7249527624863947 -5 0.3083600072892789 cm
+/gps/direction 0.30899764399307417 1 -0.8561158889952794
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source87
+/gps/particle e-
+/gps/position 4.70176291803077 -5 2.1498496063049286 cm
+/gps/direction -0.33986771375261626 1 -0.9743757571724856
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source88
+/gps/particle e-
+/gps/position 2.62018790546208 -5 0.17281959079675724 cm
+/gps/direction 0.03654930933588463 1 0.5496510248749802
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source89
+/gps/particle e-
+/gps/position 0.2724740479205606 -5 4.581856438507408 cm
+/gps/direction 0.6522564082524858 1 0.23633401601381654
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source90
+/gps/particle e-
+/gps/position 0.903558776265504 -5 1.9220326016085036 cm
+/gps/direction 0.5252358683546097 1 -0.9439762804156766
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source91
+/gps/particle e-
+/gps/position 4.983699021779076 -5 3.450409263851676 cm
+/gps/direction 0.5108015904959538 1 -0.6680634697522756
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source92
+/gps/particle e-
+/gps/position 3.457948328651935 -5 1.1390784594735115 cm
+/gps/direction 0.5339396239040888 1 -0.2506446120406012
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source93
+/gps/particle e-
+/gps/position 2.0100169952251887 -5 2.2155226656327747 cm
+/gps/direction 0.0892641361225468 1 -0.16567804908592576
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source94
+/gps/particle e-
+/gps/position 2.651395662809281 -5 3.444576935875472 cm
+/gps/direction 0.21811248077578282 1 -0.23730996894283973
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source95
+/gps/particle e-
+/gps/position 4.051856822964913 -5 3.3613027099689603 cm
+/gps/direction 0.7136518644082184 1 -0.8553879744058097
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source96
+/gps/particle e-
+/gps/position 1.2406823946553773 -5 4.341226754608761 cm
+/gps/direction -0.32216951686734796 1 0.9029816401758268
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source97
+/gps/particle e-
+/gps/position 1.6830948465707352 -5 3.5333307502845512 cm
+/gps/direction 0.5452058575165071 1 -0.32337145769776177
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source98
+/gps/particle e-
+/gps/position 4.531310525628923 -5 3.0897119845489196 cm
+/gps/direction 0.012420131463781292 1 0.6093097776877243
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source99
+/gps/particle e-
+/gps/position 1.4715635578249042 -5 1.3252008282461003 cm
+/gps/direction -0.8785817577200792 1 -0.67431624503358
+/gps/pos/type Point 
+
+/run/beamOn 100
+# Particle source100
+/gps/particle e-
+/gps/position 3.2870267657994567 -5 3.844008203735474 cm
+/gps/direction 0.7617077581260745 1 -0.5099301551956339
+/gps/pos/type Point 
+
+/run/beamOn 100
