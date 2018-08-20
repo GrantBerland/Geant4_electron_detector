@@ -1,4 +1,3 @@
-import matplotlib.pyplot as plt
 import random as rand
 
 rand.seed()
@@ -20,13 +19,13 @@ with open('run_rand_sources.mac', 'w') as f:
     
     for i in range(0, num_sources):
     
-        x_pos = rand.uniform(-x_range/2, x_range/2)
-        z_pos = rand.uniform(-z_range/2, z_range/2)
+        x_pos = round(rand.uniform(-x_range/2, x_range/2), 3)
+        z_pos = round(rand.uniform(-z_range/2, z_range/2), 3)
         position_string = str(x_pos) + ' ' + str(y_offset) + ' ' + str(z_pos) + ' cm'
         
-        x_dir = rand.uniform(-1, 1)
-        y_dir = 1 #rand.random()
-        z_dir = rand.uniform(-1, 1)
+        x_dir = round(rand.uniform(-1, 1), 3)
+        y_dir = 1 # maintains the general direction towards the detector
+        z_dir = round(rand.uniform(-1, 1), 3)
         direction_string = str(x_dir) + ' ' + str(y_dir) + ' ' + str(z_dir)
 	
         f.write('\n# Particle source ' + str(counter) + '\n')
