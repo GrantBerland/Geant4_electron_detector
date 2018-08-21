@@ -221,7 +221,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   G4ThreeVector window_pos;
   std::ostringstream window_name;
 
-  // Creation of beryllium window to repel protons
+  // Creation of beryllium window to repel protons and other particles
   window_name.str("");
   window_name << "window";
 

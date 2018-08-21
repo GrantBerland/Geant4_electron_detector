@@ -1,5 +1,9 @@
 # Geant4_electron_detector
 
+Forward and reverse Monte Carlo simulation of electrons passing through a window
+material, first detector plate, and second detector plate.
+
+
 To build:
 
 mkdir build

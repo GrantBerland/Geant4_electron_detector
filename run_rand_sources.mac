@@ -8,8 +8,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position 2.409 -5 -0.751 cm
-/gps/direction -0.93 1 0.246
+/gps/position -0.449 -5 -1.329 cm
+/gps/direction 0.992 1 0.464
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -18,8 +18,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position 1.747 -5 0.571 cm
-/gps/direction -0.844 1 -0.603
+/gps/position 1.785 -5 2.282 cm
+/gps/direction -0.886 1 0.832
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -28,8 +28,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position -0.955 -5 -2.275 cm
-/gps/direction -0.531 1 -0.338
+/gps/position -0.325 -5 2.166 cm
+/gps/direction -0.911 1 -0.702
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -38,8 +38,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position 1.563 -5 1.544 cm
-/gps/direction -0.5 1 -0.342
+/gps/position 1.754 -5 1.776 cm
+/gps/direction 0.373 1 -0.245
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -48,8 +48,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position -2.07 -5 -1.501 cm
-/gps/direction -0.943 1 0.081
+/gps/position -0.93 -5 2.352 cm
+/gps/direction 0.584 1 0.915
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -58,8 +58,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position 1.934 -5 1.308 cm
-/gps/direction 0.629 1 -0.565
+/gps/position -0.621 -5 1.92 cm
+/gps/direction -0.917 1 -0.306
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -68,8 +68,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position 1.048 -5 -2.193 cm
-/gps/direction 0.887 1 -0.838
+/gps/position -1.373 -5 1.413 cm
+/gps/direction 0.734 1 0.252
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -78,8 +78,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position 0.286 -5 0.468 cm
-/gps/direction -0.656 1 -0.564
+/gps/position 2.275 -5 -1.708 cm
+/gps/direction 0.362 1 -0.103
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -88,8 +88,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position -1.232 -5 -1.179 cm
-/gps/direction 0.163 1 -0.909
+/gps/position 0.838 -5 1.48 cm
+/gps/direction 0.103 1 -0.08
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -98,8 +98,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position -0.447 -5 -1.921 cm
-/gps/direction -0.936 1 0.911
+/gps/position -1.001 -5 -1.205 cm
+/gps/direction -0.103 1 -0.416
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -108,8 +108,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position -0.51 -5 -2.312 cm
-/gps/direction -0.489 1 -0.647
+/gps/position 0.943 -5 0.876 cm
+/gps/direction 0.167 1 0.386
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -118,8 +118,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position -0.224 -5 -0.638 cm
-/gps/direction -0.722 1 -0.318
+/gps/position -1.402 -5 -0.348 cm
+/gps/direction 0.177 1 -0.005
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -128,8 +128,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position 0.642 -5 1.542 cm
-/gps/direction 0.247 1 -0.654
+/gps/position 2.216 -5 -2.466 cm
+/gps/direction -0.145 1 -0.307
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -138,8 +138,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position -0.902 -5 -1.73 cm
-/gps/direction 0.204 1 0.78
+/gps/position -1.194 -5 0.197 cm
+/gps/direction -0.089 1 0.069
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -148,8 +148,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position -2.104 -5 1.67 cm
-/gps/direction -0.348 1 -0.82
+/gps/position 1.737 -5 1.579 cm
+/gps/direction 0.734 1 0.032
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -158,8 +158,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position 1.354 -5 1.07 cm
-/gps/direction 0.663 1 0.993
+/gps/position 0.696 -5 -2.256 cm
+/gps/direction 0.018 1 0.236
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -168,8 +168,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position 2.427 -5 -1.23 cm
-/gps/direction 0.743 1 0.889
+/gps/position -0.974 -5 -0.761 cm
+/gps/direction -0.014 1 -0.633
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -178,8 +178,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position -1.05 -5 0.76 cm
-/gps/direction 0.438 1 0.489
+/gps/position 0.722 -5 -0.504 cm
+/gps/direction 0.75 1 -0.824
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -188,8 +188,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position 1.009 -5 -0.468 cm
-/gps/direction 0.401 1 -0.457
+/gps/position -0.618 -5 -2.33 cm
+/gps/direction -0.185 1 0.091
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -198,8 +198,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position 1.735 -5 -1.946 cm
-/gps/direction 0.957 1 0.303
+/gps/position -2.479 -5 -1.202 cm
+/gps/direction 0.52 1 0.562
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -208,8 +208,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position -1.78 -5 1.978 cm
-/gps/direction 0.644 1 -0.193
+/gps/position 2.26 -5 -0.291 cm
+/gps/direction 0.761 1 0.182
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -218,8 +218,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position 1.426 -5 1.754 cm
-/gps/direction 0.386 1 0.17
+/gps/position -1.69 -5 2.09 cm
+/gps/direction -0.067 1 -0.498
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -228,8 +228,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position -0.005 -5 -0.888 cm
-/gps/direction 0.558 1 -0.395
+/gps/position -0.472 -5 1.556 cm
+/gps/direction -0.427 1 -0.649
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -238,8 +238,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position 2.428 -5 0.412 cm
-/gps/direction -0.78 1 -0.976
+/gps/position -1.662 -5 -0.278 cm
+/gps/direction 0.983 1 0.792
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -248,8 +248,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position 1.363 -5 2.043 cm
-/gps/direction -0.184 1 0.767
+/gps/position 2.039 -5 -0.732 cm
+/gps/direction -0.551 1 -0.615
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -258,8 +258,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position 0.72 -5 -0.087 cm
-/gps/direction 0.908 1 -0.064
+/gps/position -1.894 -5 0.437 cm
+/gps/direction 0.737 1 0.55
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -268,8 +268,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position -0.709 -5 0.131 cm
-/gps/direction -0.139 1 0.641
+/gps/position -0.872 -5 -1.177 cm
+/gps/direction -0.18 1 -0.521
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -278,8 +278,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position 1.76 -5 0.94 cm
-/gps/direction 0.57 1 0.389
+/gps/position -0.2 -5 -0.791 cm
+/gps/direction -0.368 1 0.733
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -288,8 +288,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position 1.047 -5 -1.605 cm
-/gps/direction 0.015 1 -0.14
+/gps/position 0.338 -5 -1.495 cm
+/gps/direction 0.5 1 -0.668
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -298,8 +298,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position -1.413 -5 0.783 cm
-/gps/direction -0.526 1 -0.45
+/gps/position -0.339 -5 0.278 cm
+/gps/direction 0.316 1 0.911
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -308,8 +308,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position -0.323 -5 0.142 cm
-/gps/direction 0.254 1 -0.677
+/gps/position 0.831 -5 -0.205 cm
+/gps/direction 0.322 1 -0.672
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -318,8 +318,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position -0.338 -5 -0.923 cm
-/gps/direction 0.135 1 -0.358
+/gps/position -1.274 -5 0.637 cm
+/gps/direction 0.134 1 -0.561
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -328,8 +328,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position -2.061 -5 1.806 cm
-/gps/direction 0.291 1 -0.657
+/gps/position -2.361 -5 1.101 cm
+/gps/direction -0.876 1 0.062
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -338,8 +338,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position -1.8 -5 -1.307 cm
-/gps/direction 0.146 1 -0.024
+/gps/position 0.977 -5 -1.012 cm
+/gps/direction -0.207 1 0.916
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -348,8 +348,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position -0.056 -5 0.624 cm
-/gps/direction 0.786 1 -0.377
+/gps/position 0.425 -5 -1.559 cm
+/gps/direction 0.683 1 -0.547
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -358,8 +358,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position -1.817 -5 -2.1 cm
-/gps/direction -0.236 1 -0.718
+/gps/position 1.755 -5 -0.558 cm
+/gps/direction 0.125 1 -0.893
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -368,8 +368,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position 2.178 -5 -1.199 cm
-/gps/direction 0.726 1 -0.996
+/gps/position -0.775 -5 2.04 cm
+/gps/direction 0.286 1 -0.585
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -378,8 +378,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position 0.424 -5 -1.424 cm
-/gps/direction 0.693 1 0.333
+/gps/position -2.391 -5 -1.862 cm
+/gps/direction 0.732 1 -0.088
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -388,8 +388,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position 2.109 -5 1.53 cm
-/gps/direction -0.982 1 0.905
+/gps/position -1.07 -5 -2.296 cm
+/gps/direction -0.827 1 -0.612
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -398,8 +398,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position 0.192 -5 -0.45 cm
-/gps/direction 0.495 1 -0.697
+/gps/position 1.677 -5 0.68 cm
+/gps/direction 0.513 1 0.101
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -408,8 +408,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position 0.46 -5 -1.448 cm
-/gps/direction -0.144 1 -0.146
+/gps/position -0.676 -5 0.518 cm
+/gps/direction -0.388 1 -0.082
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -418,8 +418,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position -2.49 -5 0.544 cm
-/gps/direction 0.68 1 -0.95
+/gps/position -0.696 -5 0.011 cm
+/gps/direction 0.096 1 -0.055
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -428,8 +428,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position -0.248 -5 0.066 cm
-/gps/direction 0.308 1 0.545
+/gps/position -0.133 -5 0.803 cm
+/gps/direction 0.055 1 0.429
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -438,8 +438,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position -0.749 -5 2.123 cm
-/gps/direction -0.046 1 0.399
+/gps/position -0.051 -5 -2.142 cm
+/gps/direction 0.392 1 -0.747
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -448,8 +448,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position 1.516 -5 -2.211 cm
-/gps/direction 0.24 1 0.19
+/gps/position -0.07 -5 -1.719 cm
+/gps/direction 0.684 1 -0.55
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -458,8 +458,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position -1.284 -5 -0.137 cm
-/gps/direction 0.712 1 -0.681
+/gps/position 1.928 -5 1.801 cm
+/gps/direction -0.504 1 -0.889
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -468,8 +468,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position 1.19 -5 1.827 cm
-/gps/direction 0.007 1 -0.449
+/gps/position -1.176 -5 -1.946 cm
+/gps/direction 0.308 1 0.653
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -478,8 +478,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position 0.275 -5 -1.339 cm
-/gps/direction -0.496 1 -0.602
+/gps/position 1.352 -5 -2.295 cm
+/gps/direction -0.148 1 0.175
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -488,8 +488,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position 1.453 -5 -0.467 cm
-/gps/direction 0.513 1 0.629
+/gps/position 0.04 -5 0.82 cm
+/gps/direction 0.139 1 -0.991
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -498,8 +498,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position -0.664 -5 0.434 cm
-/gps/direction -0.998 1 0.263
+/gps/position 1.722 -5 -1.144 cm
+/gps/direction 0.049 1 -0.491
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -508,8 +508,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position 1.67 -5 -1.095 cm
-/gps/direction -0.814 1 0.515
+/gps/position -0.069 -5 -0.158 cm
+/gps/direction 0.114 1 -0.495
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -518,8 +518,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position 0.865 -5 2.295 cm
-/gps/direction -0.846 1 -0.18
+/gps/position -0.844 -5 0.98 cm
+/gps/direction -0.024 1 -0.78
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -528,8 +528,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position 1.476 -5 1.186 cm
-/gps/direction -0.973 1 -0.069
+/gps/position 0.583 -5 1.674 cm
+/gps/direction -0.325 1 -0.445
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -538,8 +538,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position -2.182 -5 -0.11 cm
-/gps/direction 0.742 1 -0.86
+/gps/position -0.565 -5 0.819 cm
+/gps/direction 0.105 1 -0.331
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -548,8 +548,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position 1.306 -5 -1.84 cm
-/gps/direction 0.511 1 0.978
+/gps/position -1.774 -5 2.044 cm
+/gps/direction 0.414 1 -0.916
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -558,8 +558,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position -1.494 -5 -2.258 cm
-/gps/direction -0.733 1 -0.322
+/gps/position -1.731 -5 -1.455 cm
+/gps/direction -0.483 1 0.871
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -568,8 +568,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position -0.605 -5 -1.17 cm
-/gps/direction 0.237 1 -0.508
+/gps/position 0.982 -5 1.876 cm
+/gps/direction 0.091 1 -0.182
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -578,8 +578,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position -2.36 -5 -2.044 cm
-/gps/direction -0.393 1 -0.348
+/gps/position -1.426 -5 -1.238 cm
+/gps/direction 0.954 1 -0.305
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -588,8 +588,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position -0.333 -5 1.026 cm
-/gps/direction 0.305 1 0.428
+/gps/position -1.445 -5 2.028 cm
+/gps/direction 0.511 1 0.78
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -598,8 +598,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position 1.602 -5 0.035 cm
-/gps/direction -0.807 1 -0.48
+/gps/position -0.303 -5 1.763 cm
+/gps/direction -0.93 1 -0.311
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -608,8 +608,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position 1.355 -5 0.787 cm
-/gps/direction 0.851 1 -0.594
+/gps/position -1.509 -5 0.783 cm
+/gps/direction 0.176 1 0.274
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -618,8 +618,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position -1.699 -5 1.216 cm
-/gps/direction 0.859 1 0.49
+/gps/position -2.048 -5 0.757 cm
+/gps/direction 0.359 1 0.71
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -628,8 +628,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position 0.331 -5 -0.889 cm
-/gps/direction 0.161 1 -0.944
+/gps/position 1.077 -5 -1.225 cm
+/gps/direction -0.694 1 -0.727
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -638,8 +638,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position 1.875 -5 -1.667 cm
-/gps/direction -0.63 1 0.098
+/gps/position -0.173 -5 1.873 cm
+/gps/direction 0.931 1 0.765
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -648,8 +648,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position -1.971 -5 -0.184 cm
-/gps/direction 0.601 1 0.701
+/gps/position -0.016 -5 1.698 cm
+/gps/direction -0.304 1 -0.27
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -658,8 +658,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position 0.718 -5 0.594 cm
-/gps/direction -0.308 1 0.222
+/gps/position 1.053 -5 1.873 cm
+/gps/direction 0.4 1 -0.078
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -668,8 +668,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position 0.211 -5 1.083 cm
-/gps/direction 0.835 1 0.039
+/gps/position 1.968 -5 -1.85 cm
+/gps/direction 0.991 1 -0.422
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -678,8 +678,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position -0.773 -5 -1.737 cm
-/gps/direction -0.258 1 -0.294
+/gps/position -1.678 -5 -0.818 cm
+/gps/direction 0.416 1 -0.011
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -688,8 +688,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position -1.731 -5 1.777 cm
-/gps/direction 0.901 1 -0.239
+/gps/position -0.06 -5 -0.998 cm
+/gps/direction 0.122 1 0.803
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -698,8 +698,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position -0.418 -5 -1.013 cm
-/gps/direction -0.874 1 -0.622
+/gps/position 0.662 -5 2.147 cm
+/gps/direction -0.976 1 0.471
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -708,8 +708,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position -2.348 -5 -0.906 cm
-/gps/direction -0.199 1 -0.135
+/gps/position 2.07 -5 0.968 cm
+/gps/direction -0.393 1 0.852
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -718,8 +718,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position 1.084 -5 -2.457 cm
-/gps/direction -0.59 1 -0.849
+/gps/position 2.341 -5 -2.199 cm
+/gps/direction 0.737 1 0.734
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -728,8 +728,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position 0.584 -5 2.246 cm
-/gps/direction -0.855 1 0.443
+/gps/position 0.374 -5 -0.357 cm
+/gps/direction -0.759 1 0.574
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -738,8 +738,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position -0.761 -5 1.973 cm
-/gps/direction 0.161 1 -0.168
+/gps/position -2.138 -5 -0.278 cm
+/gps/direction 0.276 1 0.618
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -748,8 +748,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position -1.65 -5 2.009 cm
-/gps/direction 0.881 1 0.483
+/gps/position 0.593 -5 1.67 cm
+/gps/direction 0.647 1 -0.463
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -758,8 +758,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position -0.892 -5 -1.543 cm
-/gps/direction 0.821 1 -0.244
+/gps/position -1.766 -5 -0.827 cm
+/gps/direction 0.801 1 0.82
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -768,8 +768,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position 1.045 -5 -2.215 cm
-/gps/direction 0.365 1 0.592
+/gps/position 1.01 -5 -1.103 cm
+/gps/direction 0.872 1 0.297
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -778,8 +778,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position 1.092 -5 -1.494 cm
-/gps/direction 0.716 1 0.106
+/gps/position -0.776 -5 0.188 cm
+/gps/direction 0.292 1 -0.636
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -788,8 +788,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position -1.838 -5 -0.88 cm
-/gps/direction -0.966 1 -0.025
+/gps/position -2.355 -5 0.512 cm
+/gps/direction -0.992 1 0.423
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -798,8 +798,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position -0.588 -5 -2.451 cm
-/gps/direction 0.216 1 0.78
+/gps/position 1.121 -5 0.729 cm
+/gps/direction -0.173 1 -0.839
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -808,8 +808,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position -1.048 -5 -1.68 cm
-/gps/direction -0.533 1 0.638
+/gps/position 1.092 -5 -0.058 cm
+/gps/direction 0.229 1 -0.404
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -818,8 +818,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position 2.499 -5 -2.182 cm
-/gps/direction -0.545 1 0.051
+/gps/position -1.604 -5 2.459 cm
+/gps/direction 0.67 1 -0.483
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -828,8 +828,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position 1.203 -5 0.067 cm
-/gps/direction 0.762 1 -0.526
+/gps/position 2.496 -5 1.207 cm
+/gps/direction -0.64 1 -0.277
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -838,8 +838,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position 0.289 -5 1.14 cm
-/gps/direction 0.367 1 -0.195
+/gps/position 0.749 -5 -1.453 cm
+/gps/direction 0.434 1 -0.512
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -848,8 +848,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position -2.348 -5 -1.382 cm
-/gps/direction -0.577 1 0.73
+/gps/position -0.619 -5 -2.352 cm
+/gps/direction 0.622 1 -0.28
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -858,8 +858,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position 1.898 -5 0.629 cm
-/gps/direction -0.522 1 -0.766
+/gps/position -1.5 -5 1.254 cm
+/gps/direction 0.196 1 0.036
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -868,8 +868,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position 0.129 -5 -0.246 cm
-/gps/direction -0.493 1 -0.51
+/gps/position -0.327 -5 -1.554 cm
+/gps/direction -0.639 1 0.309
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -878,8 +878,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position 0.87 -5 -1.321 cm
-/gps/direction -0.471 1 -0.055
+/gps/position -0.675 -5 1.95 cm
+/gps/direction -0.832 1 0.042
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -888,8 +888,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position -0.473 -5 -1.174 cm
-/gps/direction -0.892 1 -0.135
+/gps/position 0.676 -5 -1.024 cm
+/gps/direction 0.942 1 -0.023
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -898,8 +898,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position -1.558 -5 -1.442 cm
-/gps/direction -0.627 1 -0.017
+/gps/position -0.266 -5 -2.034 cm
+/gps/direction 0.25 1 -0.196
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -908,8 +908,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position 2.213 -5 -0.032 cm
-/gps/direction -0.823 1 -0.984
+/gps/position 0.687 -5 -0.218 cm
+/gps/direction -0.44 1 0.76
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -918,8 +918,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position 1.278 -5 -2.178 cm
-/gps/direction -0.147 1 -0.584
+/gps/position 0.023 -5 -0.72 cm
+/gps/direction -0.288 1 -0.273
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -928,8 +928,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position -1.402 -5 -1.253 cm
-/gps/direction -0.0 1 -0.778
+/gps/position 2.186 -5 1.946 cm
+/gps/direction 0.122 1 -0.064
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -938,8 +938,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position -1.731 -5 2.084 cm
-/gps/direction 0.402 1 -0.007
+/gps/position 1.704 -5 -0.517 cm
+/gps/direction -0.641 1 -0.359
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -948,8 +948,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position 1.879 -5 1.5 cm
-/gps/direction -0.536 1 0.398
+/gps/position 0.295 -5 1.909 cm
+/gps/direction -0.271 1 -0.142
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -958,8 +958,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position -0.6 -5 -2.126 cm
-/gps/direction 0.919 1 0.03
+/gps/position 0.084 -5 0.463 cm
+/gps/direction -0.002 1 0.601
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -968,8 +968,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position -2.233 -5 -1.1 cm
-/gps/direction -0.734 1 -0.999
+/gps/position -2.323 -5 -1.133 cm
+/gps/direction 0.632 1 0.508
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -978,8 +978,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position -2.411 -5 2.312 cm
-/gps/direction -0.391 1 0.847
+/gps/position 1.354 -5 -1.203 cm
+/gps/direction 0.126 1 -0.647
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -988,8 +988,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position 1.456 -5 1.259 cm
-/gps/direction 0.603 1 -0.366
+/gps/position 0.198 -5 0.345 cm
+/gps/direction 0.979 1 0.794
 /gps/pos/type Point 
 
 /run/beamOn 100 
@@ -998,8 +998,8 @@
 /gps/particle e-
 /gps/ene/min 100. keV 
 /gps/ene/max 10. MeV 
-/gps/position 1.331 -5 2.328 cm
-/gps/direction 0.38 1 -0.459
+/gps/position -2.377 -5 2.153 cm
+/gps/direction -0.628 1 -0.099
 /gps/pos/type Point 
 
 /run/beamOn 100 

@@ -112,14 +112,11 @@ int main(int argc,char** argv)
   theAdjointSimManager->SetAdjointRunAction(theRunAction);
   //theAdjointSimManager->SetAdjointEventAction(new SteppingAction());
 
-  // User action initialization
-
 
   // Initialize visualization
   //
   G4VisManager* visManager = new G4VisExecutive;
   // G4VisExecutive can take a verbosity argument - see /vis/verbose guidance.
-  // G4VisManager* visManager = new G4VisExecutive("Quiet");
   visManager->Initialize();
 
   // Get the pointer to the User Interface manager
@@ -147,7 +144,7 @@ int main(int argc,char** argv)
 
   delete visManager;
   delete runManager;
-  
+
   return 0;
 }
 
