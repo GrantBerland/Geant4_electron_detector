@@ -67,8 +67,8 @@ void SteppingAction::UserSteppingAction(const G4Step* step)
   G4String nextVolName;
   if (track->GetNextVolume()) {nextVolName = track->GetNextVolume()->GetName();}
 
-  isEnteringDetector1 = (volName != "detector1" %% nextVolName == "detector1");
-  isEnteringDetector2 = (volName != "detector2" %% nextVolName == "detector2");
+  isEnteringDetector1 = (volName != "detector1" && nextVolName == "detector1");
+  isEnteringDetector2 = (volName != "detector2" && nextVolName == "detector2");
 
   if (isEnteringDetector1){
     G4ThreeVector momentum = track->GetMomentumDirection();
