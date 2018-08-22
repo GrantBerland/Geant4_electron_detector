@@ -88,19 +88,7 @@ void EventAction::EndOfEventAction(const G4Event* event)
   // Fill histograms
   // Source:
   G4double init_energy = event->GetPrimaryVertex()->GetPrimary()->GetKineticEnergy();
-  man->FillH1(1,init_energy);
-
-  // Central detector:
-  man->FillH1(2,fEdep);
-
-  // right detector:
-  man->FillH1(3,fEdep_right);
-
-  // left detector:
-  man->FillH1(4, fEdep_left);
-
-  // second right detector:
-  man->FillH1(5, fEdep_right2);
+  G4double init_x_position = event->GetPrimaryVertex()->GetX0() / cm;
 
 }
 

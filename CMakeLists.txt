@@ -45,9 +45,9 @@ target_link_libraries(main ${Geant4_LIBRARIES})
 #
 set(EXAMPLEB1_SCRIPTS
   init_vis.mac
-  run_y_axis.mac
-  run_multiple_angles.mac
-  run_adjoint_simulation_electron.mac
+  macros/run_y_axis.mac
+  macros/run_multiple_angles.mac
+  macros/run_adjoint_simulation_electron.mac
   vis.mac
   plotHisto.C
   )

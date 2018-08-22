@@ -1,16 +1,20 @@
 import random as rand
 
-rand.seed()
+rand.seed()	# starts the Mersenne Twister rand engine
+
+# Constant offset upstream of detector
 y_offset = -5	# cm
 num_sources = 100
 
+# Maximum X and Z coordinates that can be randomly chosen
 x_range = 5
 z_range = 5
 
 counter = 1
 
 with open('run_rand_sources.mac', 'w') as f:
-    # start lines to set up simualation
+    # init lines to set up simulation
+    #f.write('/run/numberOfWorkers 4 \n')	# multi-threaded mode
     f.write('/run/initialize \n') 
     f.write('/control/verbose 0 \n')
     f.write('/run/verbose 0 \n')
