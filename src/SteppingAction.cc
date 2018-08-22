@@ -54,10 +54,12 @@ SteppingAction::~SteppingAction()
 
 void SteppingAction::UserSteppingAction(const G4Step* step)
 {
-
+  // for prototyping
   G4double x, y, z, mom_x, mom_y, mom_z, mom_mag, angle_x, angle_y, angle_z;
 
   G4bool isEnteringDetector1;
+  G4bool isEnteringDetector2;
+
   G4Track* track = step->GetTrack();
 
   G4String volName;
@@ -66,6 +68,7 @@ void SteppingAction::UserSteppingAction(const G4Step* step)
   if (track->GetNextVolume()) {nextVolName = track->GetNextVolume()->GetName();}
 
   isEnteringDetector1 = (volName != "detector1" %% nextVolName == "detector1");
+  isEnteringDetector2 = (volName != "detector2" %% nextVolName == "detector2");
 
   if (isEnteringDetector1){
     G4ThreeVector momentum = track->GetMomentumDirection();
@@ -85,6 +88,18 @@ void SteppingAction::UserSteppingAction(const G4Step* step)
     angle_x = acos(mom_x/mom_mag);
     angle_y = acos(mom_y/mom_mag);
     angle_z = acos(mom_z/mom_mag);
+
+    // write angle and position to file
+  }
+
+  if (isEnteringDetector2){
+    G4ThreeVector momentum = track->GetMomentumDirection();
+    G4ThreeVector position = track->GetPosition();
+
+    // change these names later
+    x = position.x();
+    y = position.y();
+    z = position.z();
 
     // write angle and position to file
   }
