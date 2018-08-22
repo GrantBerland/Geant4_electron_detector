@@ -44,6 +44,10 @@ EventAction::EventAction(RunAction* runAction)
   fEdep_right(0.),
   fEdep_left(0.),
   fEdep_right2(0)
+
+
+
+
 {}
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -88,8 +92,19 @@ void EventAction::EndOfEventAction(const G4Event* event)
   // Fill histograms
   // Source:
   G4double init_energy = event->GetPrimaryVertex()->GetPrimary()->GetKineticEnergy();
-  G4double init_x_position = event->GetPrimaryVertex()->GetX0() / cm;
 
+  // Get initial (X,Y,Z) positions [cm] and directions
+  G4double init_x_position = event->GetPrimaryVertex()->GetX0() / cm;
+  G4double init_y_position = event->GetPrimaryVertex()->GetY0() / cm;
+  G4double init_z_position = event->GetPrimaryVertex()->GetZ0() / cm;
+
+  
+
+  // For testing
+  G4cout
+    << init_x_position << ','
+    << init_y_position << ','
+    << init_z_position << '\n' << G4endl;
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

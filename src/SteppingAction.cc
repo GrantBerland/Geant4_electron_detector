@@ -55,25 +55,45 @@ SteppingAction::~SteppingAction()
 void SteppingAction::UserSteppingAction(const G4Step* step)
 {
 
-  G4bool isEnteringDetector;
+  G4double x, y, z, mom_x, mom_y, mom_z, mom_mag, angle_x, angle_y, angle_z;
+
+  G4bool isEnteringDetector1;
   G4Track* track = step->GetTrack();
 
   G4String volName;
-  if (track->GetVolume()) volName =  track->GetVolume()->GetName(); 
+  if (track->GetVolume()) {volName = track->GetVolume()->GetName();}
   G4String nextVolName;
-  if (track->GetNextVolume()) nextVolName =  track->GetNextVolume()->GetName();
+  if (track->GetNextVolume()) {nextVolName = track->GetNextVolume()->GetName();}
 
-  // Check if the particle just entered the detector
-  isEnteringDetector= (volName != "detector0" && nextVolName =="detector0");
+  isEnteringDetector1 = (volName != "detector1" %% nextVolName == "detector1");
 
-    // collect energy deposited in this step
+  if (isEnteringDetector1){
+    G4ThreeVector momentum = track->GetMomentumDirection();
+    G4ThreeVector position = track->GetPosition();
+
+    // change these names later
+    x = position.x();
+    y = position.y();
+    z = position.z();
+
+    // Computes momentum magnitude and direction wrt to simulation axes
+    mom_x = momentum.x();
+    mom_y = momentum.y();
+    mom_z = momentum.z();
+    mom_mag = sqrt(pow(mom_x, 2)+pow(mom_y, 2)+pow(mom_z, 2));
+
+    angle_x = acos(mom_x/mom_mag);
+    angle_y = acos(mom_y/mom_mag);
+    angle_z = acos(mom_z/mom_mag);
+
+    // write angle and position to file
+  }
+
+
+  // Collect energy deposited in this step
   G4double edepStep = step->GetTotalEnergyDeposit();
 
-  // Add energy deposition (split up per volume in EventAction)
-  fEventAction->AddEdep_multiple(volName, edepStep);
 
-  // G4cout << "hey! this step consisted of: " << edepStep << G4endl;
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-
