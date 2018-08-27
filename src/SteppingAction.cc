@@ -77,7 +77,7 @@ void SteppingAction::UserSteppingAction(const G4Step* step)
     G4double y = position.y();
     G4double z = position.z();
 
-    // Computes momentum magnitude and direction wrt to simulation axes
+    // Computes momentum magnitude and direction (wrt to simulation axes?)
     G4double mom_x = momentum.x();
     G4double mom_y = momentum.y();
     G4double mom_z = momentum.z();
@@ -87,7 +87,7 @@ void SteppingAction::UserSteppingAction(const G4Step* step)
     G4double angle_y = acos(mom_y/mom_mag);
     G4double angle_z = acos(mom_z/mom_mag);
 
-    // write angle and position to file? plots?
+    // write angle and position to file? plots? histo?
   }
 
   if (isEnteringDetector2){
