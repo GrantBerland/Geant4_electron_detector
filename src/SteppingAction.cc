@@ -54,8 +54,6 @@ SteppingAction::~SteppingAction()
 
 void SteppingAction::UserSteppingAction(const G4Step* step)
 {
-  // for prototyping
-  G4double x, y, z, mom_x, mom_y, mom_z, mom_mag, angle_x, angle_y, angle_z;
 
   G4bool isEnteringDetector1;
   G4bool isEnteringDetector2;
@@ -74,22 +72,22 @@ void SteppingAction::UserSteppingAction(const G4Step* step)
     G4ThreeVector momentum = track->GetMomentumDirection();
     G4ThreeVector position = track->GetPosition();
 
-    // change these names later
-    x = position.x();
-    y = position.y();
-    z = position.z();
+    // TODO: change these names later
+    G4double x = position.x();
+    G4double y = position.y();
+    G4double z = position.z();
 
     // Computes momentum magnitude and direction wrt to simulation axes
-    mom_x = momentum.x();
-    mom_y = momentum.y();
-    mom_z = momentum.z();
-    mom_mag = sqrt(pow(mom_x, 2)+pow(mom_y, 2)+pow(mom_z, 2));
+    G4double mom_x = momentum.x();
+    G4double mom_y = momentum.y();
+    G4double mom_z = momentum.z();
+    G4double mom_mag = sqrt(pow(mom_x, 2)+pow(mom_y, 2)+pow(mom_z, 2));
 
-    angle_x = acos(mom_x/mom_mag);
-    angle_y = acos(mom_y/mom_mag);
-    angle_z = acos(mom_z/mom_mag);
+    G4double angle_x = acos(mom_x/mom_mag);
+    G4double angle_y = acos(mom_y/mom_mag);
+    G4double angle_z = acos(mom_z/mom_mag);
 
-    // write angle and position to file
+    // write angle and position to file? plots?
   }
 
   if (isEnteringDetector2){
@@ -97,9 +95,9 @@ void SteppingAction::UserSteppingAction(const G4Step* step)
     G4ThreeVector position = track->GetPosition();
 
     // change these names later
-    x = position.x();
-    y = position.y();
-    z = position.z();
+    G4double x = position.x();
+    G4double y = position.y();
+    G4double z = position.z();
 
     // write angle and position to file
   }
