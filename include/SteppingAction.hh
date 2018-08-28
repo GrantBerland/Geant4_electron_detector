@@ -39,7 +39,7 @@ class EventAction;
 class G4LogicalVolume;
 
 /// Stepping action class
-/// 
+///
 
 class SteppingAction : public G4UserSteppingAction
 {
@@ -52,6 +52,8 @@ class SteppingAction : public G4UserSteppingAction
 
   private:
     EventAction*  fEventAction;
+    G4int detector1_counter;
+    G4int detector2_counter;
     // G4LogicalVolume* fScoringVolume;
 };
 

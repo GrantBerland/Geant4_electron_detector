@@ -35,19 +35,14 @@
 #include "G4RunManager.hh"
 #include "G4SystemOfUnits.hh"
 
+#include <fstream>
+
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 EventAction::EventAction(RunAction* runAction)
 : G4UserEventAction(),
   fRunAction(runAction),
-  fEdep(0.),
-  fEdep_right(0.),
-  fEdep_left(0.),
-  fEdep_right2(0)
-
-
-
-
+  fEdep(0.)
 {}
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -58,25 +53,21 @@ EventAction::~EventAction()
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 
-void EventAction::AddEdep(G4double edep)
+void EventAction::BeginOfEventAction(const G4Event* event)
 {
-    edep += fEdep;
-}
 
-void EventAction::AddEdep_multiple(G4String solid, G4double edep)
-{
-    if (solid =="detector1") { fEdep += edep;}
-    if (solid =="detector2") { fEdep_right += edep;}
-}
+  // Writes particle initial positions to file
+  std::ofstream initialPositionsFile;
 
+  initialPositionsFile.open("init_pos.csv", std::ios_base::app);
+  if(initialPositionsFile.is_open())
+  {
+    initialPositionsFile << event->GetPrimaryVertex()->GetX0() / cm << ","
+    << event->GetPrimaryVertex()->GetY0() / cm << ","
+    << event->GetPrimaryVertex()->GetZ0() / cm << "\n";
 
-
-void EventAction::BeginOfEventAction(const G4Event*)
-{
-  fEdep = 0.;
-  fEdep_right = 0.;
-  fEdep_right2 = 0.;
-  fEdep_left = 0.;
+    initialPositionsFile.close();
+  }
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -93,18 +84,6 @@ void EventAction::EndOfEventAction(const G4Event* event)
   // Source:
   G4double init_energy = event->GetPrimaryVertex()->GetPrimary()->GetKineticEnergy();
 
-  // Get initial (X,Y,Z) positions [cm] and directions
-  G4double init_x_position = event->GetPrimaryVertex()->GetX0() / cm;
-  G4double init_y_position = event->GetPrimaryVertex()->GetY0() / cm;
-  G4double init_z_position = event->GetPrimaryVertex()->GetZ0() / cm;
-
-  
-
-  // For testing
-  G4cout
-    << init_x_position << ','
-    << init_y_position << ','
-    << init_z_position << '\n' << G4endl;
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

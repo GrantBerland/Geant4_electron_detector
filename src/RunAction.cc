@@ -44,18 +44,18 @@
 // #include "HistoManager.hh"
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
- 
+
 
 
 RunAction::RunAction()
 : G4UserRunAction(),
   fEdep(0.),
   fEdep2(0.)
-{ 
+{
   // Register accumulable to the accumulable manager
   G4AccumulableManager* accumulableManager = G4AccumulableManager::Instance();
   accumulableManager->RegisterAccumulable(fEdep);
-  accumulableManager->RegisterAccumulable(fEdep2); 
+  accumulableManager->RegisterAccumulable(fEdep2);
 
   auto man = G4AnalysisManager::Instance();
   G4cout << "Using " << man->GetType() << G4endl;
@@ -75,7 +75,7 @@ RunAction::~RunAction()
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 void RunAction::BeginOfRunAction(const G4Run*)
-{ 
+{
   // inform the runManager to save random number seed
   G4RunManager::GetRunManager()->SetRandomNumberStore(false);
 
@@ -92,23 +92,23 @@ void RunAction::BeginOfRunAction(const G4Run*)
 
 void RunAction::EndOfRunAction(const G4Run* run)
 {
-
+/*
 
   G4int nofEvents = run->GetNumberOfEvent();
   if (nofEvents == 0) return;
 
-  // Merge accumulables 
+  // Merge accumulables
   G4AccumulableManager* accumulableManager = G4AccumulableManager::Instance();
   accumulableManager->Merge();
 
   // Compute dose = total energy deposit in a run and its variance
   G4double edep  = fEdep.GetValue();
   G4double edep2 = fEdep2.GetValue();
-  
-  G4double rms = edep2 - edep*edep/nofEvents;
-  if (rms > 0.) rms = std::sqrt(rms); else rms = 0.;  
 
-  
+  G4double rms = edep2 - edep*edep/nofEvents;
+  if (rms > 0.) rms = std::sqrt(rms); else rms = 0.;
+
+
   // Run conditions
   //  note: There is no primary generator action object for "master" - run manager for multi-threaded mode.
   const PrimaryGeneratorAction* generatorAction = static_cast<const PrimaryGeneratorAction*> (G4RunManager::GetRunManager()->GetUserPrimaryGeneratorAction());
@@ -123,7 +123,7 @@ void RunAction::EndOfRunAction(const G4Run* run)
     runCondition += G4BestUnit(particleEnergy,"Energy");
   }
 
-  //  
+  //
   if (IsMaster()) {
     G4cout
      << G4endl
@@ -132,7 +132,7 @@ void RunAction::EndOfRunAction(const G4Run* run)
      << G4endl
      << " The run consists of " << nofEvents << " "<< runCondition
      << G4endl
-     << " Absorbed energy per run, in scoring volume : " 
+     << " Absorbed energy per run, in scoring volume : "
      << G4BestUnit(edep,"Energy") << " rms = " << G4BestUnit(rms,"Energy")
 
      << G4endl
@@ -144,6 +144,7 @@ void RunAction::EndOfRunAction(const G4Run* run)
     auto man = G4AnalysisManager::Instance();
     man->Write();
     man->CloseFile();
+    */
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -168,4 +169,3 @@ void RunAction::LogEntry(G4double edep)
 
 }
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-
