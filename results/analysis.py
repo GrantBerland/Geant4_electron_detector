@@ -48,7 +48,7 @@ ax2 = fig2.add_subplot(111, projection='3d')
 
 x2 = detector2_hits["x"]
 y2 = detector2_hits["z"]
-hist2, xedges2, yedges2 = np.histogram2d(x2, y2, bins=15, range=[[-5, 5], [-5, 5]])
+hist2, xedges2, yedges2 = np.histogram2d(x2, y2, bins=20, range=[[-5, 5], [-5, 5]])
 
 
 xpos2, ypos2 = np.meshgrid(xedges2[:-1] + 0.25, yedges2[:-1] + 0.25)
