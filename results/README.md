@@ -1,6 +1,15 @@
 ## The following results are for an electron beam fired perpandicular to the detector
 
+Simulation using the Qt interface
 ![sim image](./electron_simulation_qt.png)
+
+Perspective shot of simulation
+![trimetric view](./trimetric_view.png)
+
+Side shot of simulation
+![side](./side_view.png)
+
+## Detector Hit Results:
 
 ## At 0.5 MeV
 
