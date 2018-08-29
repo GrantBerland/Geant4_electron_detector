@@ -3,5 +3,4 @@
 *.o
 
 /build
-/tmp
 /doc/*.odt
