@@ -6,6 +6,8 @@ from matplotlib import cm
 from mpl_toolkits.mplot3d import Axes3D, axes3d
 
 
+
+
 initialPositionData = pd.read_csv("./data/init_pos.csv",
                                   names=["x", "y", "z"],
                                   dtype=np.float64)

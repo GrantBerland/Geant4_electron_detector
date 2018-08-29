@@ -5,3 +5,7 @@
 /build
 /doc/*.odt
 /results/.idea
+.idea
+/analysis/__pycache__
+/analysis/data/*.csv
+
