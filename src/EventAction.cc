@@ -59,7 +59,7 @@ void EventAction::BeginOfEventAction(const G4Event* event)
   // Writes particle initial positions to file
   std::ofstream initialPositionsFile;
 
-  initialPositionsFile.open("../results/init_pos.csv", std::ios_base::app);
+  initialPositionsFile.open("../analysis/data/init_pos.csv", std::ios_base::app);
   if(initialPositionsFile.is_open())
   {
     initialPositionsFile << event->GetPrimaryVertex()->GetX0() / cm << ","

@@ -31,5 +31,9 @@ Side shot of simulation
 ![det2 high energy](./detector2_perpandicular_beam_higher_energy.png)
 
 
+## At 30 degrees with respect to detector normal, 1 MeV
 
+![angled beam 1](./detector1_30deg_1MeV_beam.png)
+
+![angled beam 2](./detector2_30deg_1MeV_beam.png)
 

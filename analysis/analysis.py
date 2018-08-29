@@ -6,15 +6,15 @@ from matplotlib import cm
 from mpl_toolkits.mplot3d import Axes3D, axes3d
 
 
-initialPositionData = pd.read_csv("init_pos.csv",
+initialPositionData = pd.read_csv("./data/init_pos.csv",
                                   names=["x", "y", "z"],
                                   dtype=np.float64)
 
-detector1_hits = pd.read_csv("hits_det1.csv",
+detector1_hits = pd.read_csv("./data/hits_det1.csv",
                              names=["x", "y", "z", "mom_x", "mom_y", "mom_z"],
                              dtype=np.float64)
 
-detector2_hits = pd.read_csv("hits_det2.csv",
+detector2_hits = pd.read_csv("./data/hits_det2.csv",
                              names=["x", "y", "z", "mom_x", "mom_y", "mom_z"],
                              dtype=np.float64)
 

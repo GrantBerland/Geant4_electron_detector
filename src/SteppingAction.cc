@@ -78,7 +78,7 @@ void SteppingAction::UserSteppingAction(const G4Step* step)
   if (isEnteringDetector1){
 
     std::ofstream hitFile_detector1;
-    hitFile_detector1.open("../results/hits_det1.csv", std::ios_base::app);
+    hitFile_detector1.open("../analysis/data/hits_det1.csv", std::ios_base::app);
 
     G4ThreeVector pos = postPoint->GetPosition();
     G4ThreeVector mom = postPoint->GetMomentumDirection();
@@ -92,7 +92,7 @@ void SteppingAction::UserSteppingAction(const G4Step* step)
   if (isEnteringDetector2){
 
     std::ofstream hitFile_detector2;
-    hitFile_detector2.open("../results/hits_det2.csv", std::ios_base::app);
+    hitFile_detector2.open("../analysis/data/hits_det2.csv", std::ios_base::app);
 
     G4ThreeVector pos = postPoint->GetPosition();
     G4ThreeVector mom = postPoint->GetMomentumDirection();
