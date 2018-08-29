@@ -16,8 +16,8 @@ X1 = detector1_hits["x"]
 Y1 = detector1_hits["z"]
 
 plt.figure()
-counts,xbins,ybins,image = plt.hist2d(X1,Y1,bins=300)
-plt.colorbar()
+counts,xbins,ybins,image = plt.hist2d(X1,Y1,bins=300, normed=True)
+#plt.colorbar() # learn how histograms work?
 plt.contour(counts.transpose(),extent=[xbins.min(),xbins.max(),ybins.min(),ybins.max()],linewidths=1)
 plt.xlim([-5,5]); plt.xlabel("x [cm]")
 plt.ylim([-5,5]); plt.ylabel("z [cm]")
@@ -29,26 +29,23 @@ Y2 = detector2_hits["z"]
 
 
 plt.figure()    # New figure
-counts,xbins,ybins,image = plt.hist2d(X2,Y2,bins=300)   # Creates histogram from hit data
-plt.colorbar()
+counts,xbins,ybins,image = plt.hist2d(X2,Y2,bins=100, normed=True)   # Creates histogram from hit data
+#plt.colorbar()
 plt.contour(counts.transpose(),extent=[xbins.min(),xbins.max(),ybins.min(),ybins.max()],linewidths=1)
 plt.xlim([-5,5]); plt.xlabel("x [cm]")
 plt.ylim([-5,5]); plt.ylabel("z [cm]")
 plt.title("Detector 2")
 
+plt.figure()    # New figure
+
 '''
-data = fit.gaussian(3, 100, 100, 20, 40)(xbins, ybins)
+#create data
+data = fit.twoD_Gaussian((X1, Y1), 3, 100, 100, 20, 40, 0, 10)
 
-
-#plt.matshow(data, cmap=plt.cm.gist_earth_r)
-
-params = fit.fitgaussian(data)
-fit = fit.gaussian(*params)
-
-plt.contour(fit(*np.indices(data.shape)), cmap=plt.cm.copper)
-
-ax = plt.gca()
-(height, x, y, width_x, width_y) = params
+# plot twoD_Gaussian data generated above
+plt.figure()
+plt.plot(data.reshape(int(np.sqrt(data.size)), int(np.sqrt(data.size))))
+plt.colorbar()
 '''
 
 plt.show()

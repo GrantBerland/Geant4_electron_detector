@@ -6,7 +6,7 @@ rand.seed()	# starts the Mersenne Twister rand engine
 y_offset = -5	# cm
 num_sources = 100
 
-# Maximum X and Z coordinates that can be randomly chosen
+# Maximum X and Z coordinate ranges that can be randomly chosen
 x_range = 5
 z_range = 5
 
@@ -14,7 +14,6 @@ counter = 1
 
 with open('run_rand_sources.mac', 'w') as f:
     # init lines to set up simulation
-    #f.write('/run/numberOfWorkers 4 \n')	# multi-threaded mode
     f.write('/run/initialize \n') 
     f.write('/control/verbose 0 \n')
     f.write('/run/verbose 0 \n')
