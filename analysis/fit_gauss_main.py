@@ -15,7 +15,6 @@ detector2_hits = pd.read_csv("./data/hits_det2.csv",
 Xin = detector1_hits["x"]
 Yin = detector1_hits["z"]
 
-X, Y = np.meshgrid(Xin, Yin)
 
 counts,xbins,ybins,image = plt.hist2d(Xin,Yin,bins=200)
 plt.colorbar()
@@ -40,4 +39,3 @@ ax = plt.gca()
 '''
 
 plt.show()
-

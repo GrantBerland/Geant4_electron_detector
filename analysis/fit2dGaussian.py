@@ -33,5 +33,3 @@ def fitgaussian(data):
                                  data)
     p, success = optimize.leastsq(errorfunction, params)
     return p
-
-

@@ -70,4 +70,3 @@ plt.title("Detector 2")
 
 
 plt.show()
-
