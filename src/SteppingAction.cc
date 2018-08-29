@@ -38,6 +38,7 @@
 #include "G4RunManager.hh"
 #include "G4LogicalVolume.hh"
 
+#include <fstream>
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
@@ -76,10 +77,30 @@ void SteppingAction::UserSteppingAction(const G4Step* step)
   // Detector 1 particles
   if (isEnteringDetector1){
 
+    std::ofstream hitFile_detector1;
+    hitFile_detector1.open("../results/hits_det1.csv", std::ios_base::app);
+
+    G4ThreeVector pos = postPoint->GetPosition();
+    G4ThreeVector mom = postPoint->GetMomentumDirection();
+
+    hitFile_detector1 << pos.x() << "," << pos.y() << "," << pos.z()
+    << mom.x() << "," << mom.y() << "," << mom.z() << "\n";
+
+    hitFile_detector1.close();
   }
   // Detector 2 particles
   if (isEnteringDetector2){
 
+    std::ofstream hitFile_detector2;
+    hitFile_detector2.open("../results/hits_det2.csv", std::ios_base::app);
+
+    G4ThreeVector pos = postPoint->GetPosition();
+    G4ThreeVector mom = postPoint->GetMomentumDirection();
+
+    hitFile_detector2 << pos.x() << "," << pos.y() << "," << pos.z()
+    << mom.x() << "," << mom.y() << "," << mom.z() << "\n";
+
+    hitFile_detector2.close();
   }
 
 /*

@@ -51,21 +51,7 @@ RunAction::RunAction()
 : G4UserRunAction(),
   fEdep(0.),
   fEdep2(0.)
-{
-  // Register accumulable to the accumulable manager
-  G4AccumulableManager* accumulableManager = G4AccumulableManager::Instance();
-  accumulableManager->RegisterAccumulable(fEdep);
-  accumulableManager->RegisterAccumulable(fEdep2);
-
-  auto man = G4AnalysisManager::Instance();
-  G4cout << "Using " << man->GetType() << G4endl;
-
-  histFileName = "detector_hists";
-
-  man->SetFirstHistoId(1);
-  if (isMaster)
-    G4cout << " done" << G4endl;
-}
+{}
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
@@ -76,16 +62,7 @@ RunAction::~RunAction()
 
 void RunAction::BeginOfRunAction(const G4Run*)
 {
-  // inform the runManager to save random number seed
-  G4RunManager::GetRunManager()->SetRandomNumberStore(false);
 
-  // reset accumulables to their initial values
-  G4AccumulableManager* accumulableManager = G4AccumulableManager::Instance();
-  accumulableManager->Reset();
-
-  // Get/create analysis manager
-  auto man = G4AnalysisManager::Instance();
-  man->OpenFile();
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
