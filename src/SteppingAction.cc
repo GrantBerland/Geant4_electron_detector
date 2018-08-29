@@ -83,7 +83,7 @@ void SteppingAction::UserSteppingAction(const G4Step* step)
     G4ThreeVector pos = postPoint->GetPosition();
     G4ThreeVector mom = postPoint->GetMomentumDirection();
 
-    hitFile_detector1 << pos.x() << "," << pos.y() << "," << pos.z()
+    hitFile_detector1 << pos.x() << "," << pos.y() << "," << pos.z() << ","
     << mom.x() << "," << mom.y() << "," << mom.z() << "\n";
 
     hitFile_detector1.close();
@@ -97,7 +97,7 @@ void SteppingAction::UserSteppingAction(const G4Step* step)
     G4ThreeVector pos = postPoint->GetPosition();
     G4ThreeVector mom = postPoint->GetMomentumDirection();
 
-    hitFile_detector2 << pos.x() << "," << pos.y() << "," << pos.z()
+    hitFile_detector2 << pos.x() << "," << pos.y() << "," << pos.z() << ","
     << mom.x() << "," << mom.y() << "," << mom.z() << "\n";
 
     hitFile_detector2.close();
