@@ -1,0 +1,47 @@
+#!/usr/bin/python3.5
+
+import matplotlib.pyplot as plt
+import pandas as pd
+import numpy as np
+from astroML.stats import fit_bivariate_normal
+import sys
+
+
+detector1_hits = pd.read_csv("./data/hits_det1.csv",
+                             names=["x", "y", "z", "mom_x", "mom_y", "mom_z"],
+                             dtype=np.float64)
+
+detector2_hits = pd.read_csv("./data/hits_det2.csv",
+                             names=["x", "y", "z", "mom_x", "mom_y", "mom_z"],
+                             dtype=np.float64)
+
+# Hit data from detector 1
+X1 = detector1_hits["x"]
+Y1 = detector1_hits["z"]
+
+# Hit data from detector 2
+X2 = detector2_hits["x"]
+Y2 = detector2_hits["z"]
+
+
+fig = plt.figure()
+fig.subplots_adjust(left=0.09, right=0.95, wspace=0.0,
+                bottom=0.10, top=0.94)
+ax = fig.add_subplot(1,2,1)
+
+# Creates histogram from hit data, look into auto bin number
+counts,xbins,ybins,image = plt.hist2d(X1,Y1, bins=300, normed=True)
+plt.contour(counts.transpose(),extent=[xbins.min(),xbins.max(),ybins.min(),ybins.max()],linewidths=1)
+plt.xlim([-5,5]); plt.xlabel("x [cm]")
+plt.ylim([-5,5]); plt.ylabel("z [cm]")
+plt.title("Detector 1")
+
+ax = fig.add_subplot(1,2,2)
+counts,xbins,ybins,image = plt.hist2d(X2,Y2, bins=150, normed=True)
+plt.contour(counts.transpose(),extent=[xbins.min(),xbins.max(),ybins.min(),ybins.max()],linewidths=1)
+plt.xlim([-5,5])
+plt.ylim([-5,5])
+plt.title("Detector 2")
+
+
+plt.show()
