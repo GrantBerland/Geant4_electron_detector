@@ -33,16 +33,13 @@ if plotOn == '1':
 
     # Creates histogram from hit data, look into auto bin number
     counts,xbins,ybins,image = plt.hist2d(X1,Y1, bins=300, normed=True)
-    ax.contour(counts.transpose(),extent=[xbins.min(),xbins.max(),ybins.min(),ybins.max()],linewidths=1)
-    ax.xlim([-5,5]); plt.xlabel("x [cm]")
-    ax.ylim([-5,5]); plt.ylabel("z [cm]")
-    ax.title("Detector 1")
+    plt.contour(counts.transpose(),extent=[xbins.min(),xbins.max(),ybins.min(),ybins.max()],linewidths=1)
+    plt.xlim([-5,5]); plt.xlabel("x [cm]")
+    plt.ylim([-5,5]); plt.ylabel("z [cm]")
+    plt.title("Detector 1")
 
-
-    plt.figure()
-
+    ax = fig.add_subplot(1,2,2)
     counts,xbins,ybins,image = plt.hist2d(X2,Y2, bins=150, normed=True)
-    plt.colorbar()
     plt.contour(counts.transpose(),extent=[xbins.min(),xbins.max(),ybins.min(),ybins.max()],linewidths=1)
     plt.xlim([-5,5]); plt.xlabel("x [cm]")
     plt.ylim([-5,5]); plt.ylabel("z [cm]")
