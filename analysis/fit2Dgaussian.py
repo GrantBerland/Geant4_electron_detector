@@ -30,6 +30,8 @@ Y2 = detector2_hits["z"]
      sigma2_nr1, alpha_nr1) = fit_bivariate_normal(X1, Y1, robust=True)
 
 fig = plt.figure()
+fig.subplots_adjust(left=0.08, right=0.97, wspace=0.12,
+                bottom=0.10, top=0.97)
 ax = fig.add_subplot(1,2,1)
 
 # Scatter plot of hit data
@@ -82,7 +84,6 @@ ax.add_patch(E_3sigma)
 ax.set_xlim(-5, 5)
 ax.set_ylim(-5, 5)
 ax.set_xlabel("x [cm]")
-ax.set_ylabel("z [cm]")
 ax.text(0.04, 0.96, "Detector 2",
             ha='left', va='top', transform=ax.transAxes)
 

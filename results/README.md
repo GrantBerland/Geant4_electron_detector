@@ -37,3 +37,6 @@ Side shot of simulation
 
 ![angled beam 2](./detector2_30deg_1MeV_beam.png)
 
+![contour plot](./contour_30deg.png)
+
+![fitted scatter plot](./scatter_fit_30deg.png)
