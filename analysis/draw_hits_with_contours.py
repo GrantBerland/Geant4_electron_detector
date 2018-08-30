@@ -1,7 +1,6 @@
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
-import fit2dGaussian as fit
 from astroML.stats import fit_bivariate_normal
 import sys
 
@@ -48,13 +47,5 @@ if plotOn == '1':
 (mu_nr, sigma1_nr,
      sigma2_nr, alpha_nr) = fit_bivariate_normal(X1, Y1, robust=False)
 
-'''
-data = fit.twoD_Gaussian((X1, Y1), 3, 100, 100, 20, 40, 0, 10)
-
-# plot twoD_Gaussian data generated above
-plt.figure()
-plt.plot(data.reshape(int(np.sqrt(data.size)), int(np.sqrt(data.size))))
-plt.colorbar()
-'''
 
 plt.show()
