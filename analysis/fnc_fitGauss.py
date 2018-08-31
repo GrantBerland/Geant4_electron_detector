@@ -1,3 +1,5 @@
+#!/usr/bin/python3.5
+
 from pandas import read_csv
 from numpy import float64
 from astroML.stats import fit_bivariate_normal

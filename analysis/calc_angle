@@ -1,0 +1,47 @@
+#!/usr/bin/python3.5
+
+
+import pandas as pd
+import numpy as np
+from fnc_fitGauss import fit2DnormalDistribution
+
+
+initial_params = pd.read_csv('./data/init_pos.csv',
+                             names=["x","y","z","momX","momY","momZ"],
+                             dtype=np.float64)
+
+
+#mom_mag = np.sqrt(initial_params['momX'][0]**2 +
+#                  initial_params['momY'][0]**2 +
+#                  initial_params['momZ'][0]**2)
+
+theta_actual = np.rad2deg(np.arctan2(initial_params['momZ'][0], initial_params['momY'][0]))
+phi_actual = np.rad2deg(np.arctan2(initial_params['momX'][0], initial_params['momY'][0]))
+
+
+det1 = fit2DnormalDistribution(detector=1)
+det2 = fit2DnormalDistribution(detector=2)
+
+x1, z1 = det1['Mean']
+x2, z2 = det2['Mean']
+
+# In centimeters
+delta_x = x1 - x2
+delta_z = z1 - z2
+
+gap = 0.25 # cm
+
+# Trig to experimentally back out initial angle
+theta_exp = round(np.rad2deg(np.arctan2(delta_z, gap)), 4)
+phi_exp = round(np.rad2deg(np.arctan2(delta_x, gap)), 4)
+
+print("-------------------------------------------------------------\n")
+print("Number of particles: " + str(int(initial_params.size/6)))
+print("Actual [degrees]: theta=" + str(theta_actual) + ", phi=" +  str(phi_actual))
+print("Experimental [degrees]: theta=" + str(theta_exp) + ", phi=" +  str(phi_exp))
+
+theta_error = theta_exp - theta_actual
+phi_error = phi_exp - phi_actual
+
+print("(Theta, Phi) absolute error [degrees]: (" + str(theta_error) + ", " + str(phi_error) + ")")
+print("-------------------------------------------------------------\n")

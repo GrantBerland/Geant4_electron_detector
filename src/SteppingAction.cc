@@ -37,6 +37,7 @@
 #include "G4Event.hh"
 #include "G4RunManager.hh"
 #include "G4LogicalVolume.hh"
+#include "G4SystemOfUnits.hh"
 
 #include <fstream>
 
@@ -61,6 +62,7 @@ void SteppingAction::UserSteppingAction(const G4Step* step)
 
   G4bool isEnteringDetector1;
   G4bool isEnteringDetector2;
+  G4bool isLeavingDetector1;
 
   G4Track* track = step->GetTrack();
   const G4StepPoint* postPoint = step->GetPostStepPoint();
@@ -73,17 +75,33 @@ void SteppingAction::UserSteppingAction(const G4Step* step)
 
   isEnteringDetector1 = (volName != "detector1" && nextVolName == "detector1");
   isEnteringDetector2 = (volName != "detector2" && nextVolName == "detector2");
+  isLeavingDetector1 = (volName == "detector1" && nextVolName != "detector1");
 
   // Detector 1 particles
   if (isEnteringDetector1){
 
     G4ThreeVector pos = postPoint->GetPosition();
+    G4ThreeVector mom = postPoint->GetMomentumDirection();
 
     std::ofstream hitFile_detector1;
     hitFile_detector1.open("../analysis/data/hits_det1.csv", std::ios_base::app);
-    hitFile_detector1 << pos.x() << "," << pos.y() << "," << pos.z() << "\n";
+    hitFile_detector1 << pos.x()/cm << "," << pos.y()/cm << "," << pos.z()/cm << ","
+    << mom.x() << "," << mom.y() << "," << mom.z() << "\n";
     hitFile_detector1.close();
   }
+
+  if (isLeavingDetector1){
+
+    G4ThreeVector pos = postPoint->GetPosition();
+    G4ThreeVector mom = postPoint->GetMomentumDirection();
+
+    std::ofstream leavingFile_detector1;
+    leavingFile_detector1.open("../analysis/data/leaving_det1.csv", std::ios_base::app);
+    leavingFile_detector1 << pos.x()/cm << "," << pos.y()/cm << "," << pos.z()/cm << ","
+    << mom.x() << "," << mom.y() << "," << mom.z() << "\n";
+    leavingFile_detector1.close();
+  }
+
   // Detector 2 particles
   if (isEnteringDetector2){
 
@@ -91,7 +109,7 @@ void SteppingAction::UserSteppingAction(const G4Step* step)
 
     std::ofstream hitFile_detector2;
     hitFile_detector2.open("../analysis/data/hits_det2.csv", std::ios_base::app);
-    hitFile_detector2 << pos.x() << "," << pos.y() << "," << pos.z() << "\n";
+    hitFile_detector2 << pos.x()/cm << "," << pos.y()/cm << "," << pos.z()/cm << "\n";
     hitFile_detector2.close();
   }
 

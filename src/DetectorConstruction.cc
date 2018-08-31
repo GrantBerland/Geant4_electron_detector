@@ -125,12 +125,13 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   // Dimensions for detectors (both use the same dimensions)
   G4double detector_dimX = 5.*cm;
   G4double detector_dimZ = 5.*cm;
-  G4double detector_thickness = 100*um;
+  G4double detector1_thickness = 50*um;
+  G4double detector2_thickness = 1*mm;
 
   G4double distance_between_detectors = 2.5*mm;
 
   // Window dimensions
-  G4double window_thickness = 100*um;
+  G4double window_thickness = 50*um;
   G4double window_height    = 5.*cm;  // square window with this side dimension
   G4double window_gap       = 2.*mm;
 
@@ -149,8 +150,8 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
 
   // Final doped silicon material to be used in the electron detector
   G4Material* DopedSilicon = new G4Material("DopedSilicon", 5.8*g/cm3, 2); // last argument is number of components in material
-  DopedSilicon->AddElement(Si, 96*perCent);
-  DopedSilicon->AddElement(B, 4*perCent);
+  DopedSilicon->AddElement(Si, 99.9*perCent);
+  DopedSilicon->AddElement(B, 0.1*perCent);
 
   //DopedSilicon->AddElement(Ga, 2*perCent);  // Gallium
   //DopedSilicon->AddElement(As, 2*perCent);  // Arsenic (Gallium Arsenide)
@@ -159,29 +160,29 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   G4ThreeVector detector1_pos  = G4ThreeVector(0, 0, 0);
   G4ThreeVector detector2_pos = G4ThreeVector(0, 0, 0);
 
-  std::ostringstream detname;
 
-  G4VSolid* detector_solid = new G4Box("detector",
-                   detector_dimX, detector_thickness, detector_dimZ);
+  G4VSolid* detector1_solid = new G4Box("detector",
+                   detector_dimX, detector1_thickness, detector_dimZ);
+
+  G4VSolid* detector2_solid = new G4Box("detector",
+                  detector_dimX, detector2_thickness, detector_dimZ);
 
   // ----------------------------------------------------------------
   // Detector 1 (closest to window)
   // ----------------------------------------------------------------
 
-  detname.str("");
-  detname << "detector1";
 
   detector1_pos  = G4ThreeVector(0, 0, 0);
 
   G4LogicalVolume* detector1 =
-  new G4LogicalVolume(detector_solid,      //its solid
+  new G4LogicalVolume(detector1_solid,      //its solid
                       DopedSilicon,        //its material
-                      detname.str());      //its name
+                      "detector1");      //its name
 
   new G4PVPlacement(0,                     //no rotation
                   detector1_pos,            //at position
                   detector1,                //its logical volume
-                  detname.str(),           //its name
+                  "detector1",           //its name
                   logicEnv,                //its mother  volume
                   false,                   //no boolean operation
                   0,                       //copy number
@@ -191,20 +192,17 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   // Detector 2 (furthest from window)
   // ----------------------------------------------------------------
 
-  detname.str("");
-  detname << "detector2";
-
-  detector2_pos  = G4ThreeVector(0, detector_thickness + distance_between_detectors, 0);
+  detector2_pos  = G4ThreeVector(0, detector1_thickness/2 + detector2_thickness/2 + distance_between_detectors, 0);
 
   G4LogicalVolume* detector2 =
-  new G4LogicalVolume(detector_solid,      //its solid
+  new G4LogicalVolume(detector2_solid,      //its solid
                       DopedSilicon,        //its material
-                      detname.str());      //its name
+                      "detector2");      //its name
 
   new G4PVPlacement(0,                     //no rotation
                   detector2_pos,            //at position
                   detector2,                //its logical volume
-                  detname.str(),           //its name
+                  "detector2",           //its name
                   logicEnv,                //its mother  volume
                   false,                   //no boolean operation
                   0,                       //copy number
@@ -215,27 +213,25 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   // Window
   // ----------------------------------------------------------------
 
-  G4Material* window_material = nist->FindOrBuildMaterial("G4_Be");   //TODO: check that this is beryllium
+  G4Material* window_material = nist->FindOrBuildMaterial("G4_Be");
   G4VSolid*   window_solid = new G4Box("window", detector_dimX, window_thickness,  window_height);
 
   G4ThreeVector window_pos;
-  std::ostringstream window_name;
+
 
   // Creation of beryllium window to repel protons and other particles
-  window_name.str("");
-  window_name << "window";
 
-  window_pos = G4ThreeVector(0, -(detector_thickness + window_gap),  0);
+  window_pos = G4ThreeVector(0, -(detector1_thickness/2 + window_gap),  0);
 
   G4LogicalVolume* window =
   new G4LogicalVolume(window_solid,         // its solid
                       window_material,      // its material
-                      window_name.str());    // its name
+                      "window");    // its name
 
   new G4PVPlacement(0,                       //no rotation
                     window_pos,              //at position
                     window,                  //its logical volume
-                    window_name.str(),       //its name
+                    "window",       //its name
                     logicEnv,                //its mother  volume
                     false,                   //no boolean operation
                     0,                       //copy number
