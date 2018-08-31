@@ -13,6 +13,8 @@ detector1_hits = pd.read_csv("./data/hits_det1.csv",
 detector2_hits = pd.read_csv("./data/hits_det2.csv",
                              names=["x", "y", "z"],
                              dtype=np.float64)
+detector1_hits.info()
+detector2_hits.info()
 
 # Hit data from detector 1
 X1 = detector1_hits["x"]
