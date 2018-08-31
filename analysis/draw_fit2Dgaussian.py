@@ -7,11 +7,11 @@ import matplotlib.pyplot as plt
 from matplotlib.patches import Ellipse
 
 detector1_hits = pd.read_csv("./data/hits_det1.csv",
-                             names=["x", "y", "z", "mom_x", "mom_y", "mom_z"],
+                             names=["x", "y", "z"],
                              dtype=np.float64)
 
 detector2_hits = pd.read_csv("./data/hits_det2.csv",
-                             names=["x", "y", "z", "mom_x", "mom_y", "mom_z"],
+                             names=["x", "y", "z"],
                              dtype=np.float64)
 
 # Hit data from detector 1
@@ -23,7 +23,7 @@ X2 = detector2_hits["x"]
 Y2 = detector2_hits["z"]
 
 ###########################################
-### astroML's robust fit for detector 1 ###
+### astroML's robust 2D normal fit for detector 1 ###
 ###########################################
 
 (mu_nr1, sigma1_nr1,
@@ -60,7 +60,7 @@ ax.legend(loc='lower right')
 
 
 ###########################################
-### astroML's robust fit for detector 2 ###
+### astroML's robust 2D normal fit for detector 2 ###
 ###########################################
 
 (mu_nr2, sigma1_nr2,

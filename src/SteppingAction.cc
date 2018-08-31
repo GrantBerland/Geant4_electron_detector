@@ -77,46 +77,23 @@ void SteppingAction::UserSteppingAction(const G4Step* step)
   // Detector 1 particles
   if (isEnteringDetector1){
 
+    G4ThreeVector pos = postPoint->GetPosition();
+
     std::ofstream hitFile_detector1;
     hitFile_detector1.open("../analysis/data/hits_det1.csv", std::ios_base::app);
-
-    G4ThreeVector pos = postPoint->GetPosition();
-    G4ThreeVector mom = postPoint->GetMomentumDirection();
-
-    hitFile_detector1 << pos.x() << "," << pos.y() << "," << pos.z() << ","
-    << mom.x() << "," << mom.y() << "," << mom.z() << "\n";
-
+    hitFile_detector1 << pos.x() << "," << pos.y() << "," << pos.z() << "\n";
     hitFile_detector1.close();
   }
   // Detector 2 particles
   if (isEnteringDetector2){
 
+    G4ThreeVector pos = postPoint->GetPosition();
+
     std::ofstream hitFile_detector2;
     hitFile_detector2.open("../analysis/data/hits_det2.csv", std::ios_base::app);
-
-    G4ThreeVector pos = postPoint->GetPosition();
-    G4ThreeVector mom = postPoint->GetMomentumDirection();
-
-    hitFile_detector2 << pos.x() << "," << pos.y() << "," << pos.z() << ","
-    << mom.x() << "," << mom.y() << "," << mom.z() << "\n";
-
+    hitFile_detector2 << pos.x() << "," << pos.y() << "," << pos.z() << "\n";
     hitFile_detector2.close();
   }
-
-/*
-  // Computes momentum magnitude and direction (wrt to simulation axes?)
-  G4double mom_x = momentum.x();
-  G4double mom_y = momentum.y();
-  G4double mom_z = momentum.z();
-  G4double mom_mag = sqrt(pow(mom_x, 2)+pow(mom_y, 2)+pow(mom_z, 2));
-
-  G4double angle_x = acos(mom_x/mom_mag);
-  G4double angle_y = acos(mom_y/mom_mag);
-  G4double angle_z = acos(mom_z/mom_mag);
-
-  // Collect energy deposited in this step
-  G4double edepStep = step->GetTotalEnergyDeposit();
-*/
 
 }
 

@@ -67,7 +67,7 @@ void RunAction::BeginOfRunAction(const G4Run*)
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-void RunAction::EndOfRunAction(const G4Run* run)
+void RunAction::EndOfRunAction(const G4Run*)
 {
 /*
 
@@ -132,17 +132,4 @@ void RunAction::AddEdep(G4double edep)
   fEdep2 += edep*edep;
 }
 
-
-void RunAction::LogEntry(G4double edep)
-{
-    G4cout << "log action happened!"<<G4endl;
-    // if(asciiFile->is_open()) {
-      (*asciiFile) << std::setiosflags(std::ios::fixed)
-       << std::setprecision(3)
-       << std::setiosflags(std::ios::right)
-       << std::setw(10);
-      (*asciiFile) << edep << G4endl;
-    // }
-
-}
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
