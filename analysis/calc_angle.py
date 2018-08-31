@@ -13,9 +13,8 @@ mom_mag = np.sqrt(initial_params['momX'][1]**2 +
                   initial_params['momY'][1]**2 +
                   initial_params['momZ'][1]**2)
 
-ang1 = np.arccos(initial_params['momX'][1] / mom_mag)
-ang2 = np.arccos(initial_params['momY'][1] / mom_mag)
-ang3 = np.arccos(initial_params['momZ'][1] / mom_mag)
+theta_actual = np.rad2deg(np.arctan2(initial_params['momX'][1], initial_params['momY'][1]))
+phi_actual = np.rad2deg(np.arctan2(initial_params['momZ'][1], initial_params['momY'][1]))
 
 
 det1 = fit2DnormalDistribution(detector=1)
@@ -30,8 +29,8 @@ dz = z1 - z2
 
 gap = 0.25 # cm
 
-theta = np.rad2deg(np.arctan2(dz, gap))
-phi = np.rad2deg(np.arctan2(dx, gap))
+theta_exp = np.rad2deg(np.arctan2(dz, gap))
+phi_exp = np.rad2deg(np.arctan2(dx, gap))
 
-print(theta, phi)
-print(ang1, ang2, ang3)
+print("Experimental: " + str(theta_exp) + " " +  str(phi_exp))
+print("Actual: " + str(theta_actual) + " " +  str(phi_actual))
