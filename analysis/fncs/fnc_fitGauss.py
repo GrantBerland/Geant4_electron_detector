@@ -1,8 +1,11 @@
 #!/usr/bin/python3.5
 
 from pandas import read_csv
-from numpy import float64
+from numpy import float64, median
 from astroML.stats import fit_bivariate_normal
+from scipy.stats import skew
+
+import matplotlib.pyplot as plt
 
 def fit2DnormalDistribution(detector):
     if detector == 1:
@@ -21,8 +24,16 @@ def fit2DnormalDistribution(detector):
     (mu_nr, sigma1_nr,
          sigma2_nr, alpha_nr) = fit_bivariate_normal(X, Z, robust=True)
 
-    Gauss2D_dist = {'Mean': mu_nr, 'Sigma X': sigma1_nr,
-                    'Sigma Y': sigma2_nr, 'Alpha': alpha_nr}
+    skew_x_dim = skew(X)
+    skew_z_dim = skew(Z)
+
+    x_med = median(X)
+    z_med = median(Z)
+
+    Gauss2D_dist = {'Mean': mu_nr, 'Median X': x_med, 'Median Z': z_med,
+                    'Sigma X': sigma1_nr,
+                    'Sigma Z': sigma2_nr, 'Alpha': alpha_nr,
+                    'Skew X': skew_x_dim, 'Skew Z': skew_z_dim}
 
 
     return Gauss2D_dist
