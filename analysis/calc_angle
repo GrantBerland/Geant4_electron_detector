@@ -5,6 +5,8 @@ import numpy as np
 
 # My wrapper function for astoML's fit_bivariate_normal()
 from fncs.fnc_fitGauss import fit2DnormalDistribution
+
+# Extracts and returns actual inital particle source angles
 from fncs.fnc_findSourceAngle import findSourceAngle
 
 

@@ -6,7 +6,7 @@
 /doc/*.odt
 /results/.idea
 .idea
-/analysis/__pycache__
+__pycache__/
+*.pyc
 /analysis/data/*.csv
 /analysis/*.m~
-/analysis/fncs/__pycache
