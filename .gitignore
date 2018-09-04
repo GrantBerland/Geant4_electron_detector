@@ -9,3 +9,4 @@
 /analysis/__pycache__
 /analysis/data/*.csv
 /analysis/*.m~
+/analysis/fncs/__pycache
