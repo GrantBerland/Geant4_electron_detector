@@ -27,5 +27,6 @@ Side shot of simulation
 
 ## At 30 degrees with respect to detector normal, 1 MeV
 
+# 1 MeV, front window: 50 micron, detector 1: 200 micron, detector 2: 1 mm
 
-
+![200 um scatter fit](./scatter_fit_30deg_200um.png)
