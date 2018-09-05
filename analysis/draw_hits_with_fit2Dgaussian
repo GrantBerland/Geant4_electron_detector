@@ -70,7 +70,7 @@ ax.legend(loc='lower right')
 
 (mu_nr2, sigma1_nr2,
      sigma2_nr2, alpha_nr2) = fit_bivariate_normal(X2, Y2, robust=True)
-
+print(np.rad2deg(alpha_nr1), np.rad2deg(alpha_nr2))
 ax = fig.add_subplot(1,2,2)
 
 # Scatter plot of hit data

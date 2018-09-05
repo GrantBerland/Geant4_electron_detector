@@ -125,7 +125,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   // Dimensions for detectors (both use the same dimensions)
   G4double detector_dimX = 5.*cm;
   G4double detector_dimZ = 5.*cm;
-  G4double detector1_thickness = 50*um;
+  G4double detector1_thickness = 200*um;
   G4double detector2_thickness = 1*mm;
 
   G4double distance_between_detectors = 2.5*mm;

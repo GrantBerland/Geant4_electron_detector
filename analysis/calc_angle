@@ -48,8 +48,8 @@ delta_z = z1 - z2
 gap = 0.25 # [cm]
 
 # Trig to experimentally back out initial angle
-theta_exp = round(np.rad2deg(np.arctan2(delta_z, gap)), 4)
-phi_exp = round(np.rad2deg(np.arctan2(delta_x, gap)), 4)
+theta_exp = round(np.rad2deg(np.arctan2(gap, delta_z)), 4)
+phi_exp = round(np.rad2deg(np.arctan2(gap, delta_x)), 4)
 
 # Computes absolute error between actual and experimental angle, since
 # the actual angle can be 0, which blows up traditional relative error
