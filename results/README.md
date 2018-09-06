@@ -27,6 +27,20 @@ Side shot of simulation
 
 ## At 30 degrees with respect to detector normal, 1 MeV
 
-# 1 MeV, front window: 50 micron, detector 1: 200 micron, detector 2: 1 mm
+## 1 MeV, front window: 50 micron, detector 1: 200 micron, detector 2: 1 mm
 
 ![200 um scatter fit](./scatter_fit_30deg_200um.png)
+
+## Output for 500 keV, theta = 30 deg
+
+Skew of hits:
+0.0007204448573444654 -1.39016218361432
+-0.7555743029859372 0.191830417795372
+-------------------------------------------------------------
+Number of particles: 110000
+Actual [degrees]: theta=30.0, phi=0.0
+Experimental [degrees]: theta=24.3513, phi=90.2832
+(Theta, Phi) absolute error [degrees]: (-5.6487, 90.2832)
+-------------------------------------------------------------
+
+

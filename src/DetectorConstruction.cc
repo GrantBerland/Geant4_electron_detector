@@ -133,7 +133,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   // Window dimensions
   G4double window_thickness = 50*um;
   G4double window_height    = 5.*cm;  // square window with this side dimension
-  G4double window_gap       = 2.*mm;
+  G4double window_gap       = 1.*mm;
 
   // ----------------------------------------------------------------
   // Materials for the detectors
@@ -171,7 +171,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   // Detector 1 (closest to window)
   // ----------------------------------------------------------------
 
-
+  // Detector 1 exists at the origin
   detector1_pos  = G4ThreeVector(0, 0, 0);
 
   G4LogicalVolume* detector1 =
@@ -221,7 +221,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
 
   // Creation of beryllium window to repel protons and other particles
 
-  window_pos = G4ThreeVector(0, -(detector1_thickness/2 + window_gap),  0);
+  window_pos = G4ThreeVector(0, -(detector1_thickness/2 + window_thickness/2 + window_gap),  0);
 
   G4LogicalVolume* window =
   new G4LogicalVolume(window_solid,         // its solid

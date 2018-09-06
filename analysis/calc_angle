@@ -17,39 +17,57 @@ theta_actual, phi_actual, s = findSourceAngle()
 det1 = fit2DnormalDistribution(detector=1)
 det2 = fit2DnormalDistribution(detector=2)
 
-stat = sys.argv[1]
+try:
+    stat = sys.argv[1]
+except IndexError:
+    # else if no argument passed to program, defaults to mean
+    stat = 'mean'
 
-if stat == 'median' or None:
+
+if stat == 'median':
     x1, z1 = det1['Median X'] , det1['Median Z']
     x2, z2 = det2['Median X'] , det2['Median Z']
 elif stat == 'mean':
     x1, z1 = det1['Mean']
     x2, z2 = det2['Mean']
 
-
+# Normal rotation extraction
 alpha1 = det1['Alpha']
 alpha2 = det2['Alpha']
 
+# Skew extractions
 skew_x1 = det1['Skew X']
 skew_z1 = det1['Skew Z']
 
 skew_x2 = det2['Skew X']
 skew_z2 = det2['Skew Z']
 
-print("\nSkew of hits:")
-print(skew_x1, skew_z1)
-print(skew_x2, skew_z2)
+# Standard Deviation extractions
+std_dev_x1 = det1['Sigma X']
+std_dev_z1 = det1['Sigma Z']
+
+std_dev_x2 = det2['Sigma X']
+std_dev_z2 = det2['Sigma Z']
+
+print("-------------------------------------------------------------")
+print("Statistics: \n")
+print("Skew of hits:")
+print("Skew (x1, z1) = (" + str(round(skew_x1, 4)) + ", " +  str(round(skew_z1, 4)) + ")")
+print("Skew (x2, z2) = (" + str(round(skew_x2, 4)) + ", " +  str(round(skew_z2, 4)) + ")\n")
+print("Standard Deviation (x1, z1) = (" + str(round(std_dev_x1, 4)) + ", " + str(round(std_dev_z1, 4)) + ") cm")
+print("Standard Deviation (x2, z2) = (" + str(round(std_dev_x2, 4)) + ", " + str(round(std_dev_z2, 4)) + ") cm")
 
 # In [cm]
 delta_x = x1 - x2
 delta_z = z1 - z2
 
+print(delta_x, delta_z)
 # Gap between detectors
 gap = 0.25 # [cm]
 
 # Trig to experimentally back out initial angle
-theta_exp = round(np.rad2deg(np.arctan2(gap, delta_z)), 4)
-phi_exp = round(np.rad2deg(np.arctan2(gap, delta_x)), 4)
+theta_exp = round(np.rad2deg(np.arctan2(delta_z, gap)), 4)
+phi_exp = round(np.rad2deg(np.arctan2(delta_x, gap)), 4)
 
 # Computes absolute error between actual and experimental angle, since
 # the actual angle can be 0, which blows up traditional relative error
@@ -57,7 +75,8 @@ theta_error = round(theta_exp - theta_actual, 4)
 phi_error = round(phi_exp - phi_actual, 4)
 
 
-print("-------------------------------------------------------------\n")
+print("-------------------------------------------------------------")
+print("Angle Estimation: \n")
 # divide 6 comes from 6 parameters recorded per particle
 print("Number of particles: " + str(s))
 print("Actual [degrees]: theta=" + str(theta_actual) + ", phi=" +  str(phi_actual))
