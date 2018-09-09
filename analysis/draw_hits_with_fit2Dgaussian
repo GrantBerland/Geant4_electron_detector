@@ -5,13 +5,14 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.patches import Ellipse
+import sys
 
 detector1_hits = pd.read_csv("./data/hits_det1.csv",
-                             names=["x", "y", "z"],
+                             names=["x", "y", "z", "ene"],
                              dtype=np.float64)
 
 detector2_hits = pd.read_csv("./data/hits_det2.csv",
-                             names=["x", "y", "z"],
+                             names=["x", "y", "z", "ene"],
                              dtype=np.float64)
 
 
@@ -22,6 +23,20 @@ Y1 = detector1_hits["z"]
 # Hit data from detector 2
 X2 = detector2_hits["x"]
 Y2 = detector2_hits["z"]
+
+exc_str = []
+
+if np.std(X1) == 0:
+    exc_str.append("X1")
+elif np.std(Y1) == 0:
+    exc_str.append("Y1")
+elif np.std(X2) == 0:
+    exc_str.append("X2")
+elif np.std(Y2) == 0:
+    exc_str.append("Y2")
+
+if exc_str:
+    sys.exit(exc_str)
 
 ###########################################
 # astroML's robust 2D normal fit for detector 1
@@ -70,7 +85,7 @@ ax.legend(loc='lower right')
 
 (mu_nr2, sigma1_nr2,
      sigma2_nr2, alpha_nr2) = fit_bivariate_normal(X2, Y2, robust=True)
-print(np.rad2deg(alpha_nr1), np.rad2deg(alpha_nr2))
+
 ax = fig.add_subplot(1,2,2)
 
 # Scatter plot of hit data

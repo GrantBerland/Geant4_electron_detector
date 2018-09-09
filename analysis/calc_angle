@@ -14,8 +14,8 @@ from fncs.fnc_findSourceAngle import findSourceAngle
 theta_actual, phi_actual, s = findSourceAngle()
 
 # Returns a dictionary with attributes 'Mean', Sigma X','Sigma Y','Alpha'
-det1 = fit2DnormalDistribution(detector=1)
-det2 = fit2DnormalDistribution(detector=2)
+det1 = fit2DnormalDistribution(detector=1, fitFlag=0)
+det2 = fit2DnormalDistribution(detector=2, fitFlag=0)
 
 try:
     stat = sys.argv[1]
@@ -25,8 +25,8 @@ except IndexError:
 
 
 if stat == 'median':
-    x1, z1 = det1['Median X'] , det1['Median Z']
-    x2, z2 = det2['Median X'] , det2['Median Z']
+    x1, z1 = det1['Median']
+    x2, z2 = det2['Median']
 elif stat == 'mean':
     x1, z1 = det1['Mean']
     x2, z2 = det2['Mean']
@@ -55,15 +55,23 @@ print("Skew of hits:")
 print("Skew (x1, z1) = (" + str(round(skew_x1, 4)) + ", " +  str(round(skew_z1, 4)) + ")")
 print("Skew (x2, z2) = (" + str(round(skew_x2, 4)) + ", " +  str(round(skew_z2, 4)) + ")\n")
 print("Standard Deviation (x1, z1) = (" + str(round(std_dev_x1, 4)) + ", " + str(round(std_dev_z1, 4)) + ") cm")
-print("Standard Deviation (x2, z2) = (" + str(round(std_dev_x2, 4)) + ", " + str(round(std_dev_z2, 4)) + ") cm")
+print("Standard Deviation (x2, z2) = (" + str(round(std_dev_x2, 10)) + ", " + str(round(std_dev_z2, 4)) + ") cm")
 
 # In [cm]
 delta_x = x1 - x2
 delta_z = z1 - z2
 
-print(delta_x, delta_z)
+'''
+# For debugging purposes
+print(round(x1, 4), round(z1,4))
+print(round(x2,4), round(z2,4))
+print(x1-x2)
+print(z1-z2)
+'''
+
+
 # Gap between detectors
-gap = 0.25 # [cm]
+gap = 0.5 # [cm]
 
 # Trig to experimentally back out initial angle
 theta_exp = round(np.rad2deg(np.arctan2(delta_z, gap)), 4)
