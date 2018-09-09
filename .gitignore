@@ -8,5 +8,6 @@
 .idea
 __pycache__/
 *.pyc
+*.csv
 /analysis/data/*.csv
 /analysis/*.m~
