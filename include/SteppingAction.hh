@@ -45,15 +45,16 @@ class SteppingAction : public G4UserSteppingAction
 {
   public:
     SteppingAction(EventAction* eventAction);
+
     virtual ~SteppingAction();
 
     // method from the base class
     virtual void UserSteppingAction(const G4Step*);
 
+public:
+
   private:
     EventAction*  fEventAction;
-    G4int detector1_counter;
-    G4int detector2_counter;
     // G4LogicalVolume* fScoringVolume;
 };
 

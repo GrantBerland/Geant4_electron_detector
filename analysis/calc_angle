@@ -14,8 +14,8 @@ from fncs.fnc_findSourceAngle import findSourceAngle
 theta_actual, phi_actual, s = findSourceAngle()
 
 # Returns a dictionary with attributes 'Mean', Sigma X','Sigma Y','Alpha'
-det1 = fit2DnormalDistribution(detector=1, fitFlag=0)
-det2 = fit2DnormalDistribution(detector=2, fitFlag=0)
+det1 = fit2DnormalDistribution(detector=1, fitFlag=1)
+det2 = fit2DnormalDistribution(detector=2, fitFlag=1)
 
 try:
     stat = sys.argv[1]

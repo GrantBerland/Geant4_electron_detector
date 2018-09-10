@@ -50,11 +50,21 @@ class EventAction : public G4UserEventAction
     virtual void BeginOfEventAction(const G4Event* event);
     virtual void EndOfEventAction(const G4Event* event);
 
+    // Setter methods for per event detector hits
+    void incrementDetector1Flag(){ det1_hitFlag++;}
+    void incrementDetector2Flag(){ det2_hitFlag++;}
+
+    void resetDetector1Flag(){det1_hitFlag = 0;}
+    void resetDetector2Flag(){det2_hitFlag = 0;}
+
     void AddEdep(G4double edep) { fEdep += edep; }
 
-  private:
-    RunAction* fRunAction;
-    G4double     fEdep;
+
+private:
+  RunAction* fRunAction;
+  G4double   fEdep;
+  G4int det1_hitFlag;
+  G4int det2_hitFlag;
 
 
 };

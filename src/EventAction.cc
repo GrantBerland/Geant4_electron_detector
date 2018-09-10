@@ -59,7 +59,7 @@ void EventAction::BeginOfEventAction(const G4Event* event)
   // Writes particle initial positions to file
   std::ofstream initialPositionsFile;
 
-  G4ThreeVector mom;;
+  G4ThreeVector mom;
 
   initialPositionsFile.open("../analysis/data/init_pos.csv", std::ios_base::app);
   if(initialPositionsFile.is_open())
@@ -72,6 +72,8 @@ void EventAction::BeginOfEventAction(const G4Event* event)
     << event->GetPrimaryVertex()->GetPrimary()->GetMomentumDirection().z() << "\n";
 
     initialPositionsFile.close();
+
+
   }
 }
 
@@ -80,15 +82,39 @@ void EventAction::BeginOfEventAction(const G4Event* event)
 void EventAction::EndOfEventAction(const G4Event*)
 {
 
-  // accumulate statistics in run action
-  //fRunAction->AddEdep(fEdep);
+  if(det1_hitFlag > 1)
+  {
+    std::ofstream hitFile_detector1;
+    hitFile_detector1.open("../analysis/data/hits_det1.csv", std::ios_base::app);
 
-  //G4AnalysisManager* man = G4AnalysisManager::Instance();
+    hitFile_detector1 << ", DH";
 
-  // Fill histograms
-  // Source:
-  //G4double init_energy = event->GetPrimaryVertex()->GetPrimary()->GetKineticEnergy();
+    hitFile_detector1.close();
 
+  }
+
+  if(det2_hitFlag == 0)
+  {
+    std::ofstream hitFile_detector2;
+    hitFile_detector2.open("../analysis/data/hits_det2.csv", std::ios_base::app);
+
+    hitFile_detector2 << "\nNH";
+
+    hitFile_detector2.close();
+  }
+
+  else if(det2_hitFlag > 1)
+  {
+    std::ofstream hitFile_detector2;
+    hitFile_detector2.open("../analysis/data/hits_det2.csv", std::ios_base::app);
+
+    hitFile_detector2 << "\nDH";
+
+    hitFile_detector2.close();
+  }
+
+    resetDetector1Flag();
+    resetDetector2Flag();
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

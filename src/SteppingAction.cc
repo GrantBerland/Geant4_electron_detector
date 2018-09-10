@@ -45,9 +45,7 @@
 
 SteppingAction::SteppingAction(EventAction* eventAction)
 : G4UserSteppingAction(),
-  fEventAction(eventAction),
-  detector1_counter(0),
-  detector2_counter(0)
+  fEventAction(eventAction)
 {}
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -59,6 +57,7 @@ SteppingAction::~SteppingAction()
 
 void SteppingAction::UserSteppingAction(const G4Step* step)
 {
+
 
   G4bool isEnteringDetector1;
   G4bool isEnteringDetector2;
@@ -78,13 +77,15 @@ void SteppingAction::UserSteppingAction(const G4Step* step)
   // Detector 1 particles
   if (isEnteringDetector1){
 
+    fEventAction->incrementDetector1Flag();
+
     G4ThreeVector pos = postPoint->GetPosition();
     G4double ene = postPoint->GetKineticEnergy();
 
     std::ofstream hitFile_detector1;
     hitFile_detector1.open("../analysis/data/hits_det1.csv", std::ios_base::app);
-    hitFile_detector1 << pos.x()/cm << "," << pos.y()/cm << "," << pos.z()/cm << ","
-    << ene << "\n";
+    hitFile_detector1 << "\n" << pos.x()/cm << "," << pos.y()/cm << "," << pos.z()/cm << ","
+    << ene;
     hitFile_detector1.close();
   }
 
@@ -92,13 +93,15 @@ void SteppingAction::UserSteppingAction(const G4Step* step)
   // Detector 2 particles
   if (isEnteringDetector2){
 
+    fEventAction->incrementDetector2Flag();
+
     G4ThreeVector pos = postPoint->GetPosition();
     G4double ene = postPoint->GetKineticEnergy();
 
     std::ofstream hitFile_detector2;
     hitFile_detector2.open("../analysis/data/hits_det2.csv", std::ios_base::app);
-    hitFile_detector2 << pos.x()/cm << "," << pos.y()/cm << ","
-    << pos.z()/cm << "," << ene << "\n";
+    hitFile_detector2  << "\n" <<pos.x()/cm << "," << pos.y()/cm << ","
+    << pos.z()/cm << "," << ene;
     hitFile_detector2.close();
   }
 
