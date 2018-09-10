@@ -85,9 +85,9 @@ void EventAction::EndOfEventAction(const G4Event*)
   if(det1_hitFlag > 1)
   {
     std::ofstream hitFile_detector1;
-    hitFile_detector1.open("../analysis/data/hits_det1.csv", std::ios_base::app);
+    hitFile_detector1.open("../analysis/data/hits.csv", std::ios_base::app);
 
-    hitFile_detector1 << ", DH";
+    hitFile_detector1 << "\n1,DH";
 
     hitFile_detector1.close();
 
@@ -96,9 +96,9 @@ void EventAction::EndOfEventAction(const G4Event*)
   if(det2_hitFlag == 0)
   {
     std::ofstream hitFile_detector2;
-    hitFile_detector2.open("../analysis/data/hits_det2.csv", std::ios_base::app);
+    hitFile_detector2.open("../analysis/data/hits.csv", std::ios_base::app);
 
-    hitFile_detector2 << "\nNH";
+    hitFile_detector2 << "\n2,NH";
 
     hitFile_detector2.close();
   }
@@ -106,9 +106,9 @@ void EventAction::EndOfEventAction(const G4Event*)
   else if(det2_hitFlag > 1)
   {
     std::ofstream hitFile_detector2;
-    hitFile_detector2.open("../analysis/data/hits_det2.csv", std::ios_base::app);
+    hitFile_detector2.open("../analysis/data/hits.csv", std::ios_base::app);
 
-    hitFile_detector2 << "\nDH";
+    hitFile_detector2 << "\n2,DH";
 
     hitFile_detector2.close();
   }

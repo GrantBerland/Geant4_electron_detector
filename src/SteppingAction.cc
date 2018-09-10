@@ -83,8 +83,8 @@ void SteppingAction::UserSteppingAction(const G4Step* step)
     G4double ene = postPoint->GetKineticEnergy();
 
     std::ofstream hitFile_detector1;
-    hitFile_detector1.open("../analysis/data/hits_det1.csv", std::ios_base::app);
-    hitFile_detector1 << "\n" << pos.x()/cm << "," << pos.y()/cm << "," << pos.z()/cm << ","
+    hitFile_detector1.open("../analysis/data/hits.csv", std::ios_base::app);
+    hitFile_detector1 << "\n" << 1 << "," << pos.x()/cm << "," << pos.y()/cm << "," << pos.z()/cm << ","
     << ene;
     hitFile_detector1.close();
   }
@@ -99,8 +99,8 @@ void SteppingAction::UserSteppingAction(const G4Step* step)
     G4double ene = postPoint->GetKineticEnergy();
 
     std::ofstream hitFile_detector2;
-    hitFile_detector2.open("../analysis/data/hits_det2.csv", std::ios_base::app);
-    hitFile_detector2  << "\n" <<pos.x()/cm << "," << pos.y()/cm << ","
+    hitFile_detector2.open("../analysis/data/hits.csv", std::ios_base::app);
+    hitFile_detector2  << "\n" << 2 << "," <<pos.x()/cm << "," << pos.y()/cm << ","
     << pos.z()/cm << "," << ene;
     hitFile_detector2.close();
   }
