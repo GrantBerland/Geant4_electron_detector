@@ -87,7 +87,7 @@ void EventAction::EndOfEventAction(const G4Event*)
     std::ofstream hitFile_detector1;
     hitFile_detector1.open("../analysis/data/hits.csv", std::ios_base::app);
 
-    hitFile_detector1 << "\n1,DH";
+    hitFile_detector1 << "\n1,0,0,0,0,DH";
 
     hitFile_detector1.close();
 
@@ -98,7 +98,7 @@ void EventAction::EndOfEventAction(const G4Event*)
     std::ofstream hitFile_detector2;
     hitFile_detector2.open("../analysis/data/hits.csv", std::ios_base::app);
 
-    hitFile_detector2 << "\n2,NH";
+    hitFile_detector2 << "\n2,0,0,0,0,NH";
 
     hitFile_detector2.close();
   }
@@ -108,7 +108,7 @@ void EventAction::EndOfEventAction(const G4Event*)
     std::ofstream hitFile_detector2;
     hitFile_detector2.open("../analysis/data/hits.csv", std::ios_base::app);
 
-    hitFile_detector2 << "\n2,DH";
+    hitFile_detector2 << "\n2,0,0,0,0,DH";
 
     hitFile_detector2.close();
   }

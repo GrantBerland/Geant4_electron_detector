@@ -9,11 +9,11 @@ import sys
 
 
 detector1_hits = pd.read_csv("./data/hits_det1.csv",
-                             names=["x", "y", "z", "mom_x", "mom_y", "mom_z"],
+                             names=["det","x", "y", "z", "ene"],
                              dtype=np.float64)
 
 detector2_hits = pd.read_csv("./data/hits_det2.csv",
-                             names=["x", "y", "z", "mom_x", "mom_y", "mom_z"],
+                             names=["det","x", "y", "z", "ene"],
                              dtype=np.float64)
 
 # Hit data from detector 1

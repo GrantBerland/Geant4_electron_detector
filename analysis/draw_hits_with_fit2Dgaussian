@@ -7,25 +7,15 @@ import matplotlib.pyplot as plt
 from matplotlib.patches import Ellipse
 import sys
 
-detector1_hits = pd.read_csv("./data/hits_det1.csv",
-                             names=["x", "y", "z", "ene"],
-                             dtype=np.float64)
+from fncs.fnc_getDetectorHitData import getDetectorHitData
 
-detector2_hits = pd.read_csv("./data/hits_det2.csv",
-                             names=["x", "y", "z", "ene"],
-                             dtype=np.float64)
+X1, Y1 = getDetectorHitData(detector=1)
+
+X2, Y2 = getDetectorHitData(detector=2)
 
 
-# Hit data from detector 1
-X1 = detector1_hits["x"]
-Y1 = detector1_hits["z"]
-
-# Hit data from detector 2
-X2 = detector2_hits["x"]
-Y2 = detector2_hits["z"]
-
+# Debugging and exit sequence
 exc_str = []
-
 if np.std(X1) == 0:
     exc_str.append("X1")
 elif np.std(Y1) == 0:

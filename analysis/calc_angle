@@ -11,11 +11,11 @@ from fncs.fnc_fitGauss import fit2DnormalDistribution
 from fncs.fnc_findSourceAngle import findSourceAngle
 
 
-theta_actual, phi_actual, s = findSourceAngle()
+theta_actual, phi_actual, numberOfParticles = findSourceAngle()
 
 # Returns a dictionary with attributes 'Mean', Sigma X','Sigma Y','Alpha'
-det1 = fit2DnormalDistribution(detector=1, fitFlag=1)
-det2 = fit2DnormalDistribution(detector=2, fitFlag=1)
+det1 = fit2DnormalDistribution(detector=1, fitFlag=0)
+det2 = fit2DnormalDistribution(detector=2, fitFlag=0)
 
 try:
     stat = sys.argv[1]
@@ -31,7 +31,7 @@ elif stat == 'mean':
     x1, z1 = det1['Mean']
     x2, z2 = det2['Mean']
 
-# Normal rotation extraction
+# Normal distribution rotation extraction
 alpha1 = det1['Alpha']
 alpha2 = det2['Alpha']
 
@@ -70,12 +70,11 @@ print(z1-z2)
 '''
 
 
-# Gap between detectors
-gap = 0.5 # [cm]
+gapBetweenDetectors = 0.5 # [cm]
 
 # Trig to experimentally back out initial angle
-theta_exp = round(np.rad2deg(np.arctan2(delta_z, gap)), 4)
-phi_exp = round(np.rad2deg(np.arctan2(delta_x, gap)), 4)
+theta_exp = round(np.rad2deg(np.arctan2(delta_z, gapBetweenDetectors)), 4)
+phi_exp = round(np.rad2deg(np.arctan2(delta_x, gapBetweenDetectors)), 4)
 
 # Computes absolute error between actual and experimental angle, since
 # the actual angle can be 0, which blows up traditional relative error
@@ -86,7 +85,7 @@ phi_error = round(phi_exp - phi_actual, 4)
 print("-------------------------------------------------------------")
 print("Angle Estimation: \n")
 # divide 6 comes from 6 parameters recorded per particle
-print("Number of particles: " + str(s))
+print("Number of particles: " + str(numberOfParticles))
 print("Actual [degrees]: theta=" + str(theta_actual) + ", phi=" +  str(phi_actual))
 print("Experimental [degrees]: theta=" + str(theta_exp) + ", phi=" +  str(phi_exp))
 print("(Theta, Phi) absolute error [degrees]: (" + str(theta_error) + ", " + str(phi_error) + ")")
