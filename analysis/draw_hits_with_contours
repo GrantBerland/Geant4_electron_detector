@@ -7,22 +7,11 @@ import numpy as np
 from astroML.stats import fit_bivariate_normal
 import sys
 
+from fncs.fnc_getDetectorHitData import getDetectorHitData
 
-detector1_hits = pd.read_csv("./data/hits_det1.csv",
-                             names=["det","x", "y", "z", "ene"],
-                             dtype=np.float64)
+X1, Y1 = getDetectorHitData(detector=1)
 
-detector2_hits = pd.read_csv("./data/hits_det2.csv",
-                             names=["det","x", "y", "z", "ene"],
-                             dtype=np.float64)
-
-# Hit data from detector 1
-X1 = detector1_hits["x"]
-Y1 = detector1_hits["z"]
-
-# Hit data from detector 2
-X2 = detector2_hits["x"]
-Y2 = detector2_hits["z"]
+X2, Y2 = getDetectorHitData(detector=2)
 
 
 fig = plt.figure()

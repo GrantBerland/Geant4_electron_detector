@@ -3,7 +3,7 @@
 *.o
 
 /build
-/doc/*.odt
+*.odt
 /results/.idea
 .idea
 __pycache__/

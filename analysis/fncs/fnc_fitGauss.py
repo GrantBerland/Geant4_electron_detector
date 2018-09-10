@@ -5,24 +5,11 @@ import numpy as np
 from astroML.stats import fit_bivariate_normal
 from scipy.stats import skew
 
+from fncs.fnc_getDetectorHitData import getDetectorHitData
 
 def fit2DnormalDistribution(detector, fitFlag):
 
-    detector_hits = pd.read_csv('./data/hits.csv',
-                                 names=["det","x", "y", "z","energy", "code"],
-                                 dtype={"det": np.int32, "x":np.float64,
-                                        "y": np.float64, "z":np.float64,
-                                         "code": np.unicode_})
-
-
-
-    # Hit data from detector
-    whichDetectorIndex = detector_hits.index[(detector_hits["det"] == detector)
-                                             & (detector_hits["code"] == "GH")].tolist()
-
-
-    X = detector_hits["x"][whichDetectorIndex]
-    Z = detector_hits["z"][whichDetectorIndex]
+    X, Z = getDetectorHitData(detector)
 
     # Descriptive statistics
     skew_x_dim = skew(X)
