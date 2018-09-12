@@ -31,7 +31,7 @@ Side shot of simulation
 
 ![200 um scatter fit](./scatter_fit_30deg_200um.png)
 
-## Output for 500 keV, theta = 30 deg
+Output for 500 keV, theta = 30 deg
 
 Skew of hits:
 0.0007204448573444654 -1.39016218361432
@@ -43,4 +43,6 @@ Experimental [degrees]: theta=24.3513, phi=90.2832
 (Theta, Phi) absolute error [degrees]: (-5.6487, 90.2832)
 -------------------------------------------------------------
 
+Theta = 30 deg, Phi = 60deg
 
+![per part](./per_particle_hist.png)

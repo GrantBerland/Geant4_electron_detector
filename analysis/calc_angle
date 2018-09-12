@@ -58,19 +58,11 @@ print("Standard Deviation (x1, z1) = (" + str(round(std_dev_x1, 4)) + ", " + str
 print("Standard Deviation (x2, z2) = (" + str(round(std_dev_x2, 10)) + ", " + str(round(std_dev_z2, 4)) + ") cm")
 
 # In [cm]
-delta_x = x1 - x2
-delta_z = z1 - z2
-
-'''
-# For debugging purposes
-print(round(x1, 4), round(z1,4))
-print(round(x2,4), round(z2,4))
-print(x1-x2)
-print(z1-z2)
-'''
+delta_x = x2 - x1
+delta_z = z2 - z1
 
 
-gapBetweenDetectors = 0.5 # [cm]
+gapBetweenDetectors = 0.52 # [cm]
 
 # Trig to experimentally back out initial angle
 theta_exp = round(np.rad2deg(np.arctan2(delta_z, gapBetweenDetectors)), 4)

@@ -213,7 +213,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   // Window
   // ----------------------------------------------------------------
 
-  G4Material* window_material = nist->FindOrBuildMaterial("G4_Be");
+  G4Material* window_material = nist->FindOrBuildMaterial("G4_Al");
   G4VSolid*   window_solid = new G4Box("window", detector_dimX, window_thickness,  window_height);
 
   G4ThreeVector window_pos;

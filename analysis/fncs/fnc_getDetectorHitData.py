@@ -11,8 +11,9 @@ def getDetectorHitData(detector):
                                  dtype={"det": np.int32, "x":np.float64,
                                         "y": np.float64, "z":np.float64,
                                          "code": np.unicode_},
-                                 skiprow=1,
-                                 skipfooter=1)
+                                 skiprows=1,
+                                 skipfooter=1,
+                                 engine='python')
 
 
 
@@ -21,7 +22,4 @@ def getDetectorHitData(detector):
                                              & (detector_hits["code"] == "GH")].tolist()
 
 
-    X = detector_hits["x"][whichDetectorIndex]
-    Z = detector_hits["z"][whichDetectorIndex]
-
-    return [X, Z]
+    return [detector_hits["x"][whichDetectorIndex], detector_hits["z"][whichDetectorIndex]]

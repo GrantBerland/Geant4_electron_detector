@@ -20,7 +20,7 @@
 /gps/position 0 -5 -7 cm
 /gps/pos/type Point
 /gps/direction 0.57735 1 1.73205 # 60 degrees
-/gps/energy 1.5 MeV
+/gps/energy 8000 keV
 
 
 /run/beamOn 100000

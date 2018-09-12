@@ -26,8 +26,9 @@ whichDetectorIndex = detector_hits.index[detector_hits["code"] == "GH"].tolist()
                detector_hits['x'][whichDetectorIndex],
                detector_hits['z'][whichDetectorIndex]]
 
-deltaX = np.zeros(len(det))
-deltaZ = np.zeros(len(det))
+
+deltaX = np.array([])
+deltaZ = np.array([])
 
 gap = 0.5 # cm
 
@@ -54,8 +55,8 @@ for count, el in enumerate(det):
 
     # Checks if first hit detector == 1 and second hit detector == 2
     if np.equal(pos1, 1) & np.equal(pos2, 2):
-        deltaX[count] = X[count] - X[count+1]
-        deltaZ[count] = Z[count] - Z[count+1]
+        deltaX = np.append(deltaX, X[count] - X[count+1])
+        deltaZ = np.append(deltaZ, Z[count] - Z[count+1])
 
         # Successful pair, continues to next possible pair
         count = count + 2
@@ -75,11 +76,17 @@ print("Percentage of double hits = " + str(round(len(detectorDoubleHits)/len(det
 plt.figure()
 plt.subplots_adjust(left=0.09, bottom=0.10, right=0.96, top=0.98,
                 wspace=0.20, hspace=0.30)
+                
 plt.subplot(2,1,1)
 plt.hist(theta, bins=100, density=True)
+plt.axvline(x=np.median(theta), color='r', linestyle='--')
+plt.axvline(x=np.mean(theta), color='g', linestyle='--')
 plt.xlabel('Theta Angle (degrees)')
+
 plt.subplot(2,1,2)
 plt.hist(phi, bins=100, density=True)
+plt.axvline(x=np.median(phi), color='r', linestyle='--')
+plt.axvline(x=np.mean(phi), color='g', linestyle='--')
 plt.xlabel('Phi Angle (degrees)')
 
 plt.show()

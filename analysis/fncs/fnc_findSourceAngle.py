@@ -8,7 +8,7 @@ def findSourceAngle():
 
     initial_params = pd.read_csv('./data/init_pos.csv',
                                  names=["x","y","z","momX","momY","momZ"],
-                                 dtype=np.float64, skiprow=1, skipfooter=1)
+                                 dtype=np.float64)
 
     # Only samples first particle since all have same direction from a point source
     theta_actual = round(np.rad2deg(np.arctan2(initial_params['momZ'][0], initial_params['momY'][0])), 4)
