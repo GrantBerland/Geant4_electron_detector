@@ -43,6 +43,6 @@ Experimental [degrees]: theta=24.3513, phi=90.2832
 (Theta, Phi) absolute error [degrees]: (-5.6487, 90.2832)
 -------------------------------------------------------------
 
-Theta = 30 deg, Phi = 60deg
+Theta = 60 deg, Phi = 30 deg, E = 8 MeV
 
 ![per part](./per_particle_hist.png)
