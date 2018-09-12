@@ -103,6 +103,7 @@ int main(int argc,char** argv)
 
   RunAction* theRunAction = new RunAction;
 
+
   // Adjoint simulation manager for reverse Monte Carlo mode
   G4AdjointSimManager* theAdjointSimManager = G4AdjointSimManager::GetInstance();
 
@@ -126,6 +127,7 @@ int main(int argc,char** argv)
     // batch mode
     G4String command = "/control/execute ";
     G4String fileName = argv[1];
+    theRunAction->getFilenameToRunAction(fileName);
     UImanager->ApplyCommand(command+fileName);
   }
   else {

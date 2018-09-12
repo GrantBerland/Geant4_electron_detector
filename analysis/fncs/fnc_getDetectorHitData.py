@@ -10,7 +10,9 @@ def getDetectorHitData(detector):
                                  names=["det","x", "y", "z","energy", "code"],
                                  dtype={"det": np.int32, "x":np.float64,
                                         "y": np.float64, "z":np.float64,
-                                         "code": np.unicode_})
+                                         "code": np.unicode_},
+                                 skiprow=1,
+                                 skipfooter=1)
 
 
 

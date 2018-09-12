@@ -43,6 +43,8 @@
 #include "G4SystemOfUnits.hh"
 // #include "HistoManager.hh"
 
+
+#include <fstream>
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 
@@ -63,65 +65,34 @@ RunAction::~RunAction()
 void RunAction::BeginOfRunAction(const G4Run*)
 {
 
+  std::ofstream hitFile;
+  hitFile.open("../analysis/data/hits.csv", std::ios_base::app);
+
+  if (!fFileName.empty()){
+
+    hitFile << fFileName << "\n";
+
+  }
+  else{
+
+    hitFile << "NFN\n"; // No File Name code
+
+  }
+
+  hitFile.close();
+
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 void RunAction::EndOfRunAction(const G4Run*)
 {
-/*
 
-  G4int nofEvents = run->GetNumberOfEvent();
-  if (nofEvents == 0) return;
+  std::ofstream hitFile;
+  hitFile.open("../analysis/data/hits.csv", std::ios_base::app);
+  hitFile << "\nEOF\n";
+  hitFile.close();
 
-  // Merge accumulables
-  G4AccumulableManager* accumulableManager = G4AccumulableManager::Instance();
-  accumulableManager->Merge();
-
-  // Compute dose = total energy deposit in a run and its variance
-  G4double edep  = fEdep.GetValue();
-  G4double edep2 = fEdep2.GetValue();
-
-  G4double rms = edep2 - edep*edep/nofEvents;
-  if (rms > 0.) rms = std::sqrt(rms); else rms = 0.;
-
-
-  // Run conditions
-  //  note: There is no primary generator action object for "master" - run manager for multi-threaded mode.
-  const PrimaryGeneratorAction* generatorAction = static_cast<const PrimaryGeneratorAction*> (G4RunManager::GetRunManager()->GetUserPrimaryGeneratorAction());
-  G4String runCondition;
-
-  if (generatorAction)
-  {
-    const G4GeneralParticleSource* particleGun = generatorAction->GetParticleGun();
-    runCondition += particleGun->GetParticleDefinition()->GetParticleName();
-    runCondition += " of ";
-    G4double particleEnergy = particleGun->GetParticleEnergy();
-    runCondition += G4BestUnit(particleEnergy,"Energy");
-  }
-
-  //
-  if (IsMaster()) {
-    G4cout
-     << G4endl
-     << "--------------------End of Global Run-----------------------";
-    G4cout
-     << G4endl
-     << " The run consists of " << nofEvents << " "<< runCondition
-     << G4endl
-     << " Absorbed energy per run, in scoring volume : "
-     << G4BestUnit(edep,"Energy") << " rms = " << G4BestUnit(rms,"Energy")
-
-     << G4endl
-     << "------------------------------------------------------------"
-     << G4endl
-     << G4endl;
-   }
-
-    auto man = G4AnalysisManager::Instance();
-    man->Write();
-    man->CloseFile();
-    */
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

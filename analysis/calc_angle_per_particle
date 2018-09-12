@@ -12,7 +12,10 @@ detector_hits = pd.read_csv('./data/hits.csv',
                            dtype={"det": np.int32, "x":np.float64,
                            "y": np.float64, "z":np.float64,
                            "code": np.unicode_},
-                           delimiter=',')
+                           delimiter=',',
+                           skiprows=1,
+                           skipfooter=1,
+                           engine='python')
 
 
 detectorDoubleHits = detector_hits.index[detector_hits["code"] == "DH"].tolist()
@@ -67,16 +70,16 @@ phi = np.arctan2(deltaX, gap) * 180 / np.pi
 rfp = RunFileParser("run_1_angle.mac")
 
 print("Percentage of double hits = " + str(round(len(detectorDoubleHits)/len(det)*100, 3)) + "%"
-      + " at E = " + str(rfp.getEnergy()) + "with N = " + str(rfp.getNumParticles() + " particles"))
+      + " at E = " + str(rfp.getEnergy()) + "with N = " + str(rfp.getNumParticles()) + " particles")
 
 plt.figure()
 plt.subplots_adjust(left=0.09, bottom=0.10, right=0.96, top=0.98,
                 wspace=0.20, hspace=0.30)
 plt.subplot(2,1,1)
-plt.hist(deltaX, bins=100, density=True)
+plt.hist(theta, bins=100, density=True)
 plt.xlabel('Theta Angle (degrees)')
 plt.subplot(2,1,2)
-plt.hist(deltaZ, bins=100, density=True)
+plt.hist(phi, bins=100, density=True)
 plt.xlabel('Phi Angle (degrees)')
 
 plt.show()

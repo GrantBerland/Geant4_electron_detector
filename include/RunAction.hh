@@ -58,13 +58,17 @@ class RunAction : public G4UserRunAction
     virtual void BeginOfRunAction(const G4Run*);
     virtual void   EndOfRunAction(const G4Run*);
 
-    void AddEdep (G4double edep); 
+    void AddEdep (G4double edep);
+
+    void getFilenameToRunAction(G4String fileName){fFileName = fileName;}
 
 
 
   private:
     G4Accumulable<G4double> fEdep;
     G4Accumulable<G4double> fEdep2;
+
+    G4String fFileName;
 
     G4String asciiFileName;
     std::ofstream *asciiFile;
