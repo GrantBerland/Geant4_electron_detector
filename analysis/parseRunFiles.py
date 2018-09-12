@@ -5,21 +5,34 @@ import pandas as pd
 import numpy as np
 import sys
 
-filePath = '../macros/'
+class RunFileParser:
+    def __init__(self, fileName=None):
+        self._filePath = '../macros/'
+        self._fileName = fileName
 
-try:
-    fileName = sys.argv[1]
-except IndexError:
-    print("Enter filename to parse: ")
-    fileName = input()
-    pass
+        if fileName is None:
+            self._fileName = self.callForFilename()
 
-with open(filePath+fileName) as file:
-    file_contents = file.read()
+        self.energy = self.getAttributeFromFile("/gps/energy")
+        self.numberOfParticles = self.getAttributeFromFile("/run/beamOn")
 
-    energy_index = file_contents.find('/gps/energy')
-    energy = file_contents[energy_index+12:energy_index+20]
+    def callForFilename(self):
+        try:
+            fileName = sys.argv[1]
+        except IndexError:
+            print("Enter filename to parse: ")
+            fileName = input()
+            pass
+        return fileName
 
-    run_index = file_contents.find('/run/beamOn')
-    runNumber = file_contents[run_index+12:run_index+20]
-    print("E = " + energy + "\nParticles = " + str(runNumber))
+    def getAttributeFromFile(self, attr):
+        with open(self._filePath+self._fileName) as file:
+            file_contents = file.read()
+
+            index = file_contents.find(attr)
+            return file_contents[index+12:index+20]
+
+    def getEnergy(self):
+        return self.energy
+    def getNumParticles(self):
+        return self.numberOfParticles

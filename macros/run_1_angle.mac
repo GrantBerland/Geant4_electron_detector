@@ -20,7 +20,7 @@
 /gps/position 0 -5 -3 cm
 /gps/pos/type Point
 /gps/direction 0 1 -0.1
-/gps/energy 1200 keV
+/gps/energy 800 keV
 
 
-/run/beamOn 100000
+/run/beamOn 10000

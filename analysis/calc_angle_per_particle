@@ -1,0 +1,82 @@
+#!/usr/bin/python3.5
+
+
+import pandas as pd
+import numpy as np
+
+import matplotlib.pyplot as plt
+from parseRunFiles import RunFileParser
+
+detector_hits = pd.read_csv('./data/hits.csv',
+                           names=["det","x", "y", "z","energy", "code"],
+                           dtype={"det": np.int32, "x":np.float64,
+                           "y": np.float64, "z":np.float64,
+                           "code": np.unicode_},
+                           delimiter=',')
+
+
+detectorDoubleHits = detector_hits.index[detector_hits["code"] == "DH"].tolist()
+
+whichDetectorIndex = detector_hits.index[detector_hits["code"] == "GH"].tolist()
+
+[det, X, Z]  = [detector_hits['det'][whichDetectorIndex],
+               detector_hits['x'][whichDetectorIndex],
+               detector_hits['z'][whichDetectorIndex]]
+
+deltaX = np.zeros(len(det))
+deltaZ = np.zeros(len(det))
+
+gap = 0.5 # cm
+
+
+for count, el in enumerate(det):
+
+    # pandas series can throw a KeyError if character starts line
+    while True:
+        try:
+            pos1 = det[count]
+            pos2 = det[count+1]
+
+            X[count]
+            Z[count]
+
+            X[count+1]
+            Z[count+1]
+        except:
+            count = count + 1
+            if count == len(det):
+                break
+            continue
+        break
+
+    # Checks if first hit detector == 1 and second hit detector == 2
+    if np.equal(pos1, 1) & np.equal(pos2, 2):
+        deltaX[count] = X[count] - X[count+1]
+        deltaZ[count] = Z[count] - Z[count+1]
+
+        # Successful pair, continues to next possible pair
+        count = count + 2
+    else:
+        # Unsuccessful pair, continues
+        count = count + 1
+
+
+theta = np.arctan2(deltaZ, gap) * 180 / np.pi
+phi = np.arctan2(deltaX, gap) * 180 / np.pi
+
+rfp = RunFileParser("run_1_angle.mac")
+
+print("Percentage of double hits = " + str(round(len(detectorDoubleHits)/len(det)*100, 3)) + "%"
+      + " at E = " + str(rfp.getEnergy()) + "with N = " + str(rfp.getNumParticles() + " particles"))
+
+plt.figure()
+plt.subplots_adjust(left=0.09, bottom=0.10, right=0.96, top=0.98,
+                wspace=0.20, hspace=0.30)
+plt.subplot(2,1,1)
+plt.hist(deltaX, bins=100, density=True)
+plt.xlabel('Theta Angle (degrees)')
+plt.subplot(2,1,2)
+plt.hist(deltaZ, bins=100, density=True)
+plt.xlabel('Phi Angle (degrees)')
+
+plt.show()
