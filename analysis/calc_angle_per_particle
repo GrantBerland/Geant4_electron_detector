@@ -4,8 +4,13 @@
 import pandas as pd
 import numpy as np
 
+import sys
+
 import matplotlib.pyplot as plt
 from parseRunFiles import RunFileParser
+
+# Extracts and returns actual inital particle source angles
+from fncs.fnc_findSourceAngle import findSourceAngle
 
 detector_hits = pd.read_csv('./data/hits.csv',
                            names=["det","x", "y", "z","energy", "code"],
@@ -32,10 +37,10 @@ deltaZ = np.array([])
 
 gap = 0.5 # cm
 
-
 for count, el in enumerate(det):
 
     # pandas series can throw a KeyError if character starts line
+    # TODO: replace this with parse command that doesn't import keyerror throwing lines
     while True:
         try:
             pos1 = det[count]
@@ -68,15 +73,13 @@ for count, el in enumerate(det):
 theta = np.arctan2(deltaZ, gap) * 180 / np.pi
 phi = np.arctan2(deltaX, gap) * 180 / np.pi
 
-rfp = RunFileParser("run_1_angle.mac")
+rfp = RunFileParser('run_1_angle.mac')
 
-print("Percentage of double hits = " + str(round(len(detectorDoubleHits)/len(det)*100, 3)) + "%"
-      + " at E = " + str(rfp.getEnergy()) + "with N = " + str(rfp.getNumParticles()) + " particles")
 
 plt.figure()
 plt.subplots_adjust(left=0.09, bottom=0.10, right=0.96, top=0.98,
                 wspace=0.20, hspace=0.30)
-                
+
 plt.subplot(2,1,1)
 plt.hist(theta, bins=100, density=True)
 plt.axvline(x=np.median(theta), color='r', linestyle='--')
@@ -88,5 +91,37 @@ plt.hist(phi, bins=100, density=True)
 plt.axvline(x=np.median(phi), color='r', linestyle='--')
 plt.axvline(x=np.mean(phi), color='g', linestyle='--')
 plt.xlabel('Phi Angle (degrees)')
+
+try:
+    stat = sys.argv[1]
+except IndexError:
+    # else if no argument passed to program, defaults to mean
+    stat = 'mean'
+
+# Determines what statistic is used to estimate the maximum likelihood point
+if stat == 'median':
+    phi_est = np.median(phi)
+    theta_est = np.median(theta)
+elif stat == 'mean':
+    phi_est = np.mean(phi)
+    theta_est = np.mean(theta)
+
+theta_actual, phi_actual, numberOfParticles = findSourceAngle()
+
+theta_error = round(theta_est - theta_actual, 4)
+phi_error = round(phi_est - phi_actual, 4)
+
+print("-------------------------------------------------------------")
+print("Angle Estimation: \n")
+# divide 6 comes from 6 parameters recorded per particle
+print("Energy = " + str(rfp.getEnergy()))
+print("Percentage of double hits = " + str(round(len(detectorDoubleHits)/len(det)*100, 3)) + '%')
+print("Number of particles: " + str(numberOfParticles))
+print("Actual [degrees]: theta=" + str(theta_actual) + ", phi=" +  str(phi_actual))
+print("Experimental [degrees]: theta=" + str(theta_est) + ", phi=" +  str(phi_est))
+print("(Theta, Phi) absolute error [degrees]: (" + str(theta_error) + ", " + str(phi_error) + ")")
+print("-------------------------------------------------------------\n")
+
+
 
 plt.show()

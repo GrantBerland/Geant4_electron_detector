@@ -14,8 +14,10 @@ from fncs.fnc_findSourceAngle import findSourceAngle
 theta_actual, phi_actual, numberOfParticles = findSourceAngle()
 
 # Returns a dictionary with attributes 'Mean', Sigma X','Sigma Y','Alpha'
-det1 = fit2DnormalDistribution(detector=1, fitFlag=0)
-det2 = fit2DnormalDistribution(detector=2, fitFlag=0)
+# Fit flag 0: calculates statistics along X and Z axes
+# Fit flag 1: fits a 2D normal distribution to data and returns theoretical statistics
+det1 = fit2DnormalDistribution(detector=1, fitFlag=1)
+det2 = fit2DnormalDistribution(detector=2, fitFlag=1)
 
 try:
     stat = sys.argv[1]
@@ -23,7 +25,7 @@ except IndexError:
     # else if no argument passed to program, defaults to mean
     stat = 'mean'
 
-
+# Determines what statistic is used to estimate the maximum likelihood point
 if stat == 'median':
     x1, z1 = det1['Median']
     x2, z2 = det2['Median']

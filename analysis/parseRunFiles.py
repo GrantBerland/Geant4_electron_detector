@@ -33,8 +33,8 @@ class RunFileParser:
         else:
             return str
 
-
     def callForFilename(self):
+        # TODO: check behavior if input() is empty
         try:
             fileName = sys.argv[1]
         except IndexError:
@@ -46,9 +46,10 @@ class RunFileParser:
     def getAttributeFromFile(self, attr):
         with open(self._filePath+self._fileName, 'r') as file:
             file_contents = file.read()
-
             index = file_contents.find(attr)
-            return file_contents[index+12:index+20]
+            str = file_contents[index+12:index+20]
+            str = str.replace('\n','')
+            return str
 
     def getEnergy(self):
         return self.energy
