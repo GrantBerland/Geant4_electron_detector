@@ -84,37 +84,42 @@ void EventAction::EndOfEventAction(const G4Event*)
 
   if(det1_hitFlag > 1)
   {
+    /*
     std::ofstream hitFile_detector1;
     hitFile_detector1.open("../analysis/data/hits.csv", std::ios_base::app);
 
     hitFile_detector1 << "\n1,0,0,0,0,DH";
 
     hitFile_detector1.close();
-
+    */
   }
 
   if(det2_hitFlag == 0)
   {
+    /*
     std::ofstream hitFile_detector2;
     hitFile_detector2.open("../analysis/data/hits.csv", std::ios_base::app);
 
     hitFile_detector2 << "\n2,0,0,0,0,NH";
 
     hitFile_detector2.close();
+    */
   }
 
   else if(det2_hitFlag > 1)
   {
+    /*
     std::ofstream hitFile_detector2;
     hitFile_detector2.open("../analysis/data/hits.csv", std::ios_base::app);
 
     hitFile_detector2 << "\n2,0,0,0,0,DH";
 
     hitFile_detector2.close();
+    */
   }
 
-    resetDetector1Flag();
-    resetDetector2Flag();
+    //resetDetector1Flag();
+    //resetDetector2Flag();
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

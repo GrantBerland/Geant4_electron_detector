@@ -11,9 +11,9 @@ def getDetectorHitData(detector):
                                  dtype={"det": np.int32, "x":np.float64,
                                         "y": np.float64, "z":np.float64,
                                          "code": np.unicode_},
+                                 error_bad_lines=False,
                                  skiprows=1,
-                                 skipfooter=1,
-                                 engine='python')
+                                 engine='c')
 
 
 

@@ -88,11 +88,6 @@ void RunAction::BeginOfRunAction(const G4Run*)
 void RunAction::EndOfRunAction(const G4Run*)
 {
 
-  std::ofstream hitFile;
-  hitFile.open("../analysis/data/hits.csv", std::ios_base::app);
-  hitFile << "\nEOF\n";
-  hitFile.close();
-
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

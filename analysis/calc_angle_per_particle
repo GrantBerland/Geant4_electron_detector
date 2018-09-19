@@ -4,7 +4,7 @@
 import pandas as pd
 import numpy as np
 
-import sys
+from scipy.stats import norm, skewnorm
 
 import matplotlib.pyplot as plt
 from parseRunFiles import RunFileParser
@@ -14,13 +14,13 @@ from fncs.fnc_findSourceAngle import findSourceAngle
 
 detector_hits = pd.read_csv('./data/hits.csv',
                            names=["det","x", "y", "z","energy", "code"],
-                           dtype={"det": np.int32, "x":np.float64,
+                           dtype={"det": np.int8, "x":np.float64,
                            "y": np.float64, "z":np.float64,
                            "code": np.unicode_},
                            delimiter=',',
+                           error_bad_lines=False,
                            skiprows=1,
-                           skipfooter=1,
-                           engine='python')
+                           engine='c')
 
 
 detectorDoubleHits = detector_hits.index[detector_hits["code"] == "DH"].tolist()
@@ -32,13 +32,15 @@ whichDetectorIndex = detector_hits.index[detector_hits["code"] == "GH"].tolist()
                detector_hits['z'][whichDetectorIndex]]
 
 
-deltaX = np.array([])
-deltaZ = np.array([])
+deltaX = np.zeros(len(det), dtype=np.float64)
+deltaZ = np.zeros(len(det), dtype=np.float64)
 
-gap = 0.5 # cm
+gap = 0.52 # cm
 
+detector_hits.info()
+
+array_counter = 0
 for count, el in enumerate(det):
-
     # pandas series can throw a KeyError if character starts line
     # TODO: replace this with parse command that doesn't import keyerror throwing lines
     while True:
@@ -60,21 +62,47 @@ for count, el in enumerate(det):
 
     # Checks if first hit detector == 1 and second hit detector == 2
     if np.equal(pos1, 1) & np.equal(pos2, 2):
-        deltaX = np.append(deltaX, X[count] - X[count+1])
-        deltaZ = np.append(deltaZ, Z[count] - Z[count+1])
+        deltaX[array_counter] = X[count+1] - X[count]
+        deltaZ[array_counter] = Z[count+1] - Z[count]
 
         # Successful pair, continues to next possible pair
         count = count + 2
+        array_counter = array_counter + 1
     else:
         # Unsuccessful pair, continues
         count = count + 1
 
+# Remove trailing zeros
+deltaX_rm = deltaX[:array_counter]
+deltaZ_rm = deltaZ[:array_counter]
 
-theta = np.arctan2(deltaZ, gap) * 180 / np.pi
-phi = np.arctan2(deltaX, gap) * 180 / np.pi
+del deltaX
+del deltaZ
 
+# Find angles in degrees
+theta = np.arctan2(deltaZ_rm, gap) * 180 / np.pi
+phi = np.arctan2(deltaX_rm, gap) * 180 / np.pi
+
+# Fit a standard normal distribution to data
+x_theta = np.linspace(min(theta), max(theta))
+mu_theta, std_theta = norm.fit(theta)
+p_theta = norm.pdf(x_theta, mu_theta, std_theta)
+
+x_phi = np.linspace(min(phi), max(phi))
+mu_phi, std_phi = norm.fit(phi)
+p_phi = norm.pdf(x_phi, mu_phi, std_phi)
+
+# Fit skew normal distribution to data
+mean_t, var_t, skew_t = skewnorm.fit(theta)
+mean_p, var_p, skew_p = skewnorm.fit(phi)
+print(mean_t)
+print(mean_p)
+
+# Work in progress
 rfp = RunFileParser('run_1_angle.mac')
 
+
+theta_actual, phi_actual, numberOfParticles = findSourceAngle()
 
 plt.figure()
 plt.subplots_adjust(left=0.09, bottom=0.10, right=0.96, top=0.98,
@@ -82,34 +110,22 @@ plt.subplots_adjust(left=0.09, bottom=0.10, right=0.96, top=0.98,
 
 plt.subplot(2,1,1)
 plt.hist(theta, bins=100, density=True)
+plt.plot(x_theta, p_theta, 'k', linewidth=1, linestyle='--', label='Norm')
+#plt.plot(x_theta, skewnorm.pdf(x_theta, theta), 'g', linewidth=1, linestyle='--', label='Skewnorm')
 plt.axvline(x=np.median(theta), color='r', linestyle='--')
 plt.axvline(x=np.mean(theta), color='g', linestyle='--')
+plt.axvline(x=theta_actual, color='k', linestyle='-')
 plt.xlabel('Theta Angle (degrees)')
 
 plt.subplot(2,1,2)
 plt.hist(phi, bins=100, density=True)
+plt.plot(x_phi, p_phi, 'k', linewidth=1, linestyle='--', label='Norm')
+#plt.plot(x_phi, skewnorm.pdf(x_phi, phi), 'g', linewidth=1, linestyle='--', label='Skewnorm')
 plt.axvline(x=np.median(phi), color='r', linestyle='--')
 plt.axvline(x=np.mean(phi), color='g', linestyle='--')
+plt.axvline(x=phi_actual, color='k', linestyle='-')
 plt.xlabel('Phi Angle (degrees)')
 
-try:
-    stat = sys.argv[1]
-except IndexError:
-    # else if no argument passed to program, defaults to mean
-    stat = 'mean'
-
-# Determines what statistic is used to estimate the maximum likelihood point
-if stat == 'median':
-    phi_est = np.median(phi)
-    theta_est = np.median(theta)
-elif stat == 'mean':
-    phi_est = np.mean(phi)
-    theta_est = np.mean(theta)
-
-theta_actual, phi_actual, numberOfParticles = findSourceAngle()
-
-theta_error = round(theta_est - theta_actual, 4)
-phi_error = round(phi_est - phi_actual, 4)
 
 print("-------------------------------------------------------------")
 print("Angle Estimation: \n")
@@ -118,8 +134,9 @@ print("Energy = " + str(rfp.getEnergy()))
 print("Percentage of double hits = " + str(round(len(detectorDoubleHits)/len(det)*100, 3)) + '%')
 print("Number of particles: " + str(numberOfParticles))
 print("Actual [degrees]: theta=" + str(theta_actual) + ", phi=" +  str(phi_actual))
-print("Experimental [degrees]: theta=" + str(theta_est) + ", phi=" +  str(phi_est))
-print("(Theta, Phi) absolute error [degrees]: (" + str(theta_error) + ", " + str(phi_error) + ")")
+print("Experimental (mean) [degrees]: theta=" + str(round(np.mean(theta), 4)) + ", phi=" +  str(round(np.mean(phi), 4)))
+print("Experimental (median) [degrees]: theta=" + str(round(np.median(theta), 4)) + ", phi=" +  str(round(np.median(phi), 4)))
+print("Experimental (fit) [degrees]: theta=" + str(mu_theta) + ", phi=" +  str(mu_phi))
 print("-------------------------------------------------------------\n")
 
 

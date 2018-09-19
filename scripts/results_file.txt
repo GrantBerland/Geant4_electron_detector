@@ -1,0 +1,216 @@
+-------------------------------------------------------------
+Angle Estimation: 
+Percentage of double hits = 0.0%
+Number of particles: 10000
+Actual [degrees]: theta=0.0, phi=0.0
+Experimental (mean) [degrees]: theta=-0.2543, phi=0.061
+Experimental (median) [degrees]: theta=-0.3699, phi=0.2323
+Experimental (fit) [degrees]: theta=-0.25434678280301587, phi=0.06096545451582926
+-------------------------------------------------------------
+-------------------------------------------------------------
+Angle Estimation: 
+Percentage of double hits = 0.0%
+Number of particles: 10000
+Actual [degrees]: theta=1.0, phi=0.0
+Experimental (mean) [degrees]: theta=-0.1751, phi=-0.0375
+Experimental (median) [degrees]: theta=0.4643, phi=0.142
+Experimental (fit) [degrees]: theta=-0.17506430214675295, phi=-0.03746306161100032
+-------------------------------------------------------------
+-------------------------------------------------------------
+Angle Estimation: 
+Percentage of double hits = 0.0%
+Number of particles: 10000
+Actual [degrees]: theta=2.0, phi=0.0
+Experimental (mean) [degrees]: theta=0.115, phi=0.1212
+Experimental (median) [degrees]: theta=0.3281, phi=-0.0135
+Experimental (fit) [degrees]: theta=0.11501745303246362, phi=0.12122932418729472
+-------------------------------------------------------------
+-------------------------------------------------------------
+Angle Estimation: 
+Percentage of double hits = 0.0%
+Number of particles: 10000
+Actual [degrees]: theta=3.0, phi=0.0
+Experimental (mean) [degrees]: theta=0.8345, phi=-0.112
+Experimental (median) [degrees]: theta=1.2673, phi=-0.0627
+Experimental (fit) [degrees]: theta=0.8344895442872288, phi=-0.11196630240988323
+-------------------------------------------------------------
+-------------------------------------------------------------
+Angle Estimation: 
+Percentage of double hits = 0.0%
+Number of particles: 10000
+Actual [degrees]: theta=4.0, phi=0.0
+Experimental (mean) [degrees]: theta=0.5178, phi=-0.1349
+Experimental (median) [degrees]: theta=1.2795, phi=0.1572
+Experimental (fit) [degrees]: theta=0.5178209021333728, phi=-0.13491087744289695
+-------------------------------------------------------------
+-------------------------------------------------------------
+Angle Estimation: 
+Percentage of double hits = 0.0%
+Number of particles: 10000
+Actual [degrees]: theta=0.0, phi=0.0
+Experimental (mean) [degrees]: theta=-0.2543, phi=0.061
+Experimental (median) [degrees]: theta=-0.3699, phi=0.2323
+Experimental (fit) [degrees]: theta=-0.25434678280301587, phi=0.06096545451582926
+-------------------------------------------------------------
+-------------------------------------------------------------
+Angle Estimation: 
+Percentage of double hits = 0.0%
+Number of particles: 10000
+Actual [degrees]: theta=1.0, phi=0.0
+Experimental (mean) [degrees]: theta=-0.1751, phi=-0.0375
+Experimental (median) [degrees]: theta=0.4643, phi=0.142
+Experimental (fit) [degrees]: theta=-0.17506430214675295, phi=-0.03746306161100032
+-------------------------------------------------------------
+-------------------------------------------------------------
+Angle Estimation: 
+Percentage of double hits = 0.0%
+Number of particles: 10000
+Actual [degrees]: theta=2.0, phi=0.0
+Experimental (mean) [degrees]: theta=0.115, phi=0.1212
+Experimental (median) [degrees]: theta=0.3281, phi=-0.0135
+Experimental (fit) [degrees]: theta=0.11501745303246362, phi=0.12122932418729472
+-------------------------------------------------------------
+-------------------------------------------------------------
+Angle Estimation: 
+Percentage of double hits = 0.0%
+Number of particles: 10000
+Actual [degrees]: theta=3.0, phi=0.0
+Experimental (mean) [degrees]: theta=0.8345, phi=-0.112
+Experimental (median) [degrees]: theta=1.2673, phi=-0.0627
+Experimental (fit) [degrees]: theta=0.8344895442872288, phi=-0.11196630240988323
+-------------------------------------------------------------
+-------------------------------------------------------------
+Angle Estimation: 
+Percentage of double hits = 0.0%
+Number of particles: 10000
+Actual [degrees]: theta=4.0, phi=0.0
+Experimental (mean) [degrees]: theta=0.5178, phi=-0.1349
+Experimental (median) [degrees]: theta=1.2795, phi=0.1572
+Experimental (fit) [degrees]: theta=0.5178209021333728, phi=-0.13491087744289695
+-------------------------------------------------------------
+-------------------------------------------------------------
+Angle Estimation: 
+Percentage of double hits = 0.0%
+Number of particles: 10000
+Actual [degrees]: theta=5.0, phi=0.0
+Experimental (mean) [degrees]: theta=0.3547, phi=0.193
+Experimental (median) [degrees]: theta=0.5036, phi=0.326
+Experimental (fit) [degrees]: theta=0.35468123025584525, phi=0.19295379942667987
+-------------------------------------------------------------
+-------------------------------------------------------------
+Angle Estimation: 
+Percentage of double hits = 0.0%
+Number of particles: 10000
+Actual [degrees]: theta=6.0, phi=0.0
+Experimental (mean) [degrees]: theta=0.7261, phi=-0.5812
+Experimental (median) [degrees]: theta=0.8737, phi=-0.6726
+Experimental (fit) [degrees]: theta=0.726112633776318, phi=-0.5811528996645223
+-------------------------------------------------------------
+-------------------------------------------------------------
+Angle Estimation: 
+Percentage of double hits = 0.0%
+Number of particles: 10000
+Actual [degrees]: theta=7.0, phi=0.0
+Experimental (mean) [degrees]: theta=1.5958, phi=-0.0787
+Experimental (median) [degrees]: theta=1.5048, phi=0.1502
+Experimental (fit) [degrees]: theta=1.5957853807218332, phi=-0.0786876967381855
+-------------------------------------------------------------
+-------------------------------------------------------------
+Angle Estimation: 
+Percentage of double hits = 0.0%
+Number of particles: 10000
+Actual [degrees]: theta=8.0, phi=0.0
+Experimental (mean) [degrees]: theta=1.1655, phi=-0.1908
+Experimental (median) [degrees]: theta=1.0031, phi=-0.2134
+Experimental (fit) [degrees]: theta=1.165542819176832, phi=-0.19083431690034516
+-------------------------------------------------------------
+-------------------------------------------------------------
+Angle Estimation: 
+Percentage of double hits = 0.0%
+Number of particles: 10000
+Actual [degrees]: theta=9.0, phi=0.0
+Experimental (mean) [degrees]: theta=1.5095, phi=-0.1725
+Experimental (median) [degrees]: theta=1.545, phi=-0.3915
+Experimental (fit) [degrees]: theta=1.5094900195141543, phi=-0.1725038905472339
+-------------------------------------------------------------
+-------------------------------------------------------------
+Angle Estimation: 
+Percentage of double hits = 0.0%
+Number of particles: 10000
+Actual [degrees]: theta=10.0, phi=0.0
+Experimental (mean) [degrees]: theta=1.4759, phi=-0.5755
+Experimental (median) [degrees]: theta=1.7817, phi=-0.5067
+Experimental (fit) [degrees]: theta=1.4758646977608345, phi=-0.5754614319198044
+-------------------------------------------------------------
+-------------------------------------------------------------
+Angle Estimation: 
+Percentage of double hits = 0.0%
+Number of particles: 10000
+Actual [degrees]: theta=11.0, phi=0.0
+Experimental (mean) [degrees]: theta=1.6146, phi=0.4969
+Experimental (median) [degrees]: theta=1.966, phi=0.334
+Experimental (fit) [degrees]: theta=1.6145977080681144, phi=0.4968966568413588
+-------------------------------------------------------------
+-------------------------------------------------------------
+Angle Estimation: 
+Percentage of double hits = 0.0%
+Number of particles: 10000
+Actual [degrees]: theta=12.0, phi=0.0
+Experimental (mean) [degrees]: theta=0.8489, phi=-0.3178
+Experimental (median) [degrees]: theta=1.1474, phi=-0.4384
+Experimental (fit) [degrees]: theta=0.8488669379747803, phi=-0.31776433869175785
+-------------------------------------------------------------
+-------------------------------------------------------------
+Angle Estimation: 
+Percentage of double hits = 0.0%
+Number of particles: 10000
+Actual [degrees]: theta=13.0, phi=0.0
+Experimental (mean) [degrees]: theta=1.0834, phi=0.4143
+Experimental (median) [degrees]: theta=1.6853, phi=-0.5513
+Experimental (fit) [degrees]: theta=1.083360106498194, phi=0.41434888981617235
+-------------------------------------------------------------
+-------------------------------------------------------------
+Angle Estimation: 
+Percentage of double hits = 0.0%
+Number of particles: 10000
+Actual [degrees]: theta=14.0, phi=0.0
+Experimental (mean) [degrees]: theta=1.4327, phi=-0.0741
+Experimental (median) [degrees]: theta=2.9965, phi=0.3128
+Experimental (fit) [degrees]: theta=1.4327024249943812, phi=-0.0741140044734586
+-------------------------------------------------------------
+-------------------------------------------------------------
+Angle Estimation: 
+Percentage of double hits = 0.0%
+Number of particles: 10000
+Actual [degrees]: theta=15.0, phi=0.0
+Experimental (mean) [degrees]: theta=2.139, phi=0.2793
+Experimental (median) [degrees]: theta=2.5568, phi=0.4665
+Experimental (fit) [degrees]: theta=2.1389637878009444, phi=0.2793485141518459
+-------------------------------------------------------------
+-------------------------------------------------------------
+Angle Estimation: 
+Percentage of double hits = 0.0%
+Number of particles: 10000
+Actual [degrees]: theta=16.0, phi=0.0
+Experimental (mean) [degrees]: theta=1.6901, phi=-1.0419
+Experimental (median) [degrees]: theta=2.9448, phi=-1.0402
+Experimental (fit) [degrees]: theta=1.690124146523953, phi=-1.0419378059274342
+-------------------------------------------------------------
+-------------------------------------------------------------
+Angle Estimation: 
+Percentage of double hits = 0.0%
+Number of particles: 10000
+Actual [degrees]: theta=17.0, phi=0.0
+Experimental (mean) [degrees]: theta=0.8488, phi=-0.4786
+Experimental (median) [degrees]: theta=1.4387, phi=-0.8972
+Experimental (fit) [degrees]: theta=0.8487517933564686, phi=-0.4785931393854037
+-------------------------------------------------------------
+-------------------------------------------------------------
+Angle Estimation: 
+Percentage of double hits = 0.0%
+Number of particles: 10000
+Actual [degrees]: theta=18.0, phi=0.0
+Experimental (mean) [degrees]: theta=1.2173, phi=-0.529
+Experimental (median) [degrees]: theta=1.8097, phi=-0.6083
+Experimental (fit) [degrees]: theta=1.2173396630956275, phi=-0.5290245380610786
+-------------------------------------------------------------

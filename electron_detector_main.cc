@@ -45,7 +45,6 @@
 #include "FTFP_BERT.hh"
 #include "G4EmLivermorePhysics.hh"
 #include "G4PhysListFactory.hh"
-#include "G4AdjointPhysicsList.hh"
 
 #ifdef G4VIS_USE
 #include "G4VisExecutive.hh"
@@ -58,8 +57,6 @@
 #include "G4SystemOfUnits.hh"
 #include "Randomize.hh"
 
-// Adjoint (reverse) Monte Carlo header
-#include "G4AdjointSimManager.hh"
 
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -102,14 +99,6 @@ int main(int argc,char** argv)
   // runManager->SetUserInitialization(new PhysicsList);
 
   RunAction* theRunAction = new RunAction;
-
-
-  // Adjoint simulation manager for reverse Monte Carlo mode
-  G4AdjointSimManager* theAdjointSimManager = G4AdjointSimManager::GetInstance();
-
-  // Adjoint run actions
-  theAdjointSimManager->SetAdjointRunAction(theRunAction);
-  //theAdjointSimManager->SetAdjointEventAction(new SteppingAction());
 
 
   // Initialize visualization
