@@ -1,35 +1,35 @@
 ## The following results are for an electron beam fired perpandicular to the detector
 
 Simulation using the Qt interface
-![sim image](./electron_simulation_qt.png)
+![sim image](./simulation_images/electron_simulation_qt.png)
 
 Perspective shot of simulation
-![trimetric view](./trimetric_view.png)
+![trimetric view](./simulation_images/trimetric_view.png)
 
 Side shot of simulation
-![side](./side_view.png)
+![side](./simulation_images/side_view.png)
 
 ## Detector Hit Results:
 
 ## At 0.5 MeV
 
-![det1 low energy](./detector1_perpandicular_beam_lower_energy.png)
+![det1 low energy](./hit_depictions/detector1_perpandicular_beam_lower_energy.png)
 
-![det2 low energy](./detector2_perpandicular_beam_lower_energy.png)
+![det2 low energy](./hit_depictions/detector2_perpandicular_beam_lower_energy.png)
 
 
 ## At 1 MeV
 
-![det1 perp](./detector1_perpandicular_beam.png)
+![det1 perp](./hit_depictions/detector1_perpandicular_beam.png)
 
-![det2 perp](./detector2_perpandicular_beam.png)
+![det2 perp](./hit_depictions/detector2_perpandicular_beam.png)
 
 
 ## At 30 degrees with respect to detector normal, 1 MeV
 
 ## 1 MeV, front window: 50 micron, detector 1: 200 micron, detector 2: 1 mm
 
-![200 um scatter fit](./scatter_fit_30deg_200um.png)
+![200 um scatter fit](./hit_depictions/scatter_fit_30deg_200um.png)
 
 Output for 500 keV, theta = 30 deg
 
@@ -45,4 +45,4 @@ Experimental [degrees]: theta=24.3513, phi=90.2832
 
 Theta = 60 deg, Phi = 30 deg, E = 8 MeV
 
-![per part](./per_particle_hist.png)
+![per part](./hit_depictions/per_particle_hist.png)

@@ -99,20 +99,19 @@ def main():
     max_angle = 5.
 
     numberOfParticles = 10000
-    counter = 0
-    with tqdm.tqdm(total=1, unit_scale=True) as pbar:
+
+    with tqdm.tqdm(total=100, unit_scale=True) as pbar:
         for angle in frange(min_angle, max_angle, angle_resolution):
-            pbar.set_postfix(angle=angle, refresh=False)
+            pbar.set_postfix(angle=angle, refresh=True)
             generateAutoRunFile(theta_in_deg=angle,
                                 phi_in_deg=0,
                                 n_particles=numberOfParticles,
                                 energy_in_keV=energy)
-            pbar.update(counter/((max_angle-min_angle)/angle_resolution))
             cleanDataDirectory()
             executeAutoRunFile()
             calculateAnglePerParticle()
             cleanDataDirectory()
-            counter += 1
+            pbar.update((max_angle-min_angle)/angle_resolution)
 
     plotResults(energy)
 
