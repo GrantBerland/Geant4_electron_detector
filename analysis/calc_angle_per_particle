@@ -7,7 +7,7 @@ import numpy as np
 from scipy.stats import norm, skewnorm
 
 import matplotlib.pyplot as plt
-from parseRunFiles import RunFileParser
+from fncs.parseRunFiles import RunFileParser
 
 # Extracts and returns actual inital particle source angles
 from fncs.fnc_findSourceAngle import findSourceAngle

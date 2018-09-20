@@ -1,0 +1,6 @@
+#!/usr/bin/python3.5
+
+import cProfile
+import run_over_angles
+
+cProfile.run('run_over_angles')

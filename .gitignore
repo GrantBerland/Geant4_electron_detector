@@ -8,6 +8,7 @@ __pycache/
 */*/__pycache__
 */*/*/__pycache__
 
+/analysis/data/*.txt
 /build
 /results/.idea
 .idea

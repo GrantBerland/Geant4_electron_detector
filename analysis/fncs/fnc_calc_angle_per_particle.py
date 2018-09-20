@@ -7,10 +7,10 @@ import numpy as np
 from scipy.stats import norm, skewnorm
 
 # Extracts and returns actual inital particle source angles
-from fnc_findSourceAngle import findSourceAngle
+from .fnc_findSourceAngle import findSourceAngle
 
 def calculateAnglePerParticle():
-    detector_hits = pd.read_csv('../analysis/data/hits.csv',
+    detector_hits = pd.read_csv('./data/hits.csv',
                                names=["det","x", "y", "z","energy", "code"],
                                dtype={"det": np.int8, "x":np.float64,
                                "y": np.float64, "z":np.float64,
@@ -49,7 +49,7 @@ def calculateAnglePerParticle():
 
                 X[count+1]
                 Z[count+1]
-            except:
+            except KeyError:
                 count = count + 1
                 if count == len(det):
                     break
@@ -80,14 +80,17 @@ def calculateAnglePerParticle():
     phi = np.arctan2(deltaX_rm, gap) * 180 / np.pi
 
     # Fit a standard normal distribution to data
-    x_theta = np.linspace(min(theta), max(theta))
-    mu_theta, std_theta = norm.fit(theta)
-    p_theta = norm.pdf(x_theta, mu_theta, std_theta)
+    try:
+        x_theta = np.linspace(min(theta), max(theta))
+        mu_theta, std_theta = norm.fit(theta)
+        p_theta = norm.pdf(x_theta, mu_theta, std_theta)
 
-    x_phi = np.linspace(min(phi), max(phi))
-    mu_phi, std_phi = norm.fit(phi)
-    p_phi = norm.pdf(x_phi, mu_phi, std_phi)
+        x_phi = np.linspace(min(phi), max(phi))
+        mu_phi, std_phi = norm.fit(phi)
+        p_phi = norm.pdf(x_phi, mu_phi, std_phi)
 
+    except:
+        pass
     # Fit skew normal distribution to data
     mean_t, var_t, skew_t = skewnorm.fit(theta)
     mean_p, var_p, skew_p = skewnorm.fit(phi)
@@ -95,14 +98,11 @@ def calculateAnglePerParticle():
 
     theta_actual, phi_actual, numberOfParticles = findSourceAngle()
 
-    with open('./results_file.txt', 'a') as f:
-        f.write("-------------------------------------------------------------\n")
-        f.write("Angle Estimation: \n")
-        # divide 6 comes from 6 parameters recorded per particle
-        f.write("Percentage of double hits = " + str(round(len(detectorDoubleHits)/len(det)*100, 3)) + '%\n')
-        f.write("Number of particles: " + str(numberOfParticles) + '\n')
-        f.write("Actual [degrees]: theta=" + str(theta_actual) + ", phi=" +  str(phi_actual) + '\n')
-        f.write("Experimental (mean) [degrees]: theta=" + str(round(np.mean(theta), 4)) + ", phi=" +  str(round(np.mean(phi), 4)) + '\n')
-        f.write("Experimental (median) [degrees]: theta=" + str(round(np.median(theta), 4)) + ", phi=" +  str(round(np.median(phi), 4)) + '\n')
-        f.write("Experimental (fit) [degrees]: theta=" + str(mu_theta) + ", phi=" +  str(mu_phi) + '\n')
-        f.write("-------------------------------------------------------------\n")
+    with open('./data/results.txt', 'a') as f:
+        f.write(str(numberOfParticles) +
+        ',' + str(theta_actual) + ',' + str(phi_actual) +
+        ',' + str(round(np.mean(theta), 4)) + ',' + str(round(np.std(theta), 4)) +
+        ',' + str(round(np.mean(phi), 4)) + ',' + str(round(np.std(phi), 4)) +
+        ',' + str(round(np.median(theta), 4)) + ',' + str(round(np.median(phi), 4)) +
+        ',' + str(round(mu_theta, 4)) + ',' + str(round(std_theta, 4)) +
+        ',' + str(round(mu_phi, 4)) + ',' + str(round(std_phi, 4)) + '\n')
