@@ -68,6 +68,7 @@ void RunAction::BeginOfRunAction(const G4Run*)
   std::ofstream hitFile;
   hitFile.open("../analysis/data/hits.csv", std::ios_base::app);
 
+  /*
   if (!fFileName.empty()){
 
     hitFile << fFileName << "\n";
@@ -80,7 +81,7 @@ void RunAction::BeginOfRunAction(const G4Run*)
   }
 
   hitFile.close();
-
+ */
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

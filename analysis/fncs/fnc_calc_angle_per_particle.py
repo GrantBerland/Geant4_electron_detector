@@ -14,53 +14,51 @@ def calculateAnglePerParticle():
     detector_hits = pd.read_csv('./data/hits.csv',
                                names=["det","x", "y", "z","energy", "code"],
                                dtype={"det": np.int8, "x":np.float64,
-                               "y": np.float64, "z":np.float64,
-                               "code": np.unicode_},
+                               "y": np.float64, "z":np.float64},
                                delimiter=',',
                                error_bad_lines=False,
                                skiprows=1,
                                engine='c')
 
 
-    detectorDoubleHits = detector_hits.index[detector_hits["code"] == "DH"].tolist()
+    n_entries = len(detector_hits['det'])
 
-    whichDetectorIndex = detector_hits.index[detector_hits["code"] == "GH"].tolist()
+    if len(detector_hits['det']) == 0:
+        raise ValueError('No particles hits on either detector!')
+    elif 2 not in detector_hits['det']:
+        raise ValueError('No particles hit detector 2!')
 
-    [det, X, Z]  = [detector_hits['det'][whichDetectorIndex],
-                   detector_hits['x'][whichDetectorIndex],
-                   detector_hits['z'][whichDetectorIndex]]
-
-
-    deltaX = np.zeros(len(det), dtype=np.float64)
-    deltaZ = np.zeros(len(det), dtype=np.float64)
+    deltaX = np.zeros(n_entries, dtype=np.float64)
+    deltaZ = np.zeros(n_entries, dtype=np.float64)
 
     gap = 0.51 # cm
 
     array_counter = 0
-    for count, el in enumerate(det):
+    for count, el in enumerate(detector_hits['det']):
         # pandas series can throw a KeyError if character starts line
         # TODO: replace this with parse command that doesn't import keyerror throwing lines
         while True:
             try:
-                pos1 = det[count]
-                pos2 = det[count+1]
+                pos1 = detector_hits['det'][count]
+                pos2 = detector_hits['det'][count+1]
 
-                X[count]
-                Z[count]
+                detector_hits['x'][count]
+                detector_hits['z'][count]
 
-                X[count+1]
-                Z[count+1]
+                detector_hits['x'][count+1]
+                detector_hits['z'][count+1]
+
             except KeyError:
                 count = count + 1
-                if count == len(det):
+                if count == n_entries:
                     break
                 continue
             break
 
         # Checks if first hit detector == 1 and second hit detector == 2
         if np.equal(pos1, 1) & np.equal(pos2, 2):
-            deltaX[array_counter] = X[count+1] - X[count]
-            deltaZ[array_counter] = Z[count+1] - Z[count]
+            deltaX[array_counter] = detector_hits['x'][count+1] - detector_hits['x'][count]
+            deltaZ[array_counter] = detector_hits['z'][count+1] - detector_hits['z'][count]
 
             # Successful pair, continues to next possible pair
             count = count + 2
@@ -69,7 +67,7 @@ def calculateAnglePerParticle():
             # Unsuccessful pair, continues
             count = count + 1
 
-    # Remove trailing zeros
+    # Copy of array with trailing zeros removed
     deltaX_rm = deltaX[:array_counter]
     deltaZ_rm = deltaZ[:array_counter]
 
@@ -92,8 +90,9 @@ def calculateAnglePerParticle():
 
     except:
         pass
-        
+
     # Fit skew normal distribution to data
+    #TODO: write a check for sig_p RuntimeError when np.sqrt(-#)
     alpha_t, loc_t, scale_t = skewnorm.fit(theta)
     alpha_p, loc_p, scale_p = skewnorm.fit(phi)
 
