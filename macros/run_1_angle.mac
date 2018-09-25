@@ -23,4 +23,4 @@
 /gps/energy 3000 keV
 
 
-/run/beamOn 1000
+/run/beamOn 10000

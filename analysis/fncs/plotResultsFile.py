@@ -4,6 +4,8 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
+import time
+
 def plotResults(energy):
     d = pd.read_csv('./data/results.txt')
 
@@ -11,16 +13,17 @@ def plotResults(energy):
     fig = plt.figure()
 
     # Mean
-    plt.plot(d.index, d['Theta_mean'], color='b', label='Theta Mean')
+    plt.plot(d.index, d['Theta_mean'], color='b')
     plt.fill_between(d.index, d['Theta_mean']-1.96*d['Theta_std'], d['Theta_mean']+1.96*d['Theta_std'],
                      color='blue', alpha=0.2, label='95% confidence')
 
-
     # Median
-    plt.plot(d.index, d['Theta_median'], color='g', label='Theta median')
+    plt.plot(d.index, d['Theta_median'], color='g')
 
-    # Normal fit
-    #plt.errorbar(x=d.index, y=d['Theta_normfit'], yerr=(d['T_s_nf']/np.sqrt(d['Number_Particles'])))
+    # Skew normal fit
+    plt.plot(d.index, d['Theta_snormfit'], color='purple', label='Theta Skewnorm Fit')
+    plt.fill_between(d.index, d['Theta_snormfit']-1.96*d['T_s_snf'], d['Theta_snormfit']+1.96*d['T_s_snf'],
+                     color='orange', alpha=0.5, label='95% skewnorm fit confidence')
 
     # Actual
     plt.plot(d['Theta_actual'], linestyle='-.', color='r')
@@ -31,6 +34,8 @@ def plotResults(energy):
     plt.ylabel('Angle (degrees)')
     plt.title('Incident Angle Estimation Methods')
     plt.grid()
-    plt.legend()
+    plt.legend(bbox_to_anchor=(0., 1.02, 1., .102), loc=3,
+               ncol=2, mode='expand', borderaxespad=0.)
 
-    fig.savefig('../results/angle_est_%i_kev.png' % int(energy), dpi=fig.dpi)
+    fileName = '../results/angle_est_%i_kev_' % int(energy) + str(time.strftime("%m%d_%H%M%S")) + '.png'
+    fig.savefig(fileName, dpi=fig.dpi)

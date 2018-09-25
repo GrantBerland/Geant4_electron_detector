@@ -10,6 +10,7 @@ from scipy.stats import norm, skewnorm
 from .fnc_findSourceAngle import findSourceAngle
 
 def calculateAnglePerParticle():
+    # Read in raw hit data
     detector_hits = pd.read_csv('./data/hits.csv',
                                names=["det","x", "y", "z","energy", "code"],
                                dtype={"det": np.int8, "x":np.float64,
@@ -33,7 +34,7 @@ def calculateAnglePerParticle():
     deltaX = np.zeros(len(det), dtype=np.float64)
     deltaZ = np.zeros(len(det), dtype=np.float64)
 
-    gap = 0.52 # cm
+    gap = 0.51 # cm
 
     array_counter = 0
     for count, el in enumerate(det):
@@ -76,8 +77,8 @@ def calculateAnglePerParticle():
     del deltaZ
 
     # Find angles in degrees
-    theta = np.arctan2(deltaZ_rm, gap) * 180 / np.pi
-    phi = np.arctan2(deltaX_rm, gap) * 180 / np.pi
+    theta = np.rad2deg(np.arctan2(deltaZ_rm, gap))
+    phi = np.rad2deg(np.arctan2(deltaX_rm, gap))
 
     # Fit a standard normal distribution to data
     try:
@@ -91,9 +92,19 @@ def calculateAnglePerParticle():
 
     except:
         pass
+        
     # Fit skew normal distribution to data
-    mean_t, var_t, skew_t = skewnorm.fit(theta)
-    mean_p, var_p, skew_p = skewnorm.fit(phi)
+    alpha_t, loc_t, scale_t = skewnorm.fit(theta)
+    alpha_p, loc_p, scale_p = skewnorm.fit(phi)
+
+    delta_t = alpha_t/np.sqrt(1+alpha_t**2)
+    delta_p = alpha_t/np.sqrt(1+alpha_p**2)
+
+    mean_t = loc_t + scale_t*delta_t*np.sqrt(2/np.pi)
+    mean_p = loc_p + scale_p*delta_p*np.sqrt(2/np.pi)
+
+    sig_t = np.sqrt(scale_t**2 * (1 - 2*(delta_t**2)/np.pi))
+    sig_p = np.sqrt(scale_p**2 * (1 - 2*(delta_p**2)/np.pi))
 
 
     theta_actual, phi_actual, numberOfParticles = findSourceAngle()
@@ -105,4 +116,6 @@ def calculateAnglePerParticle():
         ',' + str(round(np.mean(phi), 4)) + ',' + str(round(np.std(phi), 4)) +
         ',' + str(round(np.median(theta), 4)) + ',' + str(round(np.median(phi), 4)) +
         ',' + str(round(mu_theta, 4)) + ',' + str(round(std_theta, 4)) +
-        ',' + str(round(mu_phi, 4)) + ',' + str(round(std_phi, 4)) + '\n')
+        ',' + str(round(mu_phi, 4)) + ',' + str(round(std_phi, 4)) +
+        ',' + str(round(mean_t,4)) + ',' + str(round(sig_t,4)) +
+        ',' + str(round(mean_p,4)) + ',' + str(round(sig_p,4)) + '\n')

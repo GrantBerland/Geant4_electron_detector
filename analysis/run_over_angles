@@ -72,7 +72,8 @@ def cleanDataDirectory():
 def writeHeaderLine():
     with open('./data/results.txt', 'w') as f:
         f.write('Number_Particles,Theta_actual,Phi_actual,Theta_mean,Theta_std,Phi_mean,Phi_std,'+
-                'Theta_median,Phi_median,Theta_normfit,T_s_nf,Phi_normfit,P_s_nf\n')
+                'Theta_median,Phi_median,Theta_normfit,T_s_nf,Phi_normfit,P_s_nf,Theta_snormfit,T_s_snf,'+
+                'Phi_snormfit,P_s_snf\n')
 
 
 writeHeaderLine()
@@ -95,10 +96,10 @@ def main():
         energy = input()
 
     angle_resolution = 1
-    min_angle = -5.
-    max_angle = 5.
+    min_angle = -20.
+    max_angle = 20.
 
-    numberOfParticles = 10000
+    numberOfParticles = 1000
 
     with tqdm.tqdm(total=100, unit_scale=True) as pbar:
         for angle in frange(min_angle, max_angle, angle_resolution):
