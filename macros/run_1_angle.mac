@@ -9,6 +9,8 @@
 # Initialize kernel
 /run/initialize
 
+/run/setCut 0.05 mm
+
 /control/verbose 0
 /run/verbose 0
 /event/verbose 0

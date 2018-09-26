@@ -13,23 +13,18 @@ from fncs.parseRunFiles import RunFileParser
 from fncs.fnc_findSourceAngle import findSourceAngle
 
 detector_hits = pd.read_csv('./data/hits.csv',
-                           names=["det","x", "y", "z","energy", "code"],
+                           names=["det","x", "y", "z","energy"],
                            dtype={"det": np.int8, "x":np.float64,
-                           "y": np.float64, "z":np.float64,
-                           "code": np.unicode_},
+                           "y": np.float64, "z":np.float64},
                            delimiter=',',
                            error_bad_lines=False,
                            skiprows=1,
                            engine='c')
 
 
-detectorDoubleHits = detector_hits.index[detector_hits["code"] == "DH"].tolist()
-
-whichDetectorIndex = detector_hits.index[detector_hits["code"] == "GH"].tolist()
-
-[det, X, Z]  = [detector_hits['det'][whichDetectorIndex],
-               detector_hits['x'][whichDetectorIndex],
-               detector_hits['z'][whichDetectorIndex]]
+[det, X, Z]  = [detector_hits['det'],
+                detector_hits['x'],
+                detector_hits['z']]
 
 
 deltaX = np.zeros(len(det), dtype=np.float64)
@@ -37,7 +32,6 @@ deltaZ = np.zeros(len(det), dtype=np.float64)
 
 gap = 0.52 # cm
 
-detector_hits.info()
 
 array_counter = 0
 for count, el in enumerate(det):
@@ -131,7 +125,6 @@ print("-------------------------------------------------------------")
 print("Angle Estimation: \n")
 # divide 6 comes from 6 parameters recorded per particle
 print("Energy = " + str(rfp.getEnergy()))
-print("Percentage of double hits = " + str(round(len(detectorDoubleHits)/len(det)*100, 3)) + '%')
 print("Number of particles: " + str(numberOfParticles))
 print("Actual [degrees]: theta=" + str(theta_actual) + ", phi=" +  str(phi_actual))
 print("Experimental (mean) [degrees]: theta=" + str(round(np.mean(theta), 4)) + ", phi=" +  str(round(np.mean(phi), 4)))
