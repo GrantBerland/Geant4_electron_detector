@@ -3,8 +3,6 @@
 import subprocess
 import os
 import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
 
 import tqdm
 
@@ -47,8 +45,6 @@ def generateAutoRunFile(theta_in_deg, phi_in_deg, n_particles, energy_in_keV):
 
         f.write('/run/beamOn ' + str(n_particles) + ' \n')
 
-
-
 def executeAutoRunFile():
     bashCommand = "../build/main ../macros/auto_run_file.mac"
     process = subprocess.Popen(bashCommand.split(), stdout = subprocess.PIPE)
@@ -60,12 +56,10 @@ def executeAutoRunFile():
     if output is None:
         exception("Error in simulation: no output")
 
-
 def cleanDataDirectory():
     if len(os.listdir('./data')) > 1:
-        bashCleanCommand = 'rm ./data/hits.csv ./data/init_pos.csv'
+        bashCleanCommand = 'rm ./data/det1_hits.csv ./data/det2_hits.csv ./data/init_pos.csv'
         process = subprocess.Popen(bashCleanCommand.split(), stdout=subprocess.PIPE)
-
     else:
         return
 
@@ -75,15 +69,11 @@ def writeHeaderLine():
                 'Theta_median,Phi_median,Theta_normfit,T_s_nf,Phi_normfit,P_s_nf,Theta_snormfit,T_s_snf,'+
                 'Phi_snormfit,P_s_snf\n')
 
-
-
-# Modified range to iterate over floats (i.e. 10.5 degrees, etc.)
-def frange(start, stop, step):
+def frange(start, stop, step):  # Modified range to iterate over floats (i.e. 10.5 degrees, etc.)
      i = start
      while i < stop:
          yield i
          i += step
-
 
 def main():
 
