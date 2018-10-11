@@ -13,8 +13,8 @@ def plotResults(energy):
     fig = plt.figure()
 
     # Mean
-    plt.plot(d.index, d['Theta_mean'], color='b', label='Theta Estimate')
-    plt.fill_between(d.index, d['Theta_mean']-d['Theta_std'], d['Theta_mean']+d['Theta_std'],
+    plt.plot(d.index, d['Theta_est'], color='b', label='Theta Estimate')
+    plt.fill_between(d.index, d['Theta_est']-d['Theta_std'], d['Theta_est']+d['Theta_std'],
                      color='blue', alpha=0.2, label=None)
 
     # Median
@@ -22,9 +22,9 @@ def plotResults(energy):
 
     # Skew normal fit
     #plt.plot(d.index, d['Theta_snormfit'], color='purple', label=None)
-    plt.fill_between(d.index, d['Theta_snormfit']-d['T_s_snf'], d['Theta_snormfit']+d['T_s_snf'],
+    plt.fill_between(d.index, d['Theta_est']-d['Theta_std'], d['Theta_est']+d['Theta_std'],
                      color='orange', alpha=0.5, label=r'1 $\sigma$ confidence')
-    plt.fill_between(d.index, d['Theta_snormfit']-2*d['T_s_snf'], d['Theta_snormfit']+2*d['T_s_snf'],
+    plt.fill_between(d.index, d['Theta_est']-2*d['Theta_std'], d['Theta_est']+2*d['Theta_std'],
                      color='orange', alpha=0.25, label=r'2 $\sigma$ confidence')
     # Actual
     plt.plot(d['Theta_actual'], linestyle='-.', color='r', label='Theta Actual')

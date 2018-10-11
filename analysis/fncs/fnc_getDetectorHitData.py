@@ -16,7 +16,9 @@ def getDetectorHitData(detector):
                                  dtype={"x":np.float64,
                                         "y": np.float64, "z":np.float64},
                                  error_bad_lines=False,
-                                 skiprows=1,
                                  engine='c')
+
+    if len(detector_hits['x']) == 0:
+        exception('Error: No hits registered on detector %i!' % detector)
 
     return [detector_hits["x"], detector_hits["z"]]
