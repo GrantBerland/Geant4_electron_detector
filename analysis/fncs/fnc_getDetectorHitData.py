@@ -7,12 +7,10 @@ import numpy as np
 
 def getDetectorHitData(detector):
     detector_hits = pd.read_csv('./data/hits.csv',
-                                 names=["det","x", "y", "z","energy", "code"],
+                                 names=["det","x", "y", "z","energy"],
                                  dtype={"det": np.int32, "x":np.float64,
-                                        "y": np.float64, "z":np.float64,
-                                         "code": np.unicode_},
+                                        "y": np.float64, "z":np.float64, "energy":np.float64},
                                  error_bad_lines=False,
-                                 skiprows=1,
                                  engine='c')
 
 

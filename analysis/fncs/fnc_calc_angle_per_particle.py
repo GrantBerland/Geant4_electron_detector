@@ -12,12 +12,11 @@ from .fnc_findSourceAngle import findSourceAngle
 def calculateAnglePerParticle():
     # Read in raw hit data
     detector_hits = pd.read_csv('./data/hits.csv',
-                               names=["det","x", "y", "z","energy", "code"],
+                               names=["det","x", "y", "z","energy"],
                                dtype={"det": np.int8, "x":np.float64,
-                               "y": np.float64, "z":np.float64},
+                               "y": np.float64, "z":np.float64, "energy":np.float64},
                                delimiter=',',
                                error_bad_lines=False,
-                               skiprows=1,
                                engine='c')
 
 

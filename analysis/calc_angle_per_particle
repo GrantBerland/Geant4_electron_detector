@@ -18,7 +18,6 @@ detector_hits = pd.read_csv('./data/hits.csv',
                            "y": np.float64, "z":np.float64},
                            delimiter=',',
                            error_bad_lines=False,
-                           skiprows=1,
                            engine='c')
 
 
