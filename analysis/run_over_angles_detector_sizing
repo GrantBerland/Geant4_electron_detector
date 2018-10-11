@@ -69,11 +69,6 @@ def writeHeaderLine():
                 'Theta_median,Phi_median,Theta_normfit,T_s_nf,Phi_normfit,P_s_nf,Theta_snormfit,T_s_snf,'+
                 'Phi_snormfit,P_s_snf\n')
 
-def writeResultsFile():
-
-    with open(.)
-
-
 def frange(start, stop, step): # Modified range to iterate over floats (i.e. 10.5 degrees, etc.)
      i = start
      while i < stop:
