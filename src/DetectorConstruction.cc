@@ -41,6 +41,8 @@
 #include "G4PVPlacement.hh"
 #include "G4SystemOfUnits.hh"
 
+#include <fstream>
+
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 DetectorConstruction::DetectorConstruction()
@@ -122,18 +124,31 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
                     checkOverlaps);          //overlaps checking
 
 
-  // Dimensions for detectors (both use the same dimensions)
+
+  std::fstream configFile;
+  configFile.open("../src/detector_config.txt", std::ios_base::in);
+
+  // Initialize variables to store detector dimensions
+  G4double det1_t_um, det2_t_um, dist_bw_det_mm, window_t_um, window_gap_mm;
+
+  // Load detector dimensions into variables
+  configFile >> det1_t_um >> det2_t_um >>
+              dist_bw_det_mm >> window_t_um >> window_gap_mm;
+
+  configFile.close();
+
+  // Dimensions for detectors (detector 1 and 2 use the same planar dimensions)
   G4double detector_dimX = 5.*cm;
   G4double detector_dimZ = 5.*cm;
-  G4double detector1_thickness = 20.*um;
-  G4double detector2_thickness = 100.*um;
+  G4double detector1_thickness = det1_t_um*um;
+  G4double detector2_thickness = det2_t_um*um;
 
-  G4double distance_between_detectors = 5.*mm;
+  G4double distance_between_detectors = dist_bw_det_mm*mm;
 
   // Window dimensions
-  G4double window_thickness = 20*um;
+  G4double window_thickness = window_t_um*um;
   G4double window_height    = 5.*cm;  // square window with this side dimension
-  G4double window_gap       = 1.*mm;
+  G4double window_gap       = window_gap_mm*mm;
 
   // ----------------------------------------------------------------
   // Materials for the detectors
