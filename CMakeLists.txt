@@ -43,12 +43,13 @@ target_link_libraries(main ${Geant4_LIBRARIES})
 # build B1. This is so that we can run the executable directly because it
 # relies on these scripts being in the current working directory.
 #
+# Grant N.B.: macros are generally run as follows: ./main ../macros/run___.mac
+# so not all macro run files need to be copied
 set(EXAMPLEB1_SCRIPTS
   init_vis.mac
   macros/run_y_axis.mac
   macros/run_adjoint_simulation_electron.mac
   vis.mac
-  plotHisto.C
   )
 
 foreach(_script ${EXAMPLEB1_SCRIPTS})
