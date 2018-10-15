@@ -13,11 +13,4 @@ def getDetectorHitData(detector):
                                  error_bad_lines=False,
                                  engine='c')
 
-
-
-    # Hit data from detector
-    whichDetectorIndex = detector_hits.index[(detector_hits["det"] == detector)
-                                             & (detector_hits["code"] == "GH")].tolist()
-
-
-    return [detector_hits["x"][whichDetectorIndex], detector_hits["z"][whichDetectorIndex]]
+    return detector_hits["x"], detector_hits["z"]
