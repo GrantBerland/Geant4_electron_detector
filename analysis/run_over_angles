@@ -12,6 +12,7 @@ import sys
 
 from fncs.fnc_calc_angle_per_particle import calculateAnglePerParticle
 from fncs.plotResultsFile import plotResults
+from fncs.fnc_writeData_convert2pdf import writeData_convert2pdf
 
 def generateAutoRunFile(theta_in_deg, phi_in_deg, n_particles, energy_in_keV):
 
@@ -99,10 +100,10 @@ def main():
     #####################################
 
     angle_resolution = 1
-    min_angle = -20.
-    max_angle = 20.
+    min_angle = -5.
+    max_angle = 5.
 
-    numberOfParticles = 10000
+    numberOfParticles = 1000
 
     #####################################
     ####### ^^^^^^^^^^^^^^^^^^^^^ #######
@@ -135,8 +136,9 @@ def main():
             pbar.update((max_angle-min_angle)/angle_resolution)
 
     # Plots results.txt and saves file to electron_detector/results directory
-    plotResults(energy)
-
+    fileName = plotResults(energy)
+    
+    writeData_convert2pdf(fileName)
 
 if __name__=='__main__':
     main()

@@ -36,5 +36,10 @@ def plotResults(energy):
     plt.grid()
     plt.legend()
 
-    fileName = '../results/angle_est_%i_kev_' % int(energy) + str(time.strftime("%m%d_%H%M%S")) + '.png'
-    fig.savefig(fileName, dpi=fig.dpi)
+    path = '/home/grant/Documents/Research/Marshall_Research/electron_detector/results/'
+    fileName = 'angle_est_%i_kev_' % int(energy) + str(time.strftime("%m%d_%H%M%S"))
+    f = path + fileName + '.pdf'
+
+    fig.savefig(f, dpi=fig.dpi)
+
+    return fileName

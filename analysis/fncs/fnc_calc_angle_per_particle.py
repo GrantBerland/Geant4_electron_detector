@@ -9,7 +9,7 @@ from scipy.stats import norm, skewnorm
 # Extracts and returns actual inital particle source angles
 from .fnc_findSourceAngle import findSourceAngle
 
-def calculateAnglePerParticle():
+def calculateAnglePerParticle(gap_in_cm):
     # Read in raw hit data
     detector_hits = pd.read_csv('./data/hits.csv',
                                names=["det","x", "y", "z","energy"],
@@ -29,8 +29,6 @@ def calculateAnglePerParticle():
 
     deltaX = np.zeros(n_entries, dtype=np.float64)
     deltaZ = np.zeros(n_entries, dtype=np.float64)
-
-    gap = 0.51 # cm
 
     array_counter = 0
     for count, el in enumerate(detector_hits['det']):
@@ -74,8 +72,8 @@ def calculateAnglePerParticle():
     del deltaZ
 
     # Find angles in degrees
-    theta = np.rad2deg(np.arctan2(deltaZ_rm, gap))
-    phi = np.rad2deg(np.arctan2(deltaX_rm, gap))
+    theta = np.rad2deg(np.arctan2(deltaZ_rm, gap_in_cm))
+    phi = np.rad2deg(np.arctan2(deltaX_rm, gap_in_cm))
 
     # Fit a standard normal distribution to data
     try:
@@ -101,9 +99,17 @@ def calculateAnglePerParticle():
     mean_t = loc_t + scale_t*delta_t*np.sqrt(2/np.pi)
     mean_p = loc_p + scale_p*delta_p*np.sqrt(2/np.pi)
 
-    sig_t = np.sqrt(scale_t**2 * (1 - 2*(delta_t**2)/np.pi))
-    sig_p = np.sqrt(scale_p**2 * (1 - 2*(delta_p**2)/np.pi))
+    p_test = scale_p**2 * (1 - 2*(delta_p**2)/np.pi)
+    if np.equal(0, np.round(p_test, 2)):
+        sig_p = None
+    else:
+        sig_p = np.sqrt(p_test)
 
+    t_test = scale_t**2 * (1 - 2*(delta_t**2)/np.pi)
+    if np.equal(0, np.round(t_test, 2)):
+        sig_t = None
+    else:
+        sig_t = np.sqrt(t_test)
 
     theta_actual, phi_actual, numberOfParticles = findSourceAngle()
 
