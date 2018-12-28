@@ -111,8 +111,8 @@ def main():
 
         detector_attributes = []
 
-        det1_thickness_um = det1_thickness_um_array[config]
-        #det1_thickness_um = 20.0
+        #det1_thickness_um = det1_thickness_um_array[config]
+        det1_thickness_um = 20.0
 
         det2_thickness_um = 100.0
 
