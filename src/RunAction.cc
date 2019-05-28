@@ -65,8 +65,8 @@ RunAction::~RunAction()
 void RunAction::BeginOfRunAction(const G4Run*)
 {
 
-  std::ofstream hitFile;
-  hitFile.open("../analysis/data/hits.csv", std::ios_base::app);
+  //std::ofstream hitFile;
+  //hitFile.open("../analysis/data/hits.csv", std::ios_base::app);
 
   /*
   if (!fFileName.empty()){
