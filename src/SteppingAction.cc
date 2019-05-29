@@ -40,7 +40,7 @@
 #include "G4SystemOfUnits.hh"
 #include "G4AutoLock.hh"
 
-#include <ofstream>
+#include <fstream>
 
 namespace { G4Mutex myParticleLog = G4MUTEX_INITIALIZER; }
 
@@ -106,7 +106,7 @@ void SteppingAction::LogParticle(G4ThreeVector pos, G4double ene, G4String detec
     
     G4AutoLock lock(&myParticleLog);
     
-    ofstream hitFile_detector;
+    std::ofstream hitFile_detector;
     hitFile_detector.open(detectorFileName, std::ios_base::app);
     
     hitFile_detector  << pos.x()/cm << "," << pos.y()/cm << "," 
