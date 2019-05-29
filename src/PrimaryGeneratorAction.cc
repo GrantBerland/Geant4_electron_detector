@@ -83,29 +83,22 @@ void PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
 
   configFile >> energy >> particleAngle_theta >> particleAngle_phi >> nParticles;
 
-
   energy *= keV; 		   // input in keV
   particleAngle_theta *= PI/180.;  // conversion to radians
   particleAngle_phi *= PI/180.;    // conversion to radians
 
   configFile.close();
 
-  yPos = -5 * cm;
-  zPos = abs(yPos) * tan(particleAngle_theta);
-  xPos = abs(yPos) * tan(particleAngle_phi);
- 
-  
+  // Static (x,y,z) position that allows for up to +/- 45 deg incident angle
+  xPos = 0; yPos = -4 * cm; zPos = 0;  
+  // Momentum direction of particle (not normalized!)
   yDir = 1;
   zDir = yDir * tan(particleAngle_theta);
   xDir = yDir * tan(particleAngle_phi);
 
+  // Generate nParticles events with the above parameters
   for(G4int i = 0; i<nParticles; i++){
 
-    
-
-
-
-  
     fParticleGun->SetParticlePosition(G4ThreeVector(xPos, yPos, zPos));
     fParticleGun->SetParticleMomentumDirection(G4ThreeVector(xDir, yDir, zDir));
     fParticleGun->SetParticleEnergy(energy);

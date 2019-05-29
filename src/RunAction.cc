@@ -44,11 +44,6 @@
 // #include "HistoManager.hh"
 
 
-#include <fstream>
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-
-
-
 RunAction::RunAction()
 : G4UserRunAction(),
   fEdep(0.),
@@ -65,23 +60,6 @@ RunAction::~RunAction()
 void RunAction::BeginOfRunAction(const G4Run*)
 {
 
-  //std::ofstream hitFile;
-  //hitFile.open("../analysis/data/hits.csv", std::ios_base::app);
-
-  /*
-  if (!fFileName.empty()){
-
-    hitFile << fFileName << "\n";
-
-  }
-  else{
-
-    hitFile << "NFN\n"; // No File Name code
-
-  }
-
-  hitFile.close();
- */
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
