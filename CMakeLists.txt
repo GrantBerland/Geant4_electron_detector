@@ -45,10 +45,7 @@ target_link_libraries(main ${Geant4_LIBRARIES})
 #
 set(EXAMPLEB1_SCRIPTS
   init_vis.mac
-  macros/run_y_axis.mac
-  macros/run_adjoint_simulation_electron.mac
   vis.mac
-  plotHisto.C
   )
 
 foreach(_script ${EXAMPLEB1_SCRIPTS})

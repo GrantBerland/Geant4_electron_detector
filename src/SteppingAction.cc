@@ -38,10 +38,11 @@
 #include "G4RunManager.hh"
 #include "G4LogicalVolume.hh"
 #include "G4SystemOfUnits.hh"
+#include "G4AutoLock.hh"
 
-#include <fstream>
+#include <ofstream>
 
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+namespace { G4Mutex myParticleLog = G4MUTEX_INITIALIZER; }
 
 SteppingAction::SteppingAction(EventAction* eventAction)
 : G4UserSteppingAction(),
@@ -58,16 +59,14 @@ SteppingAction::~SteppingAction()
 void SteppingAction::UserSteppingAction(const G4Step* step)
 {
 
-
-  G4bool isEnteringDetector1;
-  G4bool isEnteringDetector2;
-
+  G4bool isEnteringDetector1, isEnteringDetector2;
+  G4String volName, nextVolName;
+  
   G4Track* track = step->GetTrack();
   const G4StepPoint* postPoint = step->GetPostStepPoint();
 
-  G4String volName;
+ 
   if (track->GetVolume()) {volName = track->GetVolume()->GetName();}
-  G4String nextVolName;
   if (track->GetNextVolume()) {nextVolName = track->GetNextVolume()->GetName();}
 
 
@@ -77,16 +76,14 @@ void SteppingAction::UserSteppingAction(const G4Step* step)
   // Detector 1 particles
   if (isEnteringDetector1){
 
-    fEventAction->incrementDetector1Flag();
-
+    // Gather data about hit event (position, energy)
     G4ThreeVector pos = postPoint->GetPosition();
     G4double ene = postPoint->GetKineticEnergy();
+    G4String fileName_detector1 = "../data1/hits.csv";     
+    
+    // Write event data to file
+    LogParticle(pos, ene, fileName_detector1);
 
-    std::ofstream hitFile_detector1;
-    hitFile_detector1.open("../analysis/data/det1_hits.csv", std::ios_base::app);
-    hitFile_detector1 << "\n" << pos.x()/cm << "," << pos.y()/cm << "," << pos.z()/cm << ","
-    << ene;
-    hitFile_detector1.close();
   }
 
 
@@ -97,14 +94,25 @@ void SteppingAction::UserSteppingAction(const G4Step* step)
 
     G4ThreeVector pos = postPoint->GetPosition();
     G4double ene = postPoint->GetKineticEnergy();
+    G4String fileName_detector2 = "../data2/hits.csv"; 
+    LogParticle(pos, ene, fileName_detector2);
 
-    std::ofstream hitFile_detector2;
-    hitFile_detector2.open("../analysis/data/det2_hits.csv", std::ios_base::app);
-    hitFile_detector2  << "\n" <<pos.x()/cm << "," << pos.y()/cm << ","
-    << pos.z()/cm << "," << ene;
-    hitFile_detector2.close();
   }
 
+}
+
+void SteppingAction::LogParticle(G4ThreeVector pos, G4double ene, G4String detectorFileName)
+{
+    
+    G4AutoLock lock(&myParticleLog);
+    
+    ofstream hitFile_detector;
+    hitFile_detector.open(detectorFileName, std::ios_base::app);
+    
+    hitFile_detector  << pos.x()/cm << "," << pos.y()/cm << "," 
+	    	      << pos.z()/cm << "," << ene/keV << "\n";
+    
+    hitFile_detector.close();
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
